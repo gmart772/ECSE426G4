@@ -1,9 +1,9 @@
 Pin Mappings
 
-STM32F4 board	Wireless chipset
-PA4				P17
-PA5				P16
-PA6				P15
-PA7				P18
+STM32F4 board			Wireless chipset		Pin Name
+PA4				P17				NSS
+PA5				P16				SCK
+PA6				P15				MISO
+PA7				P18				MOSI
 VDD				P2
 GND				P1
