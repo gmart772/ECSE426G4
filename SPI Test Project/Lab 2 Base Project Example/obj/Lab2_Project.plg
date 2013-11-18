@@ -4,33 +4,15 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 C:\Users\gmarti37\ECSE426G4\SPI Test Project\Lab 2 Base Project Example\Lab2_Project.uvproj
-Project File Date:  10/05/2013
+Project File Date:  11/18/2013
 
 <h2>Output:</h2>
 Build target 'Target 1'
 assembling startup_stm32f40xx.s...
 compiling fputc_debug.c...
 compiling main.c...
-src\main.c(31): warning:  #223-D: function "SPIx_CLK_INIT" declared implicitly
-src\main.c(31): error:  #20: identifier "SPIx_CLK" is undefined
-src\main.c(34): error:  #20: identifier "SPIx_SCK_GPIO_CLK" is undefined
-src\main.c(34): error:  #20: identifier "SPIx_MISO_GPIO_CLK" is undefined
-src\main.c(34): error:  #20: identifier "SPIx_MOSI_GPIO_CLK" is undefined
-src\main.c(38): error:  #20: identifier "SPIx_SCK_GPIO_PORT" is undefined
-src\main.c(39): error:  #20: identifier "SPIx_MISO_GPIO_PORT" is undefined
-src\main.c(40): error:  #20: identifier "SPIx_MOSI_GPIO_PORT" is undefined
-src\main.c(43): error:  #20: identifier "SPIx_SCK_SOURCE" is undefined
-src\main.c(43): error:  #20: identifier "SPIx_SCK_AF" is undefined
-src\main.c(44): error:  #20: identifier "SPIx_MISO_SOURCE" is undefined
-src\main.c(44): error:  #20: identifier "SPIx_MISO_AF" is undefined
-src\main.c(45): error:  #20: identifier "SPIx_MOSI_SOURCE" is undefined
-src\main.c(45): error:  #20: identifier "SPIx_MOSI_AF" is undefined
-src\main.c(53): error:  #20: identifier "SPIx_SCK_PIN" is undefined
-src\main.c(57): error:  #20: identifier "SPIx_MISO_PIN" is undefined
-src\main.c(61): error:  #20: identifier "SPIx_MOSI_PIN" is undefined
-src\main.c(65): error:  #20: identifier "SPIx" is undefined
-src\main.c(66): error:  #20: identifier "SPI_InitStructure" is undefined
-src\main.c(79): error:  #20: identifier "SPIx_IRQn" is undefined
+src\main.c(69): warning:  #177-D: variable "data" was declared but never referenced
+src\main.c(184): warning:  #177-D: variable "x" was declared but never referenced
 compiling system_stm32f4xx.c...
 compiling misc.c...
 compiling stm32f4xx_adc.c...
@@ -63,27 +45,437 @@ compiling stm32f4xx_syscfg.c...
 compiling stm32f4xx_tim.c...
 compiling stm32f4xx_usart.c...
 compiling stm32f4xx_wwdg.c...
+linking...
+Program Size: Code=5208 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\main.c(69): warning:  #177-D: variable "data" was declared but never referenced
+src\main.c(184): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5208 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\main.c(73): error:  #167: argument of type "uint8_t (*)[4]" is incompatible with parameter of type "uint8_t *"
+src\main.c(188): warning:  #177-D: variable "x" was declared but never referenced
 Target not created
 Build target 'Target 1'
 compiling main.c...
-linking...
-Program Size: Code=4416 RO-data=424 RW-data=36 ZI-data=1652  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-src\main.c(40): warning:  #223-D: function "SPI_Config" declared implicitly
-src\main.c(50): error:  #159: declaration is incompatible with previous "SPI_Config" (declared at line 40)
-src\main.c(57): error:  #20: identifier "RCC_APB1Periph_SPI1" is undefined
+src\main.c(73): error:  #167: argument of type "uint8_t **" is incompatible with parameter of type "uint8_t *"
+src\main.c(188): warning:  #177-D: variable "x" was declared but never referenced
 Target not created
 Build target 'Target 1'
 compiling main.c...
-src\main.c(40): warning:  #223-D: function "SPI_Config" declared implicitly
-src\main.c(50): error:  #159: declaration is incompatible with previous "SPI_Config" (declared at line 40)
+src\main.c(188): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5220 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\main.c(188): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5208 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\main.c(193): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5228 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\main.c(194): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5228 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\main.c(194): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5228 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\main.c(194): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5228 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\main.c(198): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Build target 'Target 1'
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Build target 'Target 1'
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(200): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5248 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(200): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5236 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(200): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5248 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(200): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(202): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5244 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(202): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5252 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(204): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5252 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(204): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5248 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+linking...
+Program Size: Code=5248 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(204): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(206): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\main.c(210): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5248 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(208): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5248 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(208): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5248 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(208): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5248 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(74): error:  #167: argument of type "uint8_t (*)[1]" is incompatible with parameter of type "uint8_t *"
+src\main.c(208): warning:  #177-D: variable "x" was declared but never referenced
 Target not created
 Build target 'Target 1'
 compiling main.c...
+src\main.c(208): warning:  #177-D: variable "x" was declared but never referenced
 linking...
-Program Size: Code=4424 RO-data=424 RW-data=36 ZI-data=1652  
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(209): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5236 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(209): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5236 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(209): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5236 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(209): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5236 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5248 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5248 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5252 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5252 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5252 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(69): error:  #70: incomplete type is not allowed
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+Target not created
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5252 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(73): error:  #20: identifier "command" is undefined
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+Target not created
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5236 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+linking...
+Program Size: Code=5236 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(211): warning:  #177-D: variable "x" was declared but never referenced
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+linking...
+Program Size: Code=5240 RO-data=424 RW-data=48 ZI-data=1656  
 ".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
 Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
 Erase Done.
@@ -92,12 +484,12 @@ Verify OK.
 Build target 'Target 1'
 compiling main.c...
 linking...
-Program Size: Code=4644 RO-data=424 RW-data=44 ZI-data=1652  
+Program Size: Code=5236 RO-data=424 RW-data=48 ZI-data=1656  
 ".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
 Build target 'Target 1'
 compiling main.c...
 linking...
-Program Size: Code=4644 RO-data=424 RW-data=44 ZI-data=1652  
+Program Size: Code=5236 RO-data=424 RW-data=48 ZI-data=1656  
 ".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
 Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
 Erase Done.
@@ -106,17 +498,37 @@ Verify OK.
 Build target 'Target 1'
 compiling main.c...
 linking...
-Program Size: Code=5072 RO-data=424 RW-data=44 ZI-data=1652  
+Program Size: Code=5236 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=5232 RO-data=424 RW-data=48 ZI-data=1656  
 ".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
 Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
 Erase Done.
 Programming Done.
 Verify OK.
 Build target 'Target 1'
+compiling main.c...
 linking...
-Program Size: Code=5072 RO-data=424 RW-data=44 ZI-data=1652  
+Program Size: Code=5232 RO-data=424 RW-data=48 ZI-data=1656  
 ".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
 Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
 Erase Done.
 Programming Done.
 Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=5232 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=5232 RO-data=424 RW-data=48 ZI-data=1656  
+".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
