@@ -482,6 +482,16 @@
               <FileType>1</FileType>
               <FilePath>..\servoManager.c</FilePath>
             </File>
+            <File>
+              <FileName>lcdManager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lcdManager.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcdManager.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\lcdManager.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
