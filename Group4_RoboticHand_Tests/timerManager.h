@@ -5,7 +5,6 @@
 
 void initializeTIM2Timer();
 void initializeTIM3Timer();
-void initializeTIM4Timer();
 void initializeTIM5Timer();
 
 #endif

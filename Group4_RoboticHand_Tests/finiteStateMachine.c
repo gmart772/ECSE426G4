@@ -10,6 +10,7 @@
 #include "finiteStateMachine.h"
 #include "ledManager.h"
 #include "cmsis_os.h"
+#include "servoManager.h"
 
 // Mutex used to protect the currentState.
 osMutexId currentState_mutex;
@@ -69,11 +70,14 @@ void initializeFSM() {
  * Process the actions that correspond to the state at which the FSM is currently in.
 */
 void processCurrentState() {
-	osMutexWait(currentState_mutex, osWaitForever);
-	fsmState state = getCurrentState();
-	osMutexRelease(currentState_mutex);
 	
-	TIM4->CCR1 = 600;
+	for (int i = -90 ; i < 90 ; i = i + 10) {
+		setRollAngle(i);
+		goToSpecifiedAngles();
+		osDelay(1000);
+	}
+	
+	/*TIM4->CCR1 = 600;
 	TIM4->CCR2 = 600;
 	osDelay(1000);
 	
@@ -103,7 +107,7 @@ void processCurrentState() {
 	
 	TIM4->CCR1 = 1050;
 	TIM4->CCR2 = 1050;
-	osDelay(1000);
+	osDelay(1000);*/
 	
 	
 	/*ledBrightness = 2400;

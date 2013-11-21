@@ -3,10 +3,15 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\jdery3\Downloads\Group4_RoboticHand_Tests\keil\rtx.uvproj
+C:\Users\jdery3\Downloads\ECSE426G4\Group4_RoboticHand_Tests\keil\rtx.uvproj
 Project File Date:  11/21/2013
 
 <h2>Output:</h2>
+Build target 'Project'
+linking...
+Program Size: Code=16108 RO-data=672 RW-data=120 ZI-data=8128  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 0 Warning(s).
 Build target 'Project'
 compiling timerManager.c...
 ..\timerManager.h(6): warning:  #1295-D: Deprecated declaration initializeTIM2Timer - give arg types
@@ -18,7 +23,892 @@ compiling timerManager.c...
 ..\timerManager.c(15): warning:  #1295-D: Deprecated declaration activateTIM3Interrupt - give arg types
 ..\timerManager.c(16): warning:  #1295-D: Deprecated declaration activateTIM2Interrupt - give arg types
 ..\timerManager.c(177): warning:  #1-D: last line of file ends without a newline
+compiling servoManager.c...
+..\servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(14): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(127): warning:  #1-D: last line of file ends without a newline
+linking...
+.\obj\output.axf: Error: L6200E: Symbol initializeTIM4Timer multiply defined (by servomanager.o and timermanager.o).
+.\obj\output.axf: Error: L6200E: Symbol setupGPIOForTIM4 multiply defined (by servomanager.o and timermanager.o).
+Target not created
+Build target 'Project'
+compiling main.c...
+../timerManager.h(6): warning:  #1295-D: Deprecated declaration initializeTIM2Timer - give arg types
+../timerManager.h(7): warning:  #1295-D: Deprecated declaration initializeTIM3Timer - give arg types
+../timerManager.h(8): warning:  #1295-D: Deprecated declaration initializeTIM5Timer - give arg types
+../timerManager.h(10): warning:  #1-D: last line of file ends without a newline
+../finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+../finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+../finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+../finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+../finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+../ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+../ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+../ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+../ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+../ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+../ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+../ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+../ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+../ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+../ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+../ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+../ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+../ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+../ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+../ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+../ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+../ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+../main.c(29): warning:  #1295-D: Deprecated declaration preamble - give arg types
+../main.c(66): warning:  #223-D: function "initializeTIM4Timer" declared implicitly
+../main.c(86): warning:  #1-D: last line of file ends without a newline
+compiling timerManager.c...
+..\timerManager.h(6): warning:  #1295-D: Deprecated declaration initializeTIM2Timer - give arg types
+..\timerManager.h(7): warning:  #1295-D: Deprecated declaration initializeTIM3Timer - give arg types
+..\timerManager.h(8): warning:  #1295-D: Deprecated declaration initializeTIM5Timer - give arg types
+..\timerManager.h(10): warning:  #1-D: last line of file ends without a newline
+..\timerManager.c(14): warning:  #1295-D: Deprecated declaration activateTIM5Interrupt - give arg types
+..\timerManager.c(15): warning:  #1295-D: Deprecated declaration activateTIM3Interrupt - give arg types
+..\timerManager.c(16): warning:  #1295-D: Deprecated declaration activateTIM2Interrupt - give arg types
+..\timerManager.c(64): warning:  #1-D: last line of file ends without a newline
 linking...
 Program Size: Code=16108 RO-data=672 RW-data=120 ZI-data=8128  
 FromELF: creating hex file...
-".\obj\output.axf" - 0 Error(s), 9 Warning(s).
+".\obj\output.axf" - 0 Error(s), 37 Warning(s).
+Build target 'Project'
+compiling main.c...
+../timerManager.h(6): warning:  #1295-D: Deprecated declaration initializeTIM2Timer - give arg types
+../timerManager.h(7): warning:  #1295-D: Deprecated declaration initializeTIM3Timer - give arg types
+../timerManager.h(8): warning:  #1295-D: Deprecated declaration initializeTIM5Timer - give arg types
+../timerManager.h(10): warning:  #1-D: last line of file ends without a newline
+../finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+../finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+../finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+../finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+../finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+../ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+../ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+../ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+../ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+../ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+../ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+../ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+../ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+../ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+../ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+../ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+../ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+../ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+../ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+../ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+../ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+../ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+../servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+../servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+../main.c(30): warning:  #1295-D: Deprecated declaration preamble - give arg types
+../main.c(77): warning:  #1-D: last line of file ends without a newline
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(14): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(127): warning:  #1-D: last line of file ends without a newline
+linking...
+.\obj\output.axf: Error: L6218E: Undefined symbol initializeServoMotors (referred from main.o).
+Target not created
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(14): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(131): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16108 RO-data=672 RW-data=120 ZI-data=8128  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 4 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(14): error:  #40: expected an identifier
+..\servoManager.c(17): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(134): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(14): error:  #40: expected an identifier
+..\servoManager.c(17): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(134): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(15): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(132): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16108 RO-data=672 RW-data=120 ZI-data=8128  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 4 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(16): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(133): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16108 RO-data=676 RW-data=120 ZI-data=8128  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 4 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(20): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(137): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16108 RO-data=692 RW-data=120 ZI-data=8128  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 4 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(20): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(137): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16112 RO-data=692 RW-data=120 ZI-data=8128  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 4 Warning(s).
+Load "C:\\Users\\jdery3\\Downloads\\ECSE426G4\\Group4_RoboticHand_Tests\\keil\\obj\\output.axf" 
+Load "C:\\Users\\jdery3\\Downloads\\ECSE426G4\\Group4_RoboticHand_Tests\\keil\\obj\\output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(20): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(23): warning:  #223-D: function "initializeTIM4Timer" declared implicitly
+..\servoManager.c(55): error:  #159: declaration is incompatible with previous "initializeTIM4Timer" (declared at line 23)
+..\servoManager.c(137): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(8): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(20): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(21): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(138): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16120 RO-data=692 RW-data=120 ZI-data=8128  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 5 Warning(s).
+Load "C:\\Users\\jdery3\\Downloads\\ECSE426G4\\Group4_RoboticHand_Tests\\keil\\obj\\output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Project'
+compiling main.c...
+../timerManager.h(6): warning:  #1295-D: Deprecated declaration initializeTIM2Timer - give arg types
+../timerManager.h(7): warning:  #1295-D: Deprecated declaration initializeTIM3Timer - give arg types
+../timerManager.h(8): warning:  #1295-D: Deprecated declaration initializeTIM5Timer - give arg types
+../timerManager.h(10): warning:  #1-D: last line of file ends without a newline
+../finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+../finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+../finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+../finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+../finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+../ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+../ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+../ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+../ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+../ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+../ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+../ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+../ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+../ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+../ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+../ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+../ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+../ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+../ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+../ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+../ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+../ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+../servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+../servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+../servoManager.h(9): warning:  #1-D: last line of file ends without a newline
+../main.c(30): warning:  #1295-D: Deprecated declaration preamble - give arg types
+../main.c(77): warning:  #1-D: last line of file ends without a newline
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(9): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(23): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(151): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16120 RO-data=692 RW-data=120 ZI-data=8128  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 37 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(9): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(23): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(43): warning:  #940-D: missing return statement at end of non-void function "angleToPulseWidth"
+..\servoManager.c(156): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16124 RO-data=692 RW-data=120 ZI-data=8128  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 7 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(9): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(23): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(46): warning:  #940-D: missing return statement at end of non-void function "angleToPulseWidth"
+..\servoManager.c(159): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16144 RO-data=692 RW-data=120 ZI-data=8128  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 7 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(9): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(23): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(163): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16152 RO-data=692 RW-data=120 ZI-data=8128  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(9): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(167): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16152 RO-data=696 RW-data=120 ZI-data=8136  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(9): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(171): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16172 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(9): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(172): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16188 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Project'
+compiling main.c...
+../timerManager.h(6): warning:  #1295-D: Deprecated declaration initializeTIM2Timer - give arg types
+../timerManager.h(7): warning:  #1295-D: Deprecated declaration initializeTIM3Timer - give arg types
+../timerManager.h(8): warning:  #1295-D: Deprecated declaration initializeTIM5Timer - give arg types
+../timerManager.h(10): warning:  #1-D: last line of file ends without a newline
+../finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+../finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+../finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+../finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+../finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+../ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+../ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+../ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+../ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+../ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+../ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+../ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+../ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+../ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+../ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+../ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+../ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+../ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+../ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+../ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+../ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+../ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+../servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+../servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+../servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+../main.c(30): warning:  #1295-D: Deprecated declaration preamble - give arg types
+../main.c(77): warning:  #1-D: last line of file ends without a newline
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(180): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16192 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 37 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(193): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16272 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Project'
+linking...
+Program Size: Code=16272 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(195): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16280 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(206): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16280 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Project'
+linking...
+Program Size: Code=16280 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(210): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16336 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Project'
+compiling main.c...
+../timerManager.h(6): warning:  #1295-D: Deprecated declaration initializeTIM2Timer - give arg types
+../timerManager.h(7): warning:  #1295-D: Deprecated declaration initializeTIM3Timer - give arg types
+../timerManager.h(8): warning:  #1295-D: Deprecated declaration initializeTIM5Timer - give arg types
+../timerManager.h(10): warning:  #1-D: last line of file ends without a newline
+../finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+../finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+../finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+../finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+../finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+../ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+../ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+../ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+../ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+../ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+../ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+../ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+../ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+../ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+../ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+../ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+../ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+../ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+../ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+../ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+../ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+../ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+../servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+../servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+../servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+../main.c(30): warning:  #1295-D: Deprecated declaration preamble - give arg types
+../main.c(77): warning:  #1-D: last line of file ends without a newline
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(210): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16336 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 37 Warning(s).
+Build target 'Project'
+linking...
+Program Size: Code=16336 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(209): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16336 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Project'
+compiling finiteStateMachine.c...
+..\finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+..\finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+..\finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+..\finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+..\finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+..\ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+..\ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+..\ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+..\ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+..\ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+..\ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+..\ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+..\ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+..\ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+..\ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+..\ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+..\ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+..\ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+..\ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+..\ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+..\ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+..\ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+..\finiteStateMachine.c(18): warning:  #1295-D: Deprecated declaration processAccelerometerNormalState - give arg types
+..\finiteStateMachine.c(19): warning:  #1295-D: Deprecated declaration processAccelerometerPWMState - give arg types
+..\finiteStateMachine.c(20): warning:  #1295-D: Deprecated declaration processTemperatureNORMALState - give arg types
+..\finiteStateMachine.c(21): warning:  #1295-D: Deprecated declaration processTemperaturePWMState - give arg types
+..\finiteStateMachine.c(22): warning:  #1295-D: Deprecated declaration cwLeds - give arg types
+..\finiteStateMachine.c(23): warning:  #1295-D: Deprecated declaration ccwLeds - give arg types
+..\finiteStateMachine.c(24): warning:  #1295-D: Deprecated declaration getCurrentState - give arg types
+..\finiteStateMachine.c(136): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16092 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 30 Warning(s).
+Build target 'Project'
+compiling finiteStateMachine.c...
+..\finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+..\finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+..\finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+..\finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+..\finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+..\ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+..\ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+..\ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+..\ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+..\ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+..\ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+..\ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+..\ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+..\ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+..\ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+..\ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+..\ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+..\ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+..\ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+..\ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+..\ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+..\ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\finiteStateMachine.c(19): warning:  #1295-D: Deprecated declaration processAccelerometerNormalState - give arg types
+..\finiteStateMachine.c(20): warning:  #1295-D: Deprecated declaration processAccelerometerPWMState - give arg types
+..\finiteStateMachine.c(21): warning:  #1295-D: Deprecated declaration processTemperatureNORMALState - give arg types
+..\finiteStateMachine.c(22): warning:  #1295-D: Deprecated declaration processTemperaturePWMState - give arg types
+..\finiteStateMachine.c(23): warning:  #1295-D: Deprecated declaration cwLeds - give arg types
+..\finiteStateMachine.c(24): warning:  #1295-D: Deprecated declaration ccwLeds - give arg types
+..\finiteStateMachine.c(25): warning:  #1295-D: Deprecated declaration getCurrentState - give arg types
+..\finiteStateMachine.c(140): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16092 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 33 Warning(s).
+Build target 'Project'
+compiling finiteStateMachine.c...
+..\finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+..\finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+..\finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+..\finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+..\finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+..\ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+..\ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+..\ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+..\ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+..\ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+..\ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+..\ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+..\ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+..\ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+..\ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+..\ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+..\ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+..\ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+..\ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+..\ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+..\ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+..\ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\finiteStateMachine.c(19): warning:  #1295-D: Deprecated declaration processAccelerometerNormalState - give arg types
+..\finiteStateMachine.c(20): warning:  #1295-D: Deprecated declaration processAccelerometerPWMState - give arg types
+..\finiteStateMachine.c(21): warning:  #1295-D: Deprecated declaration processTemperatureNORMALState - give arg types
+..\finiteStateMachine.c(22): warning:  #1295-D: Deprecated declaration processTemperaturePWMState - give arg types
+..\finiteStateMachine.c(23): warning:  #1295-D: Deprecated declaration cwLeds - give arg types
+..\finiteStateMachine.c(24): warning:  #1295-D: Deprecated declaration ccwLeds - give arg types
+..\finiteStateMachine.c(25): warning:  #1295-D: Deprecated declaration getCurrentState - give arg types
+..\finiteStateMachine.c(74): error:  #65: expected a ";"
+..\finiteStateMachine.c(143): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Project'
+compiling finiteStateMachine.c...
+..\finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+..\finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+..\finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+..\finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+..\finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+..\ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+..\ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+..\ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+..\ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+..\ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+..\ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+..\ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+..\ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+..\ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+..\ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+..\ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+..\ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+..\ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+..\ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+..\ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+..\ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+..\ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\finiteStateMachine.c(19): warning:  #1295-D: Deprecated declaration processAccelerometerNormalState - give arg types
+..\finiteStateMachine.c(20): warning:  #1295-D: Deprecated declaration processAccelerometerPWMState - give arg types
+..\finiteStateMachine.c(21): warning:  #1295-D: Deprecated declaration processTemperatureNORMALState - give arg types
+..\finiteStateMachine.c(22): warning:  #1295-D: Deprecated declaration processTemperaturePWMState - give arg types
+..\finiteStateMachine.c(23): warning:  #1295-D: Deprecated declaration cwLeds - give arg types
+..\finiteStateMachine.c(24): warning:  #1295-D: Deprecated declaration ccwLeds - give arg types
+..\finiteStateMachine.c(25): warning:  #1295-D: Deprecated declaration getCurrentState - give arg types
+..\finiteStateMachine.c(74): error:  #65: expected a ";"
+..\finiteStateMachine.c(143): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Project'
+compiling finiteStateMachine.c...
+..\finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+..\finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+..\finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+..\finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+..\finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+..\ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+..\ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+..\ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+..\ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+..\ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+..\ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+..\ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+..\ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+..\ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+..\ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+..\ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+..\ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+..\ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+..\ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+..\ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+..\ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+..\ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\finiteStateMachine.c(19): warning:  #1295-D: Deprecated declaration processAccelerometerNormalState - give arg types
+..\finiteStateMachine.c(20): warning:  #1295-D: Deprecated declaration processAccelerometerPWMState - give arg types
+..\finiteStateMachine.c(21): warning:  #1295-D: Deprecated declaration processTemperatureNORMALState - give arg types
+..\finiteStateMachine.c(22): warning:  #1295-D: Deprecated declaration processTemperaturePWMState - give arg types
+..\finiteStateMachine.c(23): warning:  #1295-D: Deprecated declaration cwLeds - give arg types
+..\finiteStateMachine.c(24): warning:  #1295-D: Deprecated declaration ccwLeds - give arg types
+..\finiteStateMachine.c(25): warning:  #1295-D: Deprecated declaration getCurrentState - give arg types
+..\finiteStateMachine.c(143): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16180 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 33 Warning(s).
+Load "C:\\Users\\jdery3\\Downloads\\ECSE426G4\\Group4_RoboticHand_Tests\\keil\\obj\\output.axf" 
+Load "C:\\Users\\jdery3\\Downloads\\ECSE426G4\\Group4_RoboticHand_Tests\\keil\\obj\\output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Project'
+compiling finiteStateMachine.c...
+..\finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+..\finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+..\finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+..\finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+..\finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+..\ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+..\ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+..\ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+..\ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+..\ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+..\ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+..\ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+..\ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+..\ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+..\ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+..\ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+..\ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+..\ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+..\ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+..\ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+..\ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+..\ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\finiteStateMachine.c(19): warning:  #1295-D: Deprecated declaration processAccelerometerNormalState - give arg types
+..\finiteStateMachine.c(20): warning:  #1295-D: Deprecated declaration processAccelerometerPWMState - give arg types
+..\finiteStateMachine.c(21): warning:  #1295-D: Deprecated declaration processTemperatureNORMALState - give arg types
+..\finiteStateMachine.c(22): warning:  #1295-D: Deprecated declaration processTemperaturePWMState - give arg types
+..\finiteStateMachine.c(23): warning:  #1295-D: Deprecated declaration cwLeds - give arg types
+..\finiteStateMachine.c(24): warning:  #1295-D: Deprecated declaration ccwLeds - give arg types
+..\finiteStateMachine.c(25): warning:  #1295-D: Deprecated declaration getCurrentState - give arg types
+..\finiteStateMachine.c(143): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16176 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 33 Warning(s).
+Load "C:\\Users\\jdery3\\Downloads\\ECSE426G4\\Group4_RoboticHand_Tests\\keil\\obj\\output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(209): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16176 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(211): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16216 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(213): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16280 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Load "C:\\Users\\jdery3\\Downloads\\ECSE426G4\\Group4_RoboticHand_Tests\\keil\\obj\\output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Project'
+compiling servoManager.c...
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\servoManager.c(24): warning:  #1295-D: Deprecated declaration setupGPIOForTIM4 - give arg types
+..\servoManager.c(25): warning:  #1295-D: Deprecated declaration initializeTIM4Timer - give arg types
+..\servoManager.c(213): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16280 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 6 Warning(s).
+Load "C:\\Users\\jdery3\\Downloads\\ECSE426G4\\Group4_RoboticHand_Tests\\keil\\obj\\output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Project'
+compiling finiteStateMachine.c...
+..\finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+..\finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+..\finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+..\finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+..\finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+..\ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+..\ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+..\ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+..\ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+..\ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+..\ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+..\ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+..\ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+..\ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+..\ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+..\ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+..\ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+..\ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+..\ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+..\ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+..\ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+..\ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\finiteStateMachine.c(19): warning:  #1295-D: Deprecated declaration processAccelerometerNormalState - give arg types
+..\finiteStateMachine.c(20): warning:  #1295-D: Deprecated declaration processAccelerometerPWMState - give arg types
+..\finiteStateMachine.c(21): warning:  #1295-D: Deprecated declaration processTemperatureNORMALState - give arg types
+..\finiteStateMachine.c(22): warning:  #1295-D: Deprecated declaration processTemperaturePWMState - give arg types
+..\finiteStateMachine.c(23): warning:  #1295-D: Deprecated declaration cwLeds - give arg types
+..\finiteStateMachine.c(24): warning:  #1295-D: Deprecated declaration ccwLeds - give arg types
+..\finiteStateMachine.c(25): warning:  #1295-D: Deprecated declaration getCurrentState - give arg types
+..\finiteStateMachine.c(143): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16280 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 33 Warning(s).
+Load "C:\\Users\\jdery3\\Downloads\\ECSE426G4\\Group4_RoboticHand_Tests\\keil\\obj\\output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Project'
+compiling finiteStateMachine.c...
+..\finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+..\finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+..\finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+..\finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+..\finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+..\ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+..\ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+..\ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+..\ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+..\ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+..\ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+..\ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+..\ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+..\ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+..\ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+..\ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+..\ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+..\ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+..\ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+..\ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+..\ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+..\ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\finiteStateMachine.c(19): warning:  #1295-D: Deprecated declaration processAccelerometerNormalState - give arg types
+..\finiteStateMachine.c(20): warning:  #1295-D: Deprecated declaration processAccelerometerPWMState - give arg types
+..\finiteStateMachine.c(21): warning:  #1295-D: Deprecated declaration processTemperatureNORMALState - give arg types
+..\finiteStateMachine.c(22): warning:  #1295-D: Deprecated declaration processTemperaturePWMState - give arg types
+..\finiteStateMachine.c(23): warning:  #1295-D: Deprecated declaration cwLeds - give arg types
+..\finiteStateMachine.c(24): warning:  #1295-D: Deprecated declaration ccwLeds - give arg types
+..\finiteStateMachine.c(25): warning:  #1295-D: Deprecated declaration getCurrentState - give arg types
+..\finiteStateMachine.c(143): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16280 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 33 Warning(s).
+Load "C:\\Users\\jdery3\\Downloads\\ECSE426G4\\Group4_RoboticHand_Tests\\keil\\obj\\output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Project'
+compiling finiteStateMachine.c...
+..\finiteStateMachine.h(9): warning:  #1295-D: Deprecated declaration initializeFSM - give arg types
+..\finiteStateMachine.h(10): warning:  #1295-D: Deprecated declaration switchCurrentState - give arg types
+..\finiteStateMachine.h(11): warning:  #1295-D: Deprecated declaration switchInternalState - give arg types
+..\finiteStateMachine.h(12): warning:  #1295-D: Deprecated declaration processCurrentState - give arg types
+..\finiteStateMachine.h(14): warning:  #1-D: last line of file ends without a newline
+..\ledManager.h(6): warning:  #1295-D: Deprecated declaration initializeLED - give arg types
+..\ledManager.h(7): warning:  #1295-D: Deprecated declaration processLEDStates - give arg types
+..\ledManager.h(8): warning:  #1295-D: Deprecated declaration invertLED12 - give arg types
+..\ledManager.h(9): warning:  #1295-D: Deprecated declaration invertLED13 - give arg types
+..\ledManager.h(10): warning:  #1295-D: Deprecated declaration invertLED14 - give arg types
+..\ledManager.h(11): warning:  #1295-D: Deprecated declaration invertLED15 - give arg types
+..\ledManager.h(12): warning:  #1295-D: Deprecated declaration turnOffLED12 - give arg types
+..\ledManager.h(13): warning:  #1295-D: Deprecated declaration turnOffLED13 - give arg types
+..\ledManager.h(14): warning:  #1295-D: Deprecated declaration turnOffLED14 - give arg types
+..\ledManager.h(15): warning:  #1295-D: Deprecated declaration turnOffLED15 - give arg types
+..\ledManager.h(16): warning:  #1295-D: Deprecated declaration turnOnLED12 - give arg types
+..\ledManager.h(17): warning:  #1295-D: Deprecated declaration turnOnLED13 - give arg types
+..\ledManager.h(18): warning:  #1295-D: Deprecated declaration turnOnLED14 - give arg types
+..\ledManager.h(19): warning:  #1295-D: Deprecated declaration turnOnLED15 - give arg types
+..\ledManager.h(20): warning:  #1295-D: Deprecated declaration enableGPIOForFrequencyVerification - give arg types
+..\ledManager.h(21): warning:  #1295-D: Deprecated declaration inverseGPIOPinForFrequencyVerification - give arg types
+..\ledManager.h(23): warning:  #1-D: last line of file ends without a newline
+..\servoManager.h(6): warning:  #1295-D: Deprecated declaration initializeServoMotors - give arg types
+..\servoManager.h(7): warning:  #1295-D: Deprecated declaration goToSpecifiedAngles - give arg types
+..\servoManager.h(11): warning:  #1-D: last line of file ends without a newline
+..\finiteStateMachine.c(19): warning:  #1295-D: Deprecated declaration processAccelerometerNormalState - give arg types
+..\finiteStateMachine.c(20): warning:  #1295-D: Deprecated declaration processAccelerometerPWMState - give arg types
+..\finiteStateMachine.c(21): warning:  #1295-D: Deprecated declaration processTemperatureNORMALState - give arg types
+..\finiteStateMachine.c(22): warning:  #1295-D: Deprecated declaration processTemperaturePWMState - give arg types
+..\finiteStateMachine.c(23): warning:  #1295-D: Deprecated declaration cwLeds - give arg types
+..\finiteStateMachine.c(24): warning:  #1295-D: Deprecated declaration ccwLeds - give arg types
+..\finiteStateMachine.c(25): warning:  #1295-D: Deprecated declaration getCurrentState - give arg types
+..\finiteStateMachine.c(143): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=16280 RO-data=700 RW-data=136 ZI-data=8152  
+FromELF: creating hex file...
+".\obj\output.axf" - 0 Error(s), 33 Warning(s).
+Load "C:\\Users\\jdery3\\Downloads\\ECSE426G4\\Group4_RoboticHand_Tests\\keil\\obj\\output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
