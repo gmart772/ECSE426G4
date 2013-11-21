@@ -71,73 +71,10 @@ void initializeFSM() {
 */
 void processCurrentState() {
 	
-	for (int i = -90 ; i < 90 ; i = i + 10) {
+	/*for (int i = -90 ; i < 90 ; i = i + 10) {
 		setRollAngle(i);
 		goToSpecifiedAngles();
 		osDelay(1000);
-	}
-	
-	/*TIM4->CCR1 = 600;
-	TIM4->CCR2 = 600;
-	osDelay(1000);
-	
-	TIM4->CCR1 = 1050;
-	TIM4->CCR2 = 1050;
-	osDelay(1000);
-	
-	TIM4->CCR1 = 1500;
-	TIM4->CCR2 = 1500;
-	osDelay(1000);
-	
-	TIM4->CCR1 = 1950;
-	TIM4->CCR2 = 1950;
-	osDelay(1000);
-	
-	TIM4->CCR1 = 2400;
-	TIM4->CCR2 = 2400;
-	osDelay(1000);
-	
-	TIM4->CCR1 = 1950;
-	TIM4->CCR2 = 1950;
-	osDelay(1000);
-	
-	TIM4->CCR1 = 1500;
-	TIM4->CCR2 = 1500;
-	osDelay(1000);
-	
-	TIM4->CCR1 = 1050;
-	TIM4->CCR2 = 1050;
-	osDelay(1000);*/
-	
-	
-	/*ledBrightness = 2400;
-	// Start with a full duty cycle (100%) and decrement it until the duty cycle is equal to 0.
-	while (ledBrightness > 600) {
-		// The LEDs have been configured with TIM4 so this is why we do this.
-		// Check for this function to have more info: TIM_OC1Init(TIM4, &TIM_OCInitStructure);
-		// CCR1 is the TIM capture/compare register 1, same for CCR2, CCR3 and CCR4.
-		TIM4->CCR1 = ledBrightness;
-		TIM4->CCR2 = ledBrightness;
-		ledBrightness -= 10;
-		
-		printf("[INFO] Current pulse width in is %i microseconds.\n", ledBrightness);
-		
-		// Adds some delay so that the humans can see what's going on.
-		osDelay(10);
-	}
-	
-	// Start with a duty cycle equal to 0 and increment it until it reaches 100%.
-	while (ledBrightness < 2400) {
-		// The LEDs have been configured with TIM4 so this is why we do this.
-		// Check for this function to have more info: TIM_OC1Init(TIM4, &TIM_OCInitStructure);
-		// CCR1 is the TIM capture/compare register 1, same for CCR2, CCR3 and CCR4.
-		TIM4->CCR1 = ledBrightness;
-		TIM4->CCR2 = ledBrightness;
-		ledBrightness += 10;
-		
-		printf("[INFO] Current pulse width in is %i microseconds.\n", ledBrightness);
-		
-		// Adds some delay so that the humans can see what's going on.
-		osDelay(10);
 	}*/
+	
 }

@@ -53,12 +53,8 @@ void TIM2_IRQHandler() {
  * Main's preamble where are the initializations are done.
 */
 void preamble() {
-	// Initializes the Finite State Machine with the default state being ACCELEROMETER_NORMAL_STATE.
 	initializeFSM();
-	
-	//
 	initializeServoMotors();
-
 	// Initializes the TIM2 timer so that it controls the frequency at which the main will be executed.
 	initializeTIM2Timer();
 	

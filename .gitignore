@@ -2,3 +2,8 @@
 *.crf
 *.d
 *.o
+*.axf
+*.htm
+*.lnp
+*.plg
+*.tra
