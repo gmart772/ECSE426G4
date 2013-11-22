@@ -62,6 +62,7 @@ void TIM3_IRQHandler() {
 void preamble(void) {
 	initializeFSM();
 	initializeServoMotors();
+	initializeLCD();
 	initializeTIM2Timer();
 	initializeTIM3Timer();
 	

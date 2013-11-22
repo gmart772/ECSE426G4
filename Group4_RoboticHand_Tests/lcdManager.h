@@ -4,6 +4,7 @@
 #include "stm32f4xx.h"
 
 typedef enum {CLEAR_DISPLAY, RESET_CURSOR, INCREMENT_CHARACTER_MODE} lcdCommands;
+typedef enum {ON, OFF} gpioState;
 
 void initializeLCD(void);
 void executeCommand(lcdCommands commandToExecute);
