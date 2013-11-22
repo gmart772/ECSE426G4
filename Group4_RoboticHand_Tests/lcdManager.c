@@ -12,8 +12,8 @@
 #include "lcdManager.h"
 #include "cmsis_os.h"
 
-const uint8_t COMMAND_DELAY = 5;
-const uint8_t ENABLE_DELAY = 1;
+const uint8_t COMMAND_DELAY = 1;
+//const uint8_t ENABLE_DELAY = 1;
 
 void initializeDataGPIO(void);
 void initializeControlGPIO(void);
@@ -35,16 +35,33 @@ void setEnable(gpioState state);
  * Initializes the LCD display.
 */
 void initializeLCD(void) {
-	printf("[INFO] Initializing the LCD.");	
+	printf("[INFO] Initializing the LCD.\n");	
 	
 	initializeControlGPIO();
 	initializeDataGPIO();
 	
 	// Sets the Read/Write pin to 0 since we only write to the LCD.
 	setReadWrite(OFF);
+	// The default value for enable is 0 if there is no incoming data.
+	setEnable(OFF);
+	
+	setCommandOnDataLine(DEFAULT_CONFIGS);
+	sendCommand();
 	
 	setCommandOnDataLine(CLEAR_DISPLAY);
 	sendCommand();
+	
+	setCommandOnDataLine(RESET_CURSOR);
+	sendCommand();
+	
+	setCommandOnDataLine(INCREMENT_CHARACTER_MODE);
+	sendCommand();
+	
+	setCommandOnDataLine(DISPLAY_CURSOR_OFF);
+	sendCommand();
+	
+	char* testString = "This is a test!";
+	writeString(testString);
 }
 
 /**
@@ -253,13 +270,21 @@ void setEnable(gpioState state) {
 	}
 }
 
+/**
+ * Sends a command that was set on the data pin to the LCD screen.
+*/
 void sendCommand(void) {
 	setEnable(ON);
-	osDelay(ENABLE_DELAY);
+	//osDelay(ENABLE_DELAY);
 	setEnable(OFF);
 	osDelay(COMMAND_DELAY);
 }
 
+/**
+ * Sets a specific command on the data pins.
+ *
+ * @param commandToExecute The command that will be set on the data pins.
+*/
 void setCommandOnDataLine(lcdCommands commandToExecute) {	
 	switch(commandToExecute) {
 		case CLEAR_DISPLAY:
@@ -273,17 +298,126 @@ void setCommandOnDataLine(lcdCommands commandToExecute) {
 			setData7(OFF);
 		break;
 		case RESET_CURSOR:
-			
+			setData0(OFF);
+			setData1(ON);
+			setData2(OFF);
+			setData3(OFF);
+			setData4(OFF);
+			setData5(OFF);
+			setData6(OFF);
+			setData7(OFF);
 		break;
 		case INCREMENT_CHARACTER_MODE:
-			
+			setData0(OFF);
+			setData1(ON);
+			setData2(ON);
+			setData3(OFF);
+			setData4(OFF);
+			setData5(OFF);
+			setData6(OFF);
+			setData7(OFF);
+		break;
+		case DISPLAY_CURSOR_ON:
+			setData0(ON);
+			setData1(ON);
+			setData2(ON);
+			setData3(ON);
+			setData4(OFF);
+			setData5(OFF);
+			setData6(OFF);
+			setData7(OFF);
+		break;
+		case DISPLAY_CURSOR_OFF:
+			setData0(OFF);
+			setData1(OFF);
+			setData2(ON);
+			setData3(ON);
+			setData4(OFF);
+			setData5(OFF);
+			setData6(OFF);
+			setData7(OFF);
+		break;
+		case DEFAULT_CONFIGS:
+			setData0(OFF);
+			setData1(OFF);
+			setData2(ON);
+			setData3(ON);
+			setData4(ON);
+			setData5(ON);
+			setData6(OFF);
+			setData7(OFF);
 		break;
 	}
+	
 	
 	// Sets the Register Select to 0 so that the LCD expects a command.
 	setRegisterSelect(OFF);
 }
 
+/**
+ * Writes and send a string to the LCD.
+ *
+ * @param dataToWrite The string to be sent to the LCD.
+*/
 void writeString(char* dataToWrite) {
 	
+	while (*dataToWrite) {
+		int asciiValue = (int) (*dataToWrite);
+		
+		//printf("ASCII Char=%c Value=%i\n", (*dataToWrite), asciiValue);
+		
+		if ((0x1&asciiValue) == 0) {
+			setData0(OFF);
+		} else {
+			setData0(ON);
+		}
+		
+		if ((0x2&asciiValue) == 0) {
+			setData1(OFF);
+		} else {
+			setData1(ON);
+		}
+		
+		if ((0x4&asciiValue) == 0) {
+			setData2(OFF);
+		} else {
+			setData2(ON);
+		}
+		
+		if ((0x8&asciiValue) == 0) {
+			setData3(OFF);
+		} else {
+			setData3(ON);
+		}
+		
+		if ((0x10&asciiValue) == 0) {
+			setData4(OFF);
+		} else {
+			setData4(ON);
+		}
+		
+		if ((0x20&asciiValue) == 0) {
+			setData5(OFF);
+		} else {
+			setData5(ON);
+		}
+		
+		if ((0x40&asciiValue) == 0) {
+			setData6(OFF);
+		} else {
+			setData6(ON);
+		}
+		
+		if ((0x80&asciiValue) == 0) {
+			setData7(OFF);
+		} else {
+			setData7(ON);
+		}
+		
+		// Sets the Register Select to 1 so that the LCD expects a character.
+		setRegisterSelect(ON);
+		sendCommand();
+		
+		dataToWrite++;
+	}
 }
