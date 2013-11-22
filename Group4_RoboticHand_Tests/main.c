@@ -17,6 +17,7 @@
 #include "finiteStateMachine.h"
 #include "lcdManager.h"
 #include "servoManager.h"
+#include "keypadManager.h"
 
 // Resources:
 // http://mbed.org/handbook/CMSIS-RTOS
@@ -36,6 +37,15 @@ osThreadId tid_fsmThread, tid_wikiThread;
  */
 int main(void) {
 	preamble();
+}
+
+/**
+ * Handles the button interrupt and switches the internal state of the program.
+*/
+void EXTI0_IRQHandler(void) {
+	// Clears the interrupt bit that was set by the accelerometer.
+	EXTI_ClearITPendingBit(EXTI_Line0);
+	// Switches the internal state of the FSM.
 }
 
 /**
@@ -63,6 +73,7 @@ void preamble(void) {
 	initializeFSM();
 	initializeServoMotors();
 	initializeLCD();
+	initializeKeypad();
 	initializeTIM2Timer();
 	initializeTIM3Timer();
 	

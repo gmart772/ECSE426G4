@@ -482,6 +482,16 @@
               <FileType>5</FileType>
               <FilePath>..\lcdManager.h</FilePath>
             </File>
+            <File>
+              <FileName>keypadManager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\keypadManager.c</FilePath>
+            </File>
+            <File>
+              <FileName>keypadManager.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\keypadManager.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

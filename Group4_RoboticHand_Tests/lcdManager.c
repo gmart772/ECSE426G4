@@ -60,7 +60,7 @@ void initializeLCD(void) {
 	setCommandOnDataLine(DISPLAY_CURSOR_OFF);
 	sendCommand();
 	
-	char* testString = "This is a test to see if the LCD display is working proplerly.";
+	char* testString = "This is a test!";
 	writeString(testString);
 }
 
@@ -270,6 +270,9 @@ void setEnable(gpioState state) {
 	}
 }
 
+/**
+ * Sends a command that was set on the data pin to the LCD screen.
+*/
 void sendCommand(void) {
 	setEnable(ON);
 	//osDelay(ENABLE_DELAY);
@@ -277,6 +280,11 @@ void sendCommand(void) {
 	osDelay(COMMAND_DELAY);
 }
 
+/**
+ * Sets a specific command on the data pins.
+ *
+ * @param commandToExecute The command that will be set on the data pins.
+*/
 void setCommandOnDataLine(lcdCommands commandToExecute) {	
 	switch(commandToExecute) {
 		case CLEAR_DISPLAY:
@@ -346,12 +354,17 @@ void setCommandOnDataLine(lcdCommands commandToExecute) {
 	setRegisterSelect(OFF);
 }
 
+/**
+ * Writes and send a string to the LCD.
+ *
+ * @param dataToWrite The string to be sent to the LCD.
+*/
 void writeString(char* dataToWrite) {
 	
 	while (*dataToWrite) {
 		int asciiValue = (int) (*dataToWrite);
 		
-		printf("ASCII Char=%c Value=%i\n", (*dataToWrite), asciiValue);
+		//printf("ASCII Char=%c Value=%i\n", (*dataToWrite), asciiValue);
 		
 		if ((0x1&asciiValue) == 0) {
 			setData0(OFF);
