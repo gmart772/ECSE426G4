@@ -3,6 +3,6 @@
 
 #include "stm32f4xx.h"
 
-void initializeLCD();
+void initializeLCD(void);
 
 #endif

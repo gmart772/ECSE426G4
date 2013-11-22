@@ -3,12 +3,11 @@
 
 #include "stm32f4xx.h"
 
-typedef enum {ACCELEROMETER_NORMAL_STATE, ACCELEROMETER_PWM_STATE, TEMPERATURE_NORMAL_STATE, TEMPERATURE_PWM_STATE} fsmState;
-typedef enum {TOP, RIGHT, BOTTOM, LEFT} activeLED;
+typedef enum {WIFI_STATE, PAD_STATE} fsmState;
 
-void initializeFSM();
-void switchCurrentState();
-void switchInternalState();
-void processCurrentState();
+void initializeFSM(void);
+void switchCurrentState(void);
+void switchInternalState(void);
+void processCurrentState(void);
 
 #endif

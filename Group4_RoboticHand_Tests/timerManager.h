@@ -3,8 +3,8 @@
 
 #include "stm32f4xx.h"
 
-void initializeTIM2Timer();
-void initializeTIM3Timer();
-void initializeTIM5Timer();
+void initializeTIM2Timer(void);
+void initializeTIM3Timer(void);
+void initializeTIM5Timer(void);
 
 #endif

@@ -1,6 +1,6 @@
 /**
  * @file servoManager.c
- * @author Jean-Sebastien Dery (260430688), Matthew Johnston (260349319), Gregoire Martin () and Patrick White ()
+ * @author Jean-Sebastien Dery, Matthew Johnston, Gregoire Martin, and Patrick White
  * @version 1.0
  * @date November 21th 2013
  * @brief Manages all the interactions with the servo motors.
@@ -21,8 +21,8 @@ const uint32_t ANGLE_PLUS_90 = 2400;
 int roll_angle = 0;
 int pitch_angle = 0;
 
-void setupGPIOForTIM4();
-void initializeTIM4Timer();
+void setupGPIOForTIM4(void);
+void initializeTIM4Timer(void);
 uint32_t angleToPulseWidth(int angle);
 
 osMutexId roll_mutex;
@@ -33,18 +33,24 @@ osMutexDef(pitch_mutex);
 /**
  * Initializes the servo motors.
 */
-void initializeServoMotors() {
+void initializeServoMotors(void) {
 	roll_mutex = osMutexCreate(osMutex(roll_mutex));
 	pitch_mutex = osMutexCreate(osMutex(pitch_mutex));
 	initializeTIM4Timer();
 }
 
+/**
+ * Sets the roll angle for the robotic hand.
+*/
 void setRollAngle(int roll) {
 	osMutexWait(roll_mutex, osWaitForever);
 	roll_angle = roll;
 	osMutexRelease(roll_mutex);
 }
 
+/**
+ * Sets the pitch angle for the robotic hand.
+*/
 void setPitchAngle(int pitch) {
 	osMutexWait(pitch_mutex, osWaitForever);
 	pitch_angle = pitch;
@@ -54,7 +60,7 @@ void setPitchAngle(int pitch) {
 /*
  * Goes to the Roll and pitch that is stored in the roll_angle and pitch_angle variables respectively.
 */
-void goToSpecifiedAngles() {
+void goToSpecifiedAngles(void) {
 	// Fetches the roll value.
 	osMutexWait(roll_mutex, osWaitForever);
 	int tempRoll = roll_angle;
@@ -77,6 +83,12 @@ void goToSpecifiedAngles() {
 	TIM4->CCR2 = pitchPulseWidth;
 }
 
+/**
+ * Converts an angle to the appropriate pulse width that will be used to control the servo motors.
+ *
+ * @param angle The angle to be converted, it needs to range from -90° to +90°.
+ * @return The pulse width corresponding to the angle passed in the signature. If the angle is not in the specified range, its value will be of ANGLE_0.
+*/
 uint32_t angleToPulseWidth(int angle) {
 	// If the angle is out of the possible range, the default value will be the 0° position.
 	if (angle < -90 || angle > 90) {
@@ -91,7 +103,7 @@ uint32_t angleToPulseWidth(int angle) {
 /**
  * Setup the GPIO to work with the TIM4.
 */
-void setupGPIOForTIM4() {
+void setupGPIOForTIM4(void) {
 	// Setup the GPIO pins of the LEDs to work witht the TIM4 timer.
 	GPIO_InitTypeDef GPIO_InitStructure;
 	// Enables the clock for GPIOD and TIM4.
@@ -117,7 +129,7 @@ void setupGPIOForTIM4() {
 /**
  * Setup the TIM4 timer that will be used to generate PWM signals that will control the servo motors.
 */
-void initializeTIM4Timer() {
+void initializeTIM4Timer(void) {
 	// Code example on how to setup TIM4:
 	// https://my.st.com/public/STe2ecommunities/mcu/Lists/STM32Discovery/DispForm.aspx?ID=1816&Source=/public/STe2ecommunities/Tags.aspx?tags=stm32f4
 	

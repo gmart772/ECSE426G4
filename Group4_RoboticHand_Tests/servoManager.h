@@ -3,8 +3,8 @@
 
 #include "stm32f4xx.h"
 
-void initializeServoMotors();
-void goToSpecifiedAngles();
+void initializeServoMotors(void);
+void goToSpecifiedAngles(void);
 void setRollAngle(int roll);
 void setPitchAngle(int pitch);
 
