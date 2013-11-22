@@ -12,6 +12,27 @@
 #include "lcdManager.h"
 #include "cmsis_os.h"
 
+/**
+ * Initializes the LCD display.
+*/
 void initializeLCD(void) {
+	
+}
+
+void executeCommand(lcdCommands commandToExecute) {
+	switch(commandToExecute) {
+		case CLEAR_DISPLAY:
+		
+		break;
+		case RESET_CURSOR:
+			
+		break;
+		case INCREMENT_CHARACTER_MODE:
+			
+		break;
+	}
+}
+
+void writeString(char* dataToWrite) {
 	
 }
