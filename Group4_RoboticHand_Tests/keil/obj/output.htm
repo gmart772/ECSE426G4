@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\obj\output.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\obj\output.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 69]: Last Updated: Fri Nov 22 14:14:47 2013
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 69]: Last Updated: Fri Nov 22 14:20:19 2013
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -707,7 +707,7 @@ Global Symbols
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeLCD
 </UL>
 
-<P><STRONG><a name="[ad]"></a>sendCommand</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, lcdmanager.o(.text))
+<P><STRONG><a name="[ad]"></a>sendCommand</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, lcdmanager.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = sendCommand &rArr; setEnable
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
@@ -825,7 +825,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeLCD
 </UL>
 
-<P><STRONG><a name="[b9]"></a>setCommandOnDataLine</STRONG> (Thumb, 278 bytes, Stack size 8 bytes, lcdmanager.o(.text))
+<P><STRONG><a name="[b9]"></a>setCommandOnDataLine</STRONG> (Thumb, 328 bytes, Stack size 8 bytes, lcdmanager.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = setCommandOnDataLine &rArr; setData0
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setData0
@@ -870,7 +870,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeLCD
 </UL>
 
-<P><STRONG><a name="[7f]"></a>initializeLCD</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, lcdmanager.o(.text))
+<P><STRONG><a name="[7f]"></a>initializeLCD</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, lcdmanager.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = initializeLCD &rArr; writeString &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeControlGPIO

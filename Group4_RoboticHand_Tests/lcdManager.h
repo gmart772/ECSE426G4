@@ -3,7 +3,7 @@
 
 #include "stm32f4xx.h"
 
-typedef enum {CLEAR_DISPLAY, RESET_CURSOR, INCREMENT_CHARACTER_MODE, DISPLAY_CURSOR_ON, DISPLAY_CURSOR_OFF} lcdCommands;
+typedef enum {CLEAR_DISPLAY, RESET_CURSOR, INCREMENT_CHARACTER_MODE, DISPLAY_CURSOR_ON, DISPLAY_CURSOR_OFF, DEFAULT_CONFIGS} lcdCommands;
 typedef enum {ON, OFF} gpioState;
 
 void initializeLCD(void);

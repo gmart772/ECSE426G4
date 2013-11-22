@@ -12,8 +12,8 @@
 #include "lcdManager.h"
 #include "cmsis_os.h"
 
-const uint8_t COMMAND_DELAY = 5;
-const uint8_t ENABLE_DELAY = 1;
+const uint8_t COMMAND_DELAY = 1;
+//const uint8_t ENABLE_DELAY = 1;
 
 void initializeDataGPIO(void);
 void initializeControlGPIO(void);
@@ -45,6 +45,9 @@ void initializeLCD(void) {
 	// The default value for enable is 0 if there is no incoming data.
 	setEnable(OFF);
 	
+	setCommandOnDataLine(DEFAULT_CONFIGS);
+	sendCommand();
+	
 	setCommandOnDataLine(CLEAR_DISPLAY);
 	sendCommand();
 	
@@ -57,7 +60,7 @@ void initializeLCD(void) {
 	setCommandOnDataLine(DISPLAY_CURSOR_OFF);
 	sendCommand();
 	
-	char* testString = "This is a test.";
+	char* testString = "This is a test to see if the LCD display is working proplerly.";
 	writeString(testString);
 }
 
@@ -269,7 +272,7 @@ void setEnable(gpioState state) {
 
 void sendCommand(void) {
 	setEnable(ON);
-	osDelay(ENABLE_DELAY);
+	//osDelay(ENABLE_DELAY);
 	setEnable(OFF);
 	osDelay(COMMAND_DELAY);
 }
@@ -326,7 +329,18 @@ void setCommandOnDataLine(lcdCommands commandToExecute) {
 			setData6(OFF);
 			setData7(OFF);
 		break;
+		case DEFAULT_CONFIGS:
+			setData0(OFF);
+			setData1(OFF);
+			setData2(ON);
+			setData3(ON);
+			setData4(ON);
+			setData5(ON);
+			setData6(OFF);
+			setData7(OFF);
+		break;
 	}
+	
 	
 	// Sets the Register Select to 0 so that the LCD expects a command.
 	setRegisterSelect(OFF);
