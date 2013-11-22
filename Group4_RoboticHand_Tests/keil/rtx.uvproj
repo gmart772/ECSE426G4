@@ -438,11 +438,6 @@
               <FilePath>..\finiteStateMachine.c</FilePath>
             </File>
             <File>
-              <FileName>ledManager.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\ledManager.c</FilePath>
-            </File>
-            <File>
               <FileName>ARMCM4.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\ARMCM4.h</FilePath>
@@ -451,11 +446,6 @@
               <FileName>finiteStateMachine.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\finiteStateMachine.h</FilePath>
-            </File>
-            <File>
-              <FileName>ledManager.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\ledManager.h</FilePath>
             </File>
             <File>
               <FileName>timerManager.c</FileName>
