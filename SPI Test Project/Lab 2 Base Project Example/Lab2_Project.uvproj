@@ -427,6 +427,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\SMARTRF_CC2500.h</FilePath>
             </File>
+            <File>
+              <FileName>wireless.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\wireless.c</FilePath>
+            </File>
+            <File>
+              <FileName>wireless.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\wireless.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

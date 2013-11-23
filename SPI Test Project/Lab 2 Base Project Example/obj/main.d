@@ -1,5 +1,6 @@
 .\obj\main.o: src\main.c
 .\obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\obj\main.o: src\wireless.h
 .\obj\main.o: src\stm32f4xx.h
 .\obj\main.o: C:\Keil\ARM\CMSIS\Include\core_cm4.h
 .\obj\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h

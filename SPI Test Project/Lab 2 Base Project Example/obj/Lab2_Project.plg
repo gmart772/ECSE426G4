@@ -4,13 +4,16 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 C:\Users\gmarti37\ECSE426G4\SPI Test Project\Lab 2 Base Project Example\Lab2_Project.uvproj
-Project File Date:  11/22/2013
+Project File Date:  11/23/2013
 
 <h2>Output:</h2>
 Build target 'Target 1'
 assembling startup_stm32f40xx.s...
 compiling fputc_debug.c...
 compiling main.c...
+src\main.c(64): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
+src\main.c(148): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+src\main.c(303): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
 compiling system_stm32f4xx.c...
 compiling misc.c...
 compiling stm32f4xx_adc.c...
@@ -44,232 +47,7 @@ compiling stm32f4xx_tim.c...
 compiling stm32f4xx_usart.c...
 compiling stm32f4xx_wwdg.c...
 linking...
-Program Size: Code=5232 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: Code=5232 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-linking...
-Program Size: Code=5232 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-linking...
-Program Size: Code=5232 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-linking...
-Program Size: Code=5232 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-linking...
-Program Size: Code=5232 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(97): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-linking...
-Program Size: Code=4968 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: Code=4968 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(71): warning:  #177-D: variable "pBuffer" was declared but never referenced
-src\main.c(104): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-linking...
-Program Size: Code=4972 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-src\main.c(84): error:  #167: argument of type "uint8_t (*)[1]" is incompatible with parameter of type "uint8_t *"
-src\main.c(104): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-Target not created
-Build target 'Target 1'
-compiling main.c...
-src\main.c(84): error:  #167: argument of type "uint8_t (*)[2]" is incompatible with parameter of type "uint8_t *"
-src\main.c(104): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-Target not created
-Build target 'Target 1'
-compiling main.c...
-src\main.c(104): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-linking...
-Program Size: Code=4992 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: Code=4992 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(104): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-linking...
-Program Size: Code=4992 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-linking...
-Program Size: Code=4992 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(104): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(256): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5056 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-src\main.c(85): error:  #167: argument of type "uint8_t" is incompatible with parameter of type "uint8_t *"
-src\main.c(107): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(259): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-Target not created
-Build target 'Target 1'
-compiling main.c...
-src\main.c(107): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(259): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5048 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-linking...
-Program Size: Code=5048 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(107): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(259): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5052 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(112): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(266): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5064 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(112): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(266): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5064 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(112): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(267): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5064 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(108): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(260): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5064 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(108): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(260): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5064 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(108): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(262): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5064 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(157): error:  #65: expected a ";"
-src\main.c(162): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(314): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-Target not created
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(162): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(314): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5340 RO-data=424 RW-data=48 ZI-data=1656  
+Program Size: Code=5392 RO-data=424 RW-data=48 ZI-data=1656  
 ".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
 Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
 Erase Done.
@@ -277,199 +55,129 @@ Programming Done.
 Verify OK.
 Build target 'Target 1'
 compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(163): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(315): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5344 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(160): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(312): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5344 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(157): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(309): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5340 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(307): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5604 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(307): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5612 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-linking...
-Program Size: Code=5612 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(308): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5616 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(308): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5616 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 2 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(158): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(306): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5344 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(158): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+src\main.c(64): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
+src\main.c(150): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
 src\main.c(305): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5348 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(158): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(305): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5348 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(61): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(158): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(305): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5348 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(64): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(140): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(295): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5368 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(64): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(80): error:  #65: expected a ";"
-src\main.c(143): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(298): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-Target not created
-Build target 'Target 1'
-compiling main.c...
-src\main.c(64): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(143): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(298): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5380 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-linking...
-Program Size: Code=5380 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(64): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(149): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(304): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
-linking...
-Program Size: Code=5420 RO-data=424 RW-data=48 ZI-data=1656  
-".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-src\main.c(64): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
-src\main.c(147): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
-src\main.c(302): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
 linking...
 Program Size: Code=5392 RO-data=424 RW-data=48 ZI-data=1656  
 ".\obj\Lab2_Project.axf" - 0 Error(s), 3 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\main.c(2): error:  #5: cannot open source input file "wireless.h": No such file or directory
+compiling wireless.c...
+wireless.h(63): warning:  #1295-D: Deprecated declaration init_wireless_chip - give arg types
+wireless.h(65): warning:  #1-D: last line of file ends without a newline
+wireless.c(65): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+wireless.c(138): warning:  #223-D: function "printf" declared implicitly
+wireless.c(220): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
+Target not created
+Build target 'Target 1'
+compiling main.c...
+src\main.c(2): error:  #5: cannot open source input file "wireless.h": No such file or directory
+compiling wireless.c...
+wireless.h(65): warning:  #1-D: last line of file ends without a newline
+wireless.c(65): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+wireless.c(138): warning:  #223-D: function "printf" declared implicitly
+wireless.c(220): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
+Target not created
+Build target 'Target 1'
+compiling main.c...
+src\wireless.h(65): warning:  #1-D: last line of file ends without a newline
+compiling wireless.c...
+src\wireless.h(65): warning:  #1-D: last line of file ends without a newline
+src\wireless.c(65): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+src\wireless.c(138): warning:  #223-D: function "printf" declared implicitly
+src\wireless.c(220): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
+linking...
+.\obj\Lab2_Project.axf: Error: L6200E: Symbol SPI_InitStructure multiply defined (by wireless.o and main.o).
+.\obj\Lab2_Project.axf: Error: L6200E: Symbol TIMEOUT multiply defined (by wireless.o and main.o).
+Target not created
+Build target 'Target 1'
+compiling main.c...
+src\wireless.h(63): warning:  #1-D: last line of file ends without a newline
+compiling wireless.c...
+src\wireless.h(63): warning:  #1-D: last line of file ends without a newline
+src\wireless.c(65): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+src\wireless.c(141): warning:  #223-D: function "printf" declared implicitly
+src\wireless.c(223): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
+linking...
+.\obj\Lab2_Project.axf: Error: L6200E: Symbol TIMEOUT multiply defined (by wireless.o and main.o).
+Target not created
+Build target 'Target 1'
+compiling main.c...
+src\wireless.h(63): warning:  #1-D: last line of file ends without a newline
+compiling wireless.c...
+src\wireless.h(63): warning:  #1-D: last line of file ends without a newline
+src\wireless.c(65): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+src\wireless.c(141): warning:  #223-D: function "printf" declared implicitly
+src\wireless.c(151): error:  #29: expected an expression
+src\wireless.c(162): error:  #29: expected an expression
+src\wireless.c(223): error:  #29: expected an expression
+Target not created
+Build target 'Target 1'
+compiling main.c...
+src\wireless.h(63): warning:  #1-D: last line of file ends without a newline
+compiling wireless.c...
+src\wireless.h(63): warning:  #1-D: last line of file ends without a newline
+src\wireless.c(65): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+src\wireless.c(141): warning:  #223-D: function "printf" declared implicitly
+src\wireless.c(223): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
+linking...
+.\obj\Lab2_Project.axf: Error: L6200E: Symbol TIMEOUT multiply defined (by wireless.o and main.o).
+Target not created
+Build target 'Target 1'
+compiling main.c...
+src\wireless.h(63): warning:  #1-D: last line of file ends without a newline
+compiling wireless.c...
+src\wireless.h(63): warning:  #1-D: last line of file ends without a newline
+src\wireless.c(65): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+src\wireless.c(141): warning:  #223-D: function "printf" declared implicitly
+src\wireless.c(223): warning:  #177-D: variable "wirelessTimeout" was declared but never referenced
+linking...
+Program Size: Code=5412 RO-data=424 RW-data=48 ZI-data=1632  
+".\obj\Lab2_Project.axf" - 0 Error(s), 5 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\wireless.h(62): warning:  #1-D: last line of file ends without a newline
+compiling wireless.c...
+src\wireless.h(62): warning:  #1-D: last line of file ends without a newline
+src\wireless.c(65): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+src\wireless.c(141): warning:  #223-D: function "printf" declared implicitly
+linking...
+Program Size: Code=5404 RO-data=424 RW-data=48 ZI-data=1632  
+".\obj\Lab2_Project.axf" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+src\wireless.h(61): warning:  #1-D: last line of file ends without a newline
+compiling wireless.c...
+src\wireless.h(61): warning:  #1-D: last line of file ends without a newline
+src\wireless.c(65): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+src\wireless.c(141): warning:  #223-D: function "printf" declared implicitly
+linking...
+Program Size: Code=5404 RO-data=424 RW-data=48 ZI-data=1632  
+".\obj\Lab2_Project.axf" - 0 Error(s), 4 Warning(s).
+Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+src\wireless.h(61): warning:  #1-D: last line of file ends without a newline
+compiling wireless.c...
+src\wireless.h(61): warning:  #1-D: last line of file ends without a newline
+src\wireless.c(65): warning:  #177-D: variable "NVIC_InitStructure" was declared but never referenced
+src\wireless.c(141): warning:  #223-D: function "printf" declared implicitly
+linking...
+Program Size: Code=5404 RO-data=424 RW-data=48 ZI-data=1632  
+".\obj\Lab2_Project.axf" - 0 Error(s), 4 Warning(s).
 Load "C:\\Users\\gmarti37\\ECSE426G4\\SPI Test Project\\Lab 2 Base Project Example\\obj\\Lab2_Project.axf" 
 Erase Done.
 Programming Done.
