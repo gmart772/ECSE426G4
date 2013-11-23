@@ -70,7 +70,7 @@ void SPI_Config(void)
   /* Peripheral Clock Enable -------------------------------------------------*/
   /* Enable the SPI clock */
   //SPIx_CLK_INIT(SPIx_CLK, ENABLE);
-	RCC_APB2PeriphClockCmd(SPIx_CLK, ENABLE);
+	RCC_APB1PeriphClockCmd(SPIx_CLK, ENABLE);
 
   /* Enable GPIO clocks */
   RCC_AHB1PeriphClockCmd(SPIx_SCK_GPIO_CLK | SPIx_MISO_GPIO_CLK | SPIx_MOSI_GPIO_CLK, ENABLE);
@@ -137,36 +137,28 @@ void SPI_Config(void)
   //NVIC_Init(&NVIC_InitStructure); 
 }
 
-void SPIx_IRQHandler(void) {
-	printf("Interrupt received!\n");
-	uint16_t data;
-	data = SPI_I2S_ReceiveData(SPIx);
-		printf("Version data: %d\n", data);
-
-}
-
 uint8_t wireless_SendByte(uint8_t byte)
 {
   /* Loop while DR register in not emplty */
 	uint32_t wirelessTimeout = TIMEOUT;
 	
-  while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == RESET)
+  while (SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_TXE) == RESET)
   {
     if((wirelessTimeout--) == 0) return wireless_TIMEOUT_UserCallback();
   }
   
   /* Send a Byte through the SPI peripheral */
-  SPI_I2S_SendData(SPI1, byte);
+  SPI_I2S_SendData(SPIx, byte);
   
   /* Wait to receive a Byte */
   wirelessTimeout = TIMEOUT;
-  while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == RESET)
+  while (SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_RXNE) == RESET)
   {
     if((wirelessTimeout--) == 0) return wireless_TIMEOUT_UserCallback();
   }
   
   /* Return the Byte read from the SPI bus */
-  return (uint8_t)SPI_I2S_ReceiveData(SPI1);
+  return (uint8_t)SPI_I2S_ReceiveData(SPIx);
 }
 
 uint32_t wireless_TIMEOUT_UserCallback(void)
@@ -217,12 +209,13 @@ void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead
   wireless_CS_HIGH();
 }
 
-void wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToWrite)
+uint8_t wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToWrite)
 {
   /* Loop while DR register in not emplty */
 //	uint32_t wirelessTimeout = TIMEOUT;
 	//address |= (uint8_t) 0x80;
 	uint8_t write_type;
+	uint8_t chipStatusByte;
 	
 	if (NumByteToWrite > 1)
 	{
@@ -235,11 +228,46 @@ void wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToWrite
 	
 	wireless_CS_LOW();
 	int i;
-	wireless_SendByte(WriteAddr | write_type);
+	chipStatusByte = wireless_SendByte(WriteAddr | write_type);
 	for (i = 0; i < NumByteToWrite; i++) {
-		wireless_SendByte(byte[i]);
+		chipStatusByte = wireless_SendByte(byte[i]);
 	}
 	wireless_CS_HIGH();
+	
+	return chipStatusByte;
+}
+
+void wireless_TransmitData(uint8_t *data, uint8_t NumByteToTransmit) 
+{
+	if (NumByteToTransmit > 64) {
+	  //flag some sort of error
+	}
+	
+	uint8_t write_type;
+	uint8_t chipStatusByte;
+	
+	if (NumByteToTransmit > 1)
+	{
+		write_type = BURST_WRITE;
+	}
+	else
+	{
+		write_type = SINGLE_WRITE;
+	}
+
+	// write data to the transmit FIFO
+	chipStatusByte = wireless_WriteReg(data, TX_FIFO | write_type, NumByteToTransmit);
+	
+	// send command strobe to start transmission
+	chipStatusByte = wireless_WriteReg(data, START_IDLE, 1);
+	chipStatusByte = wireless_WriteReg(data, START_TX, 1);
+	chipStatusByte = wireless_WriteReg(data, START_IDLE, 1);
+
+	
+	
+	int x = 0;
+	
+	
 }
 
 

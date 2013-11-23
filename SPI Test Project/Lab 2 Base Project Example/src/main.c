@@ -7,6 +7,7 @@ int main()
 	init_wireless_chip();
 	
 	uint8_t pBuffer[16]; 
+	uint8_t transmitBuffer[63];
 	
 	// Read partnum
 	uint8_t address = 0x30;
@@ -18,6 +19,8 @@ int main()
 
 	// Read all the test registers
 	wireless_ReadReg(pBuffer, TEST2, 3, CONFIG_REGISTER);
+	
+	wireless_TransmitData(transmitBuffer, 63);
 	
 }
 

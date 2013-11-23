@@ -14,7 +14,7 @@
 // Value to program
 #define SMARTRF_SETTING_FSCTRL1    0x0C//0x12 //Frequency offset = 457kHz
 #define SMARTRF_SETTING_FSCTRL0    0x00
-#define SMARTRF_SETTING_FREQ2      0x5D // Carrier Frequency is 2.433GHz
+#define SMARTRF_SETTING_FREQ2      0x5D // Carrier Frequency is 2.433GHz + 32 MHz
 #define SMARTRF_SETTING_FREQ1      0x93
 #define SMARTRF_SETTING_FREQ0      0xB1
 #define SMARTRF_SETTING_MDMCFG4    0x0E //0x2D // BW of channel = 541.666kHz
