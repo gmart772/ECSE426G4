@@ -115,7 +115,7 @@ I (.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x5290B887)
 I (.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x5290B887)
 I (.\STM32F4xx_StdPeriph_Driver\inc\misc.h)(0x5290B887)
 F (.\src\SMARTRF_CC2500.h)(0x5290D0E1)()
-F (.\src\wireless.c)(0x5290D6FD)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I.\src -I.\STM32F4xx_StdPeriph_Driver\inc --c99 -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F4xx -DHSE_VALUE="8000000" -DUSE_STDPERIPH_DRIVER -DSTM32F40XX -o ".\obj\wireless.o" --omf_browse ".\obj\wireless.crf" --depend ".\obj\wireless.d")
+F (.\src\wireless.c)(0x5290D837)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I.\src -I.\STM32F4xx_StdPeriph_Driver\inc --c99 -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F4xx -DHSE_VALUE="8000000" -DUSE_STDPERIPH_DRIVER -DSTM32F40XX -o ".\obj\wireless.o" --omf_browse ".\obj\wireless.crf" --depend ".\obj\wireless.d")
 I (src\wireless.h)(0x5290D37E)
 I (src\stm32f4xx.h)(0x5290B888)
 I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x5273F5B1)
