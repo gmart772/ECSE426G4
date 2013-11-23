@@ -1,10 +1,8 @@
 #include "wireless.h"
 
-void initializeWirelessChip(void)
+void init_wireless_chip(void)
 {
 	SPI_Config();
-	
-	// SPI_InterruptInit();
 
 	uint8_t init_data[16];
 	
@@ -63,6 +61,7 @@ void initializeWirelessChip(void)
 void SPI_Config(void)
 {
   GPIO_InitTypeDef GPIO_InitStructure;
+  NVIC_InitTypeDef NVIC_InitStructure;
 	
 	SPI_InitTypeDef  SPI_InitStructure;
 
@@ -125,31 +124,14 @@ void SPI_Config(void)
 	
 	wireless_CS_HIGH();
 
-	
-}
-
-void SPI_InterruptInit(void)
-{
-	EXTI_InitTypeDef EXTI_InitTypeDefStruct;
-  NVIC_InitTypeDef NVIC_InitStruct;
-	
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
-  SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB, EXTI_PinSource11);
-
-	EXTI_InitTypeDefStruct.EXTI_Line = EXTI_Line0;
-  EXTI_InitTypeDefStruct.EXTI_Mode = EXTI_Mode_Interrupt;
-  EXTI_InitTypeDefStruct.EXTI_Trigger = EXTI_Trigger_Rising;  
-  EXTI_InitTypeDefStruct.EXTI_LineCmd = ENABLE;
-  EXTI_Init(&EXTI_InitTypeDefStruct);
-
   /* Configure the Priority Group to 1 bit */                
-  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+  //NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
   /* Configure the SPI interrupt priority */
-  NVIC_InitStruct.NVIC_IRQChannel = SPIx_IRQn;
-  NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 1;
-  NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
-  NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStruct);
+  //NVIC_InitStructure.NVIC_IRQChannel = SPIx_IRQn;
+  //NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+  //NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  //NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  //NVIC_Init(&NVIC_InitStructure); 
 }
 
 uint8_t wireless_SendByte(uint8_t byte)
@@ -203,17 +185,6 @@ void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead
 	else if (mode == STATUS_REGISTER)
 	{
 		read_type = BURST_READ;
-	}
-	else if (mode == FIFO)
-	{
-		if(NumByteToRead > 1)
-		{
-			read_type = BURST_READ;
-		}
-		else
-		{
-			read_type = SINGLE_READ;
-		}
 	}
 	
   /* Set chip select Low at the start of the transmission */
@@ -288,62 +259,12 @@ void wireless_TransmitData(uint8_t *data, uint8_t NumByteToTransmit)
 	chipStatusByte = wireless_WriteReg(data, START_IDLE, 1);
 	chipStatusByte = wireless_WriteReg(data, START_TX, 1);
 	chipStatusByte = wireless_WriteReg(data, START_IDLE, 1);
+
 	
-	if (chipStatusByte == 0)
-	{
-		// Do something
-	}
+	
+	int x = 0;
+	
+	
 }
 
-void wireless_ReceiveData(uint8_t *data, uint8_t NumByteToReceive)
-{
-	if (NumByteToReceive > 64) {
-	  //flag some sort of error
-	}
-	
-	uint8_t chipStatusByte;
-	
-	// Read data from the RX FIFO
-	wireless_ReadReg(data, RX_FIFO, 2, FIFO);
-	
-	// Check the status?
-}
 
-void receiveAccData()
-{
-	uint8_t data[2];
-	wireless_ReceiveData(data, 2);
-	
-	osMutexWait(pitch_mutex, osWaitForever);
-	pitch_angle = data[0];
-	osMutexRelease(pitch_mutex);
-	
-	osMutexWait(roll_mutex, osWaitForever);
-	roll_angle = data[1];
-	osMutexRelease(roll_mutex);
-}
-
-int checkRXByteCount()
-{
-	int status;
-	uint8_t data[1];
-	
-	// Read the RX bytes available register
-	wireless_ReadReg(data, RXBYTES, 1, STATUS_REGISTER);
-	
-	// Make sure there is data in the FIFO but it is not overfilled
-	if (data[0] > 2 && data[0] < 255)
-	{
-		status = 1;
-	}
-	else if (data[0] >= 255)
-	{
-		// RX buffer is overflowed!! DO SOMETHING ABOUT IT, NOT SURE WHAT
-	}
-	else
-	{
-		status = 0;
-	}
-	
-	return status;
-}

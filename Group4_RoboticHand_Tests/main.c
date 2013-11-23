@@ -18,6 +18,7 @@
 #include "lcdManager.h"
 #include "servoManager.h"
 #include "keypadManager.h"
+#include "wireless.h"
 
 // Resources:
 // http://mbed.org/handbook/CMSIS-RTOS
@@ -30,7 +31,7 @@ void preamble(void);
 osThreadDef(fsmThread, osPriorityNormal, 1, 0);
 osThreadDef(wifiThread, osPriorityNormal, 1, 0);
 
-osThreadId tid_fsmThread, tid_wikiThread;
+osThreadId tid_fsmThread, tid_wifiThread;
 
 /**
  @brief Program entry point
@@ -63,7 +64,7 @@ void TIM2_IRQHandler() {
 void TIM3_IRQHandler() {
 	// Clears the interrupt flag since we are caching it right now.
 	TIM_ClearITPendingBit(TIM3, TIM_IT_Update);
-	osSignalSet(tid_wikiThread, 2);
+	osSignalSet(tid_wifiThread, 1);
 }
 
 /**
@@ -77,7 +78,12 @@ void preamble(void) {
 	initializeTIM2Timer();
 	initializeTIM3Timer();
 	
+	// Init Wireless
+	initializeWirelessChip();
+	
 	tid_fsmThread = osThreadCreate(osThread(fsmThread), NULL);
+	
+	tid_wifiThread = osThreadCreate(osThread(wifiThread), NULL);
 }
 
 /**
@@ -95,8 +101,23 @@ void fsmThread(void const *argument) {
  * Defines the main thread that will process the data retrieval on wiki.
 */
 void wifiThread(void const *argument) {
-	// Fetches the data from the temperature sensor.
+	
+	int status;
+	uint8_t chipStatusByte;
+	uint8_t data[1];
+
+	// Receive data from the wireless chip
 	while (1){
 		osSignalWait(1, osWaitForever);
+		
+		status = checkRXByteCount();
+		if (status == 1)
+		{
+			receiveAccData();
+		}
+		else
+		{
+			// Do nothing
+		}
 	}
 }

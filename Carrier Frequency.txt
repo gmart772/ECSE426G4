@@ -1,0 +1,23 @@
+Carrier = (Fxosc/2^16) * FREQ[23:0]
+
+FREQ[23:16] = 	0x5D
+FREQ[15:8] = 	0x93
+FREQ[7:0] = 	0xB1
+
+In decimal this equals 6132657
+
+We know that the above gives us a Carrier = 2.433GHz
+
+So 
+
+(2.433Ghz/6132657)*2^16 = Fxosc = 26000000.978368755989451228072922 = 26Mhz
+
+So
+
+Carrier = (396.728530426025390625) * FREQ[23:0]
+
+We want a carrier frequency of 2.433 GHz + (8x4) KHz = 2.433Ghz + 32KHz = 2.433032 GHz
+
+Therefore, the value of FREQ should be 6132738.1319970710448077211493502 (6132738) which in HEX is 0x5D9402
+
+6132697.8021493288231120274948737

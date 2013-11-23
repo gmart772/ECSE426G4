@@ -492,6 +492,21 @@
               <FileType>5</FileType>
               <FilePath>..\keypadManager.h</FilePath>
             </File>
+            <File>
+              <FileName>SMARTRF_CC2500.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\SPI Test Project\SMARTRF_CC2500.h</FilePath>
+            </File>
+            <File>
+              <FileName>wireless.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\SPI Test Project\Lab 2 Base Project Example\src\wireless.c</FilePath>
+            </File>
+            <File>
+              <FileName>wireless.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\SPI Test Project\Lab 2 Base Project Example\src\wireless.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

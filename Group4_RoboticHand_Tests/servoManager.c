@@ -65,6 +65,7 @@ void goToSpecifiedAngles(void) {
 	osMutexWait(roll_mutex, osWaitForever);
 	int tempRoll = roll_angle;
 	osMutexRelease(roll_mutex);
+	
 	// Fetches the pitch value.
 	osMutexWait(pitch_mutex, osWaitForever);
 	int tempPitch = pitch_angle;

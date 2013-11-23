@@ -15,8 +15,8 @@
 #define SMARTRF_SETTING_FSCTRL1    0x0C//0x12 //Frequency offset = 457kHz
 #define SMARTRF_SETTING_FSCTRL0    0x00
 #define SMARTRF_SETTING_FREQ2      0x5D // Carrier Frequency is 2.433GHz
-#define SMARTRF_SETTING_FREQ1      0x93//0x94
-#define SMARTRF_SETTING_FREQ0      0xB1//0x02	//Was 0xB1 for 2.433GHz 
+#define SMARTRF_SETTING_FREQ1      0x93
+#define SMARTRF_SETTING_FREQ0      0xB1
 #define SMARTRF_SETTING_MDMCFG4    0x0E //0x2D // BW of channel = 541.666kHz
 #define SMARTRF_SETTING_MDMCFG3    0x3B // Baud Rate = 125kb
 #define SMARTRF_SETTING_MDMCFG2    0x73 //0xF3 // Disable digital DC blocking filter before demodulator, MSK modulation, 16/16 sync word bits detected
@@ -40,20 +40,20 @@
 #define SMARTRF_SETTING_TEST2      0x88
 #define SMARTRF_SETTING_TEST1      0x31
 #define SMARTRF_SETTING_TEST0      0x0B
-#define SMARTRF_SETTING_FIFOTHR    0x00		// FIFO threshold value (SET TO 0 TO ENABLE AN INTERRUPT EVERY TIME THE RX BUFFER HAS 4 BYTES! WAS 0X07 BEFORE)
+#define SMARTRF_SETTING_FIFOTHR    0x07
 #define SMARTRF_SETTING_IOCFG2     0x29
 #define SMARTRF_SETTING_IOCFG0D    0x06
 #define SMARTRF_SETTING_PKTCTRL1   0x04
-#define SMARTRF_SETTING_PKTCTRL0   0x04 //0x05 // Fixed Packet Length (0x05) // THIS DOES NOT IMPLEMENT FIXED PACKET LENGTH. THIS IS PROGRAMMED FOR VARIABLE PACKET LENGTH!!!!
+#define SMARTRF_SETTING_PKTCTRL0   0x05 //0x05 // Fixed Packet Length (0x05)
 #define SMARTRF_SETTING_ADDR       0x00 // Global Broadcast Address
-#define SMARTRF_SETTING_PKTLEN     0x02 // Packet Length of 10bytes (0xFF) // Switched to packet size of 2
+#define SMARTRF_SETTING_PKTLEN     0x0A // Packet Length of 10bytes (0xFF)
 
 // Address to program values in to
 #define FSCTRL1						0x0B
 #define FSCTRL0						0x0C
-#define FREQ2							0x0D
-#define FREQ1							0x0E
-#define FREQ0							0x0F
+#define FREQ2						0x0D
+#define FREQ1						0x0E
+#define FREQ0						0x0F
 #define	MDMCFG4						0x10
 #define MDMCFG3						0x11
 #define MDMCFG2						0x12
