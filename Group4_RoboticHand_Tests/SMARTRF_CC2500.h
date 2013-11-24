@@ -15,8 +15,8 @@
 #define SMARTRF_SETTING_FSCTRL1    0x0C//0x12 //Frequency offset = 457kHz
 #define SMARTRF_SETTING_FSCTRL0    0x00
 #define SMARTRF_SETTING_FREQ2      0x5D // Carrier Frequency is 2.433GHz
-#define SMARTRF_SETTING_FREQ1      0x93
-#define SMARTRF_SETTING_FREQ0      0xB1
+#define SMARTRF_SETTING_FREQ1      0x94	//0x93
+#define SMARTRF_SETTING_FREQ0      0x02	//0xB1
 #define SMARTRF_SETTING_MDMCFG4    0x0E //0x2D // BW of channel = 541.666kHz
 #define SMARTRF_SETTING_MDMCFG3    0x3B // Baud Rate = 125kb
 #define SMARTRF_SETTING_MDMCFG2    0x73 //0xF3 // Disable digital DC blocking filter before demodulator, MSK modulation, 16/16 sync word bits detected
@@ -26,6 +26,9 @@
 #define SMARTRF_SETTING_DEVIATN    0x00 //0x01 // 1785kHz
 #define SMARTRF_SETTING_FREND1     0xB6
 #define SMARTRF_SETTING_FREND0     0x10
+
+#define SMARTRF_SETTING_MCSM1      0x02 // Automatically calibrate When going from IDLE to RX or TX (or FSTXON) check CC2500 datasheet
+
 #define SMARTRF_SETTING_MCSM0      0x18 // Automatically calibrate When going from IDLE to RX or TX (or FSTXON) check CC2500 datasheet
 #define SMARTRF_SETTING_FOCCFG     0x1D // check datasheet
 #define SMARTRF_SETTING_BSCFG      0x1C
@@ -42,18 +45,18 @@
 #define SMARTRF_SETTING_TEST0      0x0B
 #define SMARTRF_SETTING_FIFOTHR    0x07
 #define SMARTRF_SETTING_IOCFG2     0x29
-#define SMARTRF_SETTING_IOCFG0D    0x06
-#define SMARTRF_SETTING_PKTCTRL1   0x04
-#define SMARTRF_SETTING_PKTCTRL0   0x05 //0x05 // Fixed Packet Length (0x05)
+#define SMARTRF_SETTING_IOCFG0     0x06
+#define SMARTRF_SETTING_PKTCTRL1   0x08
+#define SMARTRF_SETTING_PKTCTRL0   0x04 //0x05 // Fixed Packet Length (0x05)
 #define SMARTRF_SETTING_ADDR       0x00 // Global Broadcast Address
-#define SMARTRF_SETTING_PKTLEN     0x0A // Packet Length of 10bytes (0xFF)
+#define SMARTRF_SETTING_PKTLEN     0x02 // Packet Length of 10bytes (0xFF)
 
 // Address to program values in to
 #define FSCTRL1						0x0B
 #define FSCTRL0						0x0C
-#define FREQ2						0x0D
-#define FREQ1						0x0E
-#define FREQ0						0x0F
+#define FREQ2							0x0D
+#define FREQ1							0x0E
+#define FREQ0							0x0F
 #define	MDMCFG4						0x10
 #define MDMCFG3						0x11
 #define MDMCFG2						0x12
@@ -63,6 +66,8 @@
 #define DEVIATN 					0x15
 #define FREND1  					0x21
 #define FREND0  					0x22
+
+#define MCSM1							0x17
 #define MCSM0   					0x18
 #define FOCCFG  					0x19
 #define BSCFG   					0x1A
@@ -79,6 +84,8 @@
 #define TEST0   					0x2E
 #define FIFOTHR 					0x03
 #define IOCFG2  					0x00
+#define IOCFG0						0x02
+
 // #define IOCFG0D 					Should be either 0x01 for IOCFGG1 GDO1 or 0x02 for IOCFG0 GDO0
 #define PKTCTRL1					0x07
 #define PKTCTRL0					0x08

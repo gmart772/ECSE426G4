@@ -1,6 +1,6 @@
 #include "wireless.h"
 
-void init_wireless_chip(void)
+void initializeWirelessChip(void)
 {
 	SPI_Config();
 
@@ -9,7 +9,7 @@ void init_wireless_chip(void)
 	init_data[0] = SMARTRF_SETTING_IOCFG2;
 	wireless_WriteReg(init_data, IOCFG2, 1);
 	
-	init_data[0] = SMARTRF_SETTING_IOCFG0D;
+	init_data[0] = SMARTRF_SETTING_IOCFG0;
 	wireless_WriteReg(init_data, IOCFG0, 1);
 	
 	init_data[0] = SMARTRF_SETTING_FIFOTHR;
@@ -33,13 +33,14 @@ void init_wireless_chip(void)
 	init_data[15] = SMARTRF_SETTING_DEVIATN;
 	wireless_WriteReg(init_data, PKTLEN, 16);
 	
-	init_data[0] = SMARTRF_SETTING_MCSM0;
-	init_data[1] = SMARTRF_SETTING_FOCCFG;
-	init_data[2] = SMARTRF_SETTING_BSCFG;
-	init_data[3] = SMARTRF_SETTING_AGCCTRL2;
-	init_data[4] = SMARTRF_SETTING_AGCCTRL1;
-	init_data[5] = SMARTRF_SETTING_AGCCTRL0;
-	wireless_WriteReg(init_data, MCSM0, 6);
+	init_data[0] = SMARTRF_SETTING_MCSM1;
+	init_data[1] = SMARTRF_SETTING_MCSM0;
+	init_data[2] = SMARTRF_SETTING_FOCCFG;
+	init_data[3] = SMARTRF_SETTING_BSCFG;
+	init_data[4] = SMARTRF_SETTING_AGCCTRL2;
+	init_data[5] = SMARTRF_SETTING_AGCCTRL1;
+	init_data[6] = SMARTRF_SETTING_AGCCTRL0;
+	wireless_WriteReg(init_data, MCSM1, 7);
 
 	init_data[0] = SMARTRF_SETTING_FREND1;
 	init_data[1] = SMARTRF_SETTING_FREND0;
@@ -57,11 +58,11 @@ void init_wireless_chip(void)
 	init_data[2] = SMARTRF_SETTING_TEST0;
 	wireless_WriteReg(init_data, TEST2, 3);
 }
+
 	 
 void SPI_Config(void)
 {
   GPIO_InitTypeDef GPIO_InitStructure;
-  NVIC_InitTypeDef NVIC_InitStructure;
 	
 	SPI_InitTypeDef  SPI_InitStructure;
 
@@ -123,16 +124,18 @@ void SPI_Config(void)
   GPIO_Init(SPIx_NSS_GPIO_PORT, &GPIO_InitStructure);
 	
 	wireless_CS_HIGH();
-
-  /* Configure the Priority Group to 1 bit */                
-  //NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
-  /* Configure the SPI interrupt priority */
-  //NVIC_InitStructure.NVIC_IRQChannel = SPIx_IRQn;
-  //NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-  //NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-  //NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  //NVIC_Init(&NVIC_InitStructure); 
 }
+
+
+uint32_t wireless_TIMEOUT_UserCallback(void)
+{
+  /* Block communication and all processes */
+  while (1)
+  {  
+		//	int x  = 0;
+  }
+}
+
 
 uint8_t wireless_SendByte(uint8_t byte)
 {
@@ -156,15 +159,6 @@ uint8_t wireless_SendByte(uint8_t byte)
   
   /* Return the Byte read from the SPI bus */
   return (uint8_t)SPI_I2S_ReceiveData(SPIx);
-}
-
-uint32_t wireless_TIMEOUT_UserCallback(void)
-{
-  /* Block communication and all processes */
-  while (1)
-  {  
-		//	int x  = 0;
-  }
 }
 
 void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead, uint8_t mode)
@@ -206,6 +200,31 @@ void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead
   wireless_CS_HIGH();
 }
 
+void wireless_ReadStatusReg(uint8_t *data, uint8_t ReadAddr)
+{
+	wireless_ReadReg(data, ReadAddr, 1, STATUS_REGISTER);
+}
+
+void wireless_ReadConfigRegister(uint8_t *data, uint8_t StartAddr, uint8_t NumBytesToRead)
+{
+	wireless_ReadReg(data, StartAddr, NumBytesToRead, CONFIG_REGISTER);
+}
+
+void wireless_ReadRXFIFO(uint8_t *data)
+{
+	wireless_CS_LOW();
+	
+	wireless_SendByte(RX_FIFO | 0x80);
+	*data = wireless_SendByte(DUMMY_BYTE);
+   data++;
+	
+	wireless_SendByte(RX_FIFO | 0x80);
+	*data = wireless_SendByte(DUMMY_BYTE);
+  
+	/* Set chip select High at the end of the transmission */ 
+  wireless_CS_HIGH();
+}
+
 uint8_t wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToWrite)
 {
   /* Loop while DR register in not emplty */
@@ -234,37 +253,62 @@ uint8_t wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToWr
 	return chipStatusByte;
 }
 
-void wireless_TransmitData(uint8_t *data, uint8_t NumByteToTransmit) 
+uint8_t wireless_CommandStrobe(uint8_t StrobeAddr)
 {
-	if (NumByteToTransmit > 64) {
-	  //flag some sort of error
-	}
-	
-	uint8_t write_type;
 	uint8_t chipStatusByte;
 	
-	if (NumByteToTransmit > 1)
-	{
-		write_type = BURST_WRITE;
-	}
-	else
-	{
-		write_type = SINGLE_WRITE;
-	}
-
-	// write data to the transmit FIFO
-	chipStatusByte = wireless_WriteReg(data, TX_FIFO | write_type, NumByteToTransmit);
+	wireless_CS_LOW();
 	
-	// send command strobe to start transmission
-	chipStatusByte = wireless_WriteReg(data, START_IDLE, 1);
-	chipStatusByte = wireless_WriteReg(data, START_TX, 1);
-	chipStatusByte = wireless_WriteReg(data, START_IDLE, 1);
-
+	chipStatusByte = wireless_SendByte(StrobeAddr);
 	
+	wireless_CS_HIGH();
 	
-	int x = 0;
-	
-	
+	return chipStatusByte;
 }
 
 
+void receiveAccData(uint8_t *data)
+{
+	wireless_ReadRXFIFO(data);
+	
+	uint8_t receivedData[4];
+	
+	receivedData[0] = data[0];
+	receivedData[1] = data[1];
+	
+	osMutexWait(pitch_mutex, osWaitForever);
+	pitch_angle = (int)(data[0]) - 90;
+	osMutexRelease(pitch_mutex);
+	
+	osMutexWait(roll_mutex, osWaitForever);
+	roll_angle = (int)(data[1]) - 90;
+	osMutexRelease(roll_mutex);
+}
+
+int checkRXByteCount()
+{
+	int status;
+	uint8_t data[2];
+	uint8_t chipStatusByte;
+	
+	//chipStatusByte = wireless_CommandStrobe(START_RX);
+	
+	// Read the RX bytes available register
+	wireless_ReadStatusReg(data, RXBYTES);
+	
+	// Make sure there is data in the FIFO but it is not overfilled
+	if (data[0] >= 2 && data[0] < 255)
+	{
+		status = 1;
+	}
+	else if (data[0] >= 255)
+	{
+		// RX buffer is overflowed!! DO SOMETHING ABOUT IT, NOT SURE WHAT
+	}
+	else
+	{
+		status = 0;
+	}
+	
+	return status;
+}

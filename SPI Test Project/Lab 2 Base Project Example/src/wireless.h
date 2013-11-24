@@ -24,7 +24,10 @@
 	#define RX_FIFO												0x3F
 	#define RXBYTES												0x3B
 	
-	#define DUMMY_BYTE                 		((uint8_t)0x00)
+	#define FLUSH_RX_FIFO									0x3A
+	#define FLUSH_TX_FIFO									0x3B
+	
+	#define MARCSTATE											0x35
 	
 	// Command strobes
 	#define START_TX											0x35
@@ -32,6 +35,8 @@
 	#define START_RX											0x34
 	#define START_IDLE										0x36
 	#define START_NOP											0x3D
+	
+	#define DUMMY_BYTE                 		((uint8_t)0x00)
 	
 	#define SPIx                           SPI2
   #define SPIx_CLK                       RCC_APB1Periph_SPI2
@@ -80,23 +85,21 @@
 	void receiveAccData(void);
 	
 	int checkRXByteCount(void);
-	
-	void SPI_InterruptInit(void);
+
 	void EXTI0_IRQHandler(void);
 	
+	uint32_t wireless_TIMEOUT_UserCallback(void);
+	
 	uint8_t wireless_SendByte(uint8_t byte);
-	
-  uint32_t wireless_TIMEOUT_UserCallback(void);
-	
-	void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead, uint8_t mode);
-	
+	uint8_t wireless_CommandStrobe(uint8_t StrobeAddr);
 	uint8_t wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToRead);
 	
+	void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead, uint8_t mode);
+	void wireless_ReadConfigRegister(uint8_t *data, uint8_t StartAddr, uint8_t NumBytesToRead);
+	void wireless_ReadStatusReg(uint8_t *data, uint8_t ReadAddr);
+	void wireless_ReadRXFIFO(uint8_t *data);
+	
 	void initializeWirelessChip(void);
-	
-	void wireless_TransmitData(uint8_t *data, uint8_t NumByteToTransmit);
-	
-	void wireless_ReceiveData(uint8_t *data, uint8_t NumByteToReceive);
 				
 	static uint16_t TIMEOUT = 0x1000;
 	

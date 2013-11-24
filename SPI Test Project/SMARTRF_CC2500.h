@@ -15,8 +15,8 @@
 #define SMARTRF_SETTING_FSCTRL1    0x0C//0x12 //Frequency offset = 457kHz
 #define SMARTRF_SETTING_FSCTRL0    0x00
 #define SMARTRF_SETTING_FREQ2      0x5D // Carrier Frequency is 2.433GHz
-#define SMARTRF_SETTING_FREQ1      0x93//0x94
-#define SMARTRF_SETTING_FREQ0      0xB1//0x02	//Was 0xB1 for 2.433GHz 
+#define SMARTRF_SETTING_FREQ1      0x94//0x94
+#define SMARTRF_SETTING_FREQ0      0x02//0x02	//Was 0xB1 for 2.433GHz 
 #define SMARTRF_SETTING_MDMCFG4    0x0E //0x2D // BW of channel = 541.666kHz
 #define SMARTRF_SETTING_MDMCFG3    0x3B // Baud Rate = 125kb
 #define SMARTRF_SETTING_MDMCFG2    0x73 //0xF3 // Disable digital DC blocking filter before demodulator, MSK modulation, 16/16 sync word bits detected
@@ -27,6 +27,9 @@
 #define SMARTRF_SETTING_FREND1     0xB6
 #define SMARTRF_SETTING_FREND0     0x10
 #define SMARTRF_SETTING_MCSM0      0x18 // Automatically calibrate When going from IDLE to RX or TX (or FSTXON) check CC2500 datasheet
+
+#define SMARTRF_SETTING_MCSM1			 0x03
+
 #define SMARTRF_SETTING_FOCCFG     0x1D // check datasheet
 #define SMARTRF_SETTING_BSCFG      0x1C
 #define SMARTRF_SETTING_AGCCTRL2   0xC7
@@ -63,6 +66,8 @@
 #define DEVIATN 					0x15
 #define FREND1  					0x21
 #define FREND0  					0x22
+
+#define MCSM1							0x17
 #define MCSM0   					0x18
 #define FOCCFG  					0x19
 #define BSCFG   					0x1A
