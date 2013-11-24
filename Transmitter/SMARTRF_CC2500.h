@@ -27,6 +27,7 @@
 #define SMARTRF_SETTING_FREND1     0xB6
 #define SMARTRF_SETTING_FREND0     0x10
 #define SMARTRF_SETTING_MCSM0      0x18 // Automatically calibrate When going from IDLE to RX or TX (or FSTXON) check CC2500 datasheet
+#define SMARTRF_SETTING_MCSM1 		 0x02
 #define SMARTRF_SETTING_FOCCFG     0x1D // check datasheet
 #define SMARTRF_SETTING_BSCFG      0x1C
 #define SMARTRF_SETTING_AGCCTRL2   0xC7
@@ -43,7 +44,7 @@
 #define SMARTRF_SETTING_FIFOTHR    0x07
 #define SMARTRF_SETTING_IOCFG2     0x29
 #define SMARTRF_SETTING_IOCFG0D    0x06
-#define SMARTRF_SETTING_PKTCTRL1   0x04
+#define SMARTRF_SETTING_PKTCTRL1   0x08
 #define SMARTRF_SETTING_PKTCTRL0   0x04 //0x05 // Fixed Packet Length (0x05)
 #define SMARTRF_SETTING_ADDR       0x00 // Global Broadcast Address
 #define SMARTRF_SETTING_PKTLEN     0x02 // Packet Length of 10bytes (0xFF)
@@ -71,6 +72,7 @@
 #define MDMCFG0						0x14
 #define DEVIATN 					0x15
 
+#define MCSM1 						0x17
 #define MCSM0   					0x18
 #define FOCCFG  					0x19
 #define BSCFG   					0x1A

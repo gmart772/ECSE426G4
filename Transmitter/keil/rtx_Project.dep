@@ -84,8 +84,8 @@ I (../inc/cmsis_os.h)(0x5290B8DB)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stddef.h)(0x516F1C96)
 I (../led.h)(0x5290E834)
 I (../threads.h)(0x52910293)
-I (../wireless.h)(0x52911216)
-I (../SMARTRF_CC2500.h)(0x52911ADA)
+I (../wireless.h)(0x529227E1)
+I (../SMARTRF_CC2500.h)(0x52924F3F)
 I (../accelerometer.h)(0x5291029D)
 I (../stm32f4_discovery_lis302dl.h)(0x5290B8DC)
 I (../conversion.h)(0x5290B8DB)
@@ -212,8 +212,8 @@ I (../STM32F4xx_StdPeriph_Driver/inc/misc.h)(0x5290B8DB)
 I (../inc/cmsis_os.h)(0x5290B8DB)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stddef.h)(0x516F1C96)
 I (..\threads.h)(0x52910293)
-I (..\wireless.h)(0x52911216)
-I (..\SMARTRF_CC2500.h)(0x52911ADA)
+I (..\wireless.h)(0x529227E1)
+I (..\SMARTRF_CC2500.h)(0x52924F3F)
 I (..\accelerometer.h)(0x5291029D)
 I (..\stm32f4_discovery_lis302dl.h)(0x5290B8DC)
 I (C:\Keil\ARM\ARMCC\bin\..\include\math.h)(0x516F1C96)
@@ -271,7 +271,7 @@ I (..\threads.h)(0x52910293)
 I (../inc/cmsis_os.h)(0x5290B8DB)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x516F1C96)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stddef.h)(0x516F1C96)
-I (..\wireless.h)(0x52911216)
+I (..\wireless.h)(0x529227E1)
 I (../CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x5290B8D8)
 I (../inc/core_cm4.h)(0x5290B8DB)
 I (../inc/core_cmInstr.h)(0x5290B8DB)
@@ -305,7 +305,7 @@ I (../STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h)(0x5290B8DB)
 I (../STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_usart.h)(0x5290B8DB)
 I (../STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_wwdg.h)(0x5290B8DB)
 I (../STM32F4xx_StdPeriph_Driver/inc/misc.h)(0x5290B8DB)
-I (..\SMARTRF_CC2500.h)(0x52911ADA)
+I (..\SMARTRF_CC2500.h)(0x52924F3F)
 I (..\accelerometer.h)(0x5291029D)
 I (..\stm32f4_discovery_lis302dl.h)(0x5290B8DC)
 I (C:\Keil\ARM\ARMCC\bin\..\include\math.h)(0x516F1C96)
@@ -313,8 +313,8 @@ I (..\conversion.h)(0x5290B8DB)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x516F1C96)
 I (..\led.h)(0x5290E834)
 I (..\accFilter.h)(0x5290B8DB)
-F (..\wireless.c)(0x5291200D)(-c --cpu Cortex-M4.fp -D__RTX -D__MICROLIB --li -g -O0 --apcs=interwork -I../ -I../rtx_cmsis -I../inc -I../CMSIS/Device/ST/STM32F4xx/Include -I../STM32F4xx_StdPeriph_Driver/inc --c99 -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -D__FPU_PRESENT="1" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER="1" -DHSE_VALUE="8000000" -DARM_MATH_CM4="1" -o ".\obj\wireless.o" --omf_browse ".\obj\wireless.crf" --depend ".\obj\wireless.d")
-I (..\wireless.h)(0x52911216)
+F (..\wireless.c)(0x52924F3C)(-c --cpu Cortex-M4.fp -D__RTX -D__MICROLIB --li -g -O0 --apcs=interwork -I../ -I../rtx_cmsis -I../inc -I../CMSIS/Device/ST/STM32F4xx/Include -I../STM32F4xx_StdPeriph_Driver/inc --c99 -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -D__FPU_PRESENT="1" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER="1" -DHSE_VALUE="8000000" -DARM_MATH_CM4="1" -o ".\obj\wireless.o" --omf_browse ".\obj\wireless.crf" --depend ".\obj\wireless.d")
+I (..\wireless.h)(0x529227E1)
 I (../CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x5290B8D8)
 I (../inc/core_cm4.h)(0x5290B8DB)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x516F1C96)
@@ -349,7 +349,7 @@ I (../STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h)(0x5290B8DB)
 I (../STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_usart.h)(0x5290B8DB)
 I (../STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_wwdg.h)(0x5290B8DB)
 I (../STM32F4xx_StdPeriph_Driver/inc/misc.h)(0x5290B8DB)
-I (..\SMARTRF_CC2500.h)(0x52911ADA)
+I (..\SMARTRF_CC2500.h)(0x52924F3F)
 I (../inc/cmsis_os.h)(0x5290B8DB)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stddef.h)(0x516F1C96)
 I (..\accelerometer.h)(0x5291029D)
@@ -359,8 +359,8 @@ I (..\conversion.h)(0x5290B8DB)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x516F1C96)
 I (..\led.h)(0x5290E834)
 I (..\accFilter.h)(0x5290B8DB)
-F (..\wireless.h)(0x52911216)()
-F (..\SMARTRF_CC2500.h)(0x52911ADA)()
+F (..\wireless.h)(0x529227E1)()
+F (..\SMARTRF_CC2500.h)(0x52924F3F)()
 F (..\STM32F4xx_StdPeriph_Driver\src\misc.c)(0x5290B8DB)(-c --cpu Cortex-M4.fp -D__RTX -D__MICROLIB --li -g -O0 --apcs=interwork -I../ -I../rtx_cmsis -I../inc -I../CMSIS/Device/ST/STM32F4xx/Include -I../STM32F4xx_StdPeriph_Driver/inc --c99 -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -D__FPU_PRESENT="1" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER="1" -DHSE_VALUE="8000000" -DARM_MATH_CM4="1" -o ".\obj\misc.o" --omf_browse ".\obj\misc.crf" --depend ".\obj\misc.d")
 I (../STM32F4xx_StdPeriph_Driver/inc/misc.h)(0x5290B8DB)
 I (../CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x5290B8D8)

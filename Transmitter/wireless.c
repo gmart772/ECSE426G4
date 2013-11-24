@@ -37,6 +37,9 @@ void init_wireless_chip(void)
 	init_data[15] = SMARTRF_SETTING_DEVIATN;
 	wireless_WriteReg(init_data, PKTLEN, 16);
 	
+	init_data[0] = SMARTRF_SETTING_MCSM1;
+	wireless_WriteReg(init_data, MCSM1, 1);
+	
 	init_data[0] = SMARTRF_SETTING_MCSM0;
 	init_data[1] = SMARTRF_SETTING_FOCCFG;
 	init_data[2] = SMARTRF_SETTING_BSCFG;
@@ -60,6 +63,12 @@ void init_wireless_chip(void)
 	init_data[1] = SMARTRF_SETTING_TEST1;
 	init_data[2] = SMARTRF_SETTING_TEST0;
 	wireless_WriteReg(init_data, TEST2, 3);
+	
+	wireless_WriteReg(NULL, FLUSH_TX_FIFO, 0);
+	wireless_WriteReg(NULL, FLUSH_RX_FIFO, 0);
+	wireless_WriteReg(NULL, START_IDLE, 0);
+
+	
 }
 	 
 void SPI_Config(void)
@@ -130,6 +139,9 @@ void SPI_Config(void)
 	
 	wireless_CS_HIGH();
 
+
+	wireless_WriteReg(NULL, FLUSH_RX_FIFO, 0);
+	wireless_WriteReg(NULL, FLUSH_TX_FIFO, 0);
   /* Configure the Priority Group to 1 bit */                
   //NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
   /* Configure the SPI interrupt priority */
@@ -214,7 +226,7 @@ void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead
 
 uint8_t wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToWrite)
 {
-  /* Loop while DR register in not emplty */
+  /* Loop while DR register in not empty */
 //	uint32_t wirelessTimeout = TIMEOUT;
 	//address |= (uint8_t) 0x80;
 	uint8_t write_type;
@@ -248,38 +260,14 @@ void wireless_TransmitData(uint8_t *data, uint8_t NumByteToTransmit)
 	
 	uint8_t write_type;
 	uint8_t chipStatusByte;
-	
-	if (NumByteToTransmit > 1)
-	{
-		write_type = BURST_WRITE;
-	}
-	else
-	{
-		write_type = SINGLE_WRITE;
-	}
-
-	// write data to the transmit FIFO
-	chipStatusByte = wireless_WriteReg(data, START_NOP, 1);
-
-	
-	chipStatusByte = wireless_WriteReg(data, TX_FIFO | write_type, NumByteToTransmit);
-
-	
-	
-//	chipStatusByte = wireless_WriteReg(data, START_IDLE, 1);
-	
-	// send command strobe to start transmission
-		wireless_ReadReg(data, 0x35, 1, STATUS_REGISTER);
+			
+	chipStatusByte = wireless_WriteReg(data, TX_FIFO, 2);
 
 	chipStatusByte = wireless_WriteReg(data, START_TX, 0);
-	chipStatusByte = wireless_WriteReg(data, 0x31, 0);
-	chipStatusByte = wireless_WriteReg(data, START_TX, 0);
-
-
 	
-	
+	uint8_t state[1];
+	wireless_ReadReg(state, 0x35, 1, STATUS_REGISTER);
 
-	
 }
 
 void sendAccData() {

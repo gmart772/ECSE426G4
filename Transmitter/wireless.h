@@ -58,6 +58,8 @@
 #define START_RX											0x34
 #define START_IDLE										0x36
 #define START_NOP											0x3D
+#define FLUSH_TX_FIFO									0x3B
+#define FLUSH_RX_FIFO									0x3A
 	
 	
 void SPI_Config(void);
