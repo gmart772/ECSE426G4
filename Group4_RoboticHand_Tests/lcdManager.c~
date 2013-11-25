@@ -12,19 +12,19 @@
 // |       Name       | GPIO Pin | Pin number on LCD |
 // +------------------+----------+-------------------+
 // |       Data0      |   PE0    |         7         |
-// |       Data1      |   PE1    |         8         |
-// |       Data2      |   PE2    |         9         |
-// |       Data3      |   PE3    |        10         |
-// |       Data4      |   PE4    |        11         |
-// |       Data5      |   PE5    |        12         |
-// |       Data6      |   PE6    |        13         |
-// |       Data7      |   PE7    |        14         |
-// | Register Select  |   PD0    |         4         |
-// |    Read/Write    |   PD1    |         5         |
-// |      Enable      |   PD2    |         6         |
-// |       Vcc        |  ground  |         1         |
-// |       Vdd        |   +5v    |         2         |
-// |       Vee        |   +5v    |         3         |
+// |       Data1      |   PE1    |         8 |
+// |       Data2      |   PE2    |         9 |
+// |       Data3      |   PE3    |        10 |
+// |       Data4      |   PE4    |        11 |
+// |       Data5      |   PE5    |        12 |
+// |       Data6      |   PE6    |        13 |
+// |       Data7      |   PE7    |        14 |
+// | Register Select  |   PD0    |         4 |
+// |    Read/Write    |   PD1    |         5 |
+// |      Enable      |   PD2    |         6 |
+// |       Vcc        |  ground  |         1 |
+// |       Vdd        |   +5v    |         2 |
+// |       Vee        |   +5v    |         3 |
 // +------------------+----------+-------------------+
 
 
