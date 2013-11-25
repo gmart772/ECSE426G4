@@ -527,6 +527,11 @@
               <FileType>5</FileType>
               <FilePath>..\lcdManager.h</FilePath>
             </File>
+            <File>
+              <FileName>fputc_debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\fputc_debug.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

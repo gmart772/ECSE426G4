@@ -51,7 +51,7 @@ void initAccelerometer(void) {
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
   SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOE, EXTI_PinSource0);
-
+/*
 	EXTI_InitTypeDefStruct.EXTI_Line = EXTI_Line0;
   EXTI_InitTypeDefStruct.EXTI_Mode = EXTI_Mode_Interrupt;
   EXTI_InitTypeDefStruct.EXTI_Trigger = EXTI_Trigger_Rising;  
@@ -63,7 +63,7 @@ void initAccelerometer(void) {
   NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0x01;
   NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStruct);
-
+*/
 	resetLatch();
 	
 	correctionMatrix[0][0] = 1.0479;

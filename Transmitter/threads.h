@@ -1,7 +1,8 @@
 #include "cmsis_os.h"
 #include "wireless.h"
+#include "keypadManager.h"
 
-extern osThreadId tid_acc, tid_wireless;
+extern osThreadId tid_acc, tid_wireless, tid_keypad;
 extern osMutexId pitchRollMutex;
 
 /*!
@@ -10,4 +11,5 @@ extern osMutexId pitchRollMutex;
  */
 void accelerometer(void const * argument);
 void wireless(void const * argument);
+void keypad(void const * argument);
 

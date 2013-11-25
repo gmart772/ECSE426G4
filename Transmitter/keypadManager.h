@@ -6,9 +6,11 @@
 void initializeKeypad(void);
 void scanManager(void);
 void setUpColumn(void);
-void scanRow(void);
-void incrementRow(void);
+void scan(void);
 void incrementColumn(void);
 void EXTI0_IRQHandler(void);
+void EXTI1_IRQHandler(void);
+void EXTI2_IRQHanlder(void);
+void EXTI3_IRQHandler(void);
 
 #endif

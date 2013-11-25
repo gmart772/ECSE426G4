@@ -16,3 +16,9 @@ void wireless(void const *argument) {
 	*/
 }
 
+void keypad(void const *argument){
+	while(1){
+		scanManager();
+	}
+}
+
