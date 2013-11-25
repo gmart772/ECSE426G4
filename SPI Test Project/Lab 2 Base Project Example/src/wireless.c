@@ -279,13 +279,8 @@ void receiveAccData()
 	
 	wireless_ReadRXFIFO(data);
 	
-	osMutexWait(pitch_mutex, osWaitForever);
-	pitch_angle = data[0];
-	osMutexRelease(pitch_mutex);
-	
-	osMutexWait(roll_mutex, osWaitForever);
-	roll_angle = data[1];
-	osMutexRelease(roll_mutex);
+	setPitchAngle(data[0]);
+	setRollAngle(data[1]);
 }
 
 int checkRXByteCount()

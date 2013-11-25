@@ -86,7 +86,7 @@ void initializeTIM3Timer(void) {
 	// Sets to up because we want it to count from 0 to the specified value (and generate an interrupt when the desired value is reached).
 	timer3InitParameters.TIM_CounterMode = TIM_CounterMode_Up;
 	// This is the upper bound of the counter. When it reaches this value it will generate an interrupt and reset itself to 0.
-	timer3InitParameters.TIM_Period = 42;
+	timer3InitParameters.TIM_Period = 84;
 	timer3InitParameters.TIM_ClockDivision = 0;
 	// Initializes the TIM3 timer with the specified parameters.
 	TIM_TimeBaseInit(TIM3, &timer3InitParameters);

@@ -36,12 +36,11 @@ void processCurrentState() {
 	
 	switch(tempState) {
 		case WIFI_STATE:
-			//THIS KILLS THE BOARD!!!
-			//for (int i = -90 ; i < 90 ; i = i + 30) {
-			//	setRollAngle(i);
+			//for (int i = -90 ; i <= 90 ; i = i + 30)
+				//setRollAngle(i);
 				goToSpecifiedAngles();
-				osDelay(1000);
-		//	}
+				osDelay(500);
+			//
 		break;
 		case PAD_STATE:
 			

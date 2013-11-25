@@ -73,7 +73,7 @@
 	
 	void SPI_Config(void);
 	
-	void receiveAccData(uint8_t *data);
+	void receiveAccData(void);
 	
 	int checkRXByteCount(void);
 

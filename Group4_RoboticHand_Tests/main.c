@@ -74,8 +74,8 @@ void TIM3_IRQHandler() {
 void preamble(void) {
 	initializeFSM();
 	initializeServoMotors();
-	initializeLCD();
-	initializeKeypad();
+	//initializeLCD();
+	//initializeKeypad();
 	initializeTIM2Timer();
 	initializeTIM3Timer();
 	
@@ -102,38 +102,8 @@ void fsmThread(void const *argument) {
  * Defines the main thread that will process the data retrieval on wiki.
 */
 void wifiThread(void const *argument) {
-	
-	int status;
-	uint8_t chipStatusByte;
-	uint8_t data[2];
-	
-	wireless_CommandStrobe(START_IDLE);
-	wireless_ReadStatusReg(data, MARCSTATE);
-	
-	wireless_CommandStrobe(FLUSH_RX_FIFO);
-	wireless_ReadStatusReg(data, MARCSTATE);
-	
-	wireless_CommandStrobe(FLUSH_TX_FIFO);
-	wireless_ReadStatusReg(data, MARCSTATE);
-	
-	wireless_CommandStrobe(START_RX);
-	wireless_ReadStatusReg(data, MARCSTATE);
-	
-	// Receive data from the wireless chip
 	while (1){
 		osSignalWait(1, osWaitForever);
-		
-		wireless_CommandStrobe(START_RX);
-		wireless_ReadStatusReg(data, MARCSTATE);
-		
-		status = checkRXByteCount();
-		if (status == 1)
-		{
-			receiveAccData(data);
-		}
-		else
-		{
-			// Do nothing
-		}	
+		receiveAccData();
 	}
 }

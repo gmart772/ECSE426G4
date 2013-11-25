@@ -1,4 +1,5 @@
 #include "wireless.h"
+#include "servoManager.h"
 
 void initializeWirelessChip(void)
 {
@@ -57,6 +58,11 @@ void initializeWirelessChip(void)
 	init_data[1] = SMARTRF_SETTING_TEST1;
 	init_data[2] = SMARTRF_SETTING_TEST0;
 	wireless_WriteReg(init_data, TEST2, 3);
+	
+	// Set wireless chip to IDLE and flush both FIFOs
+	wireless_CommandStrobe(START_IDLE);
+	wireless_CommandStrobe(FLUSH_RX_FIFO);
+	wireless_CommandStrobe(FLUSH_TX_FIFO);
 }
 
 	 
@@ -161,6 +167,7 @@ uint8_t wireless_SendByte(uint8_t byte)
   return (uint8_t)SPI_I2S_ReceiveData(SPIx);
 }
 
+
 void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead, uint8_t mode)
 {  
 	uint8_t read_type;
@@ -200,15 +207,18 @@ void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead
   wireless_CS_HIGH();
 }
 
+
 void wireless_ReadStatusReg(uint8_t *data, uint8_t ReadAddr)
 {
 	wireless_ReadReg(data, ReadAddr, 1, STATUS_REGISTER);
 }
 
+
 void wireless_ReadConfigRegister(uint8_t *data, uint8_t StartAddr, uint8_t NumBytesToRead)
 {
 	wireless_ReadReg(data, StartAddr, NumBytesToRead, CONFIG_REGISTER);
 }
+
 
 void wireless_ReadRXFIFO(uint8_t *data)
 {
@@ -267,22 +277,32 @@ uint8_t wireless_CommandStrobe(uint8_t StrobeAddr)
 }
 
 
-void receiveAccData(uint8_t *data)
+void receiveAccData(void)
 {
-	wireless_ReadRXFIFO(data);
+	uint8_t data[2];
 	
-	uint8_t receivedData[4];
+	int pitch;
+	int roll;
 	
-	receivedData[0] = data[0];
-	receivedData[1] = data[1];
+	wireless_CommandStrobe(START_RX);
+	wireless_ReadStatusReg(data, MARCSTATE);
 	
-	osMutexWait(pitch_mutex, osWaitForever);
-	pitch_angle = (int)(data[0]) - 90;
-	osMutexRelease(pitch_mutex);
+	int status = checkRXByteCount();
 	
-	osMutexWait(roll_mutex, osWaitForever);
-	roll_angle = (int)(data[1]) - 90;
-	osMutexRelease(roll_mutex);
+	if (status == 1)
+	{
+		wireless_ReadRXFIFO(data);
+		
+		roll = (int)(data[0]) - 90;
+		pitch = (int)(data[1]) - 90;
+		
+		setRollAngle(roll);
+		setPitchAngle(pitch);
+	}
+	else
+	{
+		
+	}
 }
 
 int checkRXByteCount()
@@ -290,8 +310,6 @@ int checkRXByteCount()
 	int status;
 	uint8_t data[2];
 	uint8_t chipStatusByte;
-	
-	//chipStatusByte = wireless_CommandStrobe(START_RX);
 	
 	// Read the RX bytes available register
 	wireless_ReadStatusReg(data, RXBYTES);
@@ -304,6 +322,7 @@ int checkRXByteCount()
 	else if (data[0] >= 255)
 	{
 		// RX buffer is overflowed!! DO SOMETHING ABOUT IT, NOT SURE WHAT
+		status = 0;
 	}
 	else
 	{
