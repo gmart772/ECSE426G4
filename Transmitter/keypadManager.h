@@ -2,6 +2,8 @@
 #define KEYPADMANAGER_H
 
 #include "stm32f4xx.h"
+#include "lcdManager.h"
+#include "threads.h"
 
 void initializeKeypad(void);
 void scanManager(void);

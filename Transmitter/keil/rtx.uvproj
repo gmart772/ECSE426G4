@@ -532,6 +532,16 @@
               <FileType>1</FileType>
               <FilePath>..\fputc_debug.c</FilePath>
             </File>
+            <File>
+              <FileName>sequence.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\sequence.c</FilePath>
+            </File>
+            <File>
+              <FileName>sequence.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\sequence.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

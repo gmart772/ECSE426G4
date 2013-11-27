@@ -11,13 +11,22 @@
 #include "stm32f4xx.h"
 #include "keypadManager.h"
 #include "cmsis_os.h"
+#include "sequence.h"
 
 osThreadId tid_keypad;
+extern osThreadId tid_wireless;
+extern float pitch, roll;
+extern osMutexId pitchRollMutex;
+extern uint8_t modeOfOperation;
+
+extern uint8_t sequenceMode;
 
 const int MAX_COLUMN = 2;
 const int MAX_ROW = 3;
 int column;
 int row;
+int sequenceNumber = -1;
+int updated = 0;
 char display;
 
 void initializeKeypad(void) {
@@ -123,10 +132,42 @@ void initializeKeypad(void) {
 	GPIO_ResetBits(GPIOB, GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7);
 	}
 void scanManager(){
-	setUpColumn();
-	printf("\nScan: col %i, row %i", column, row);
-	scan();
-	incrementColumn();	
+		setUpColumn();
+		printf("\nScan: col %i, row %i", column, row);
+		scan();
+		incrementColumn();
+
+		if (sequenceNumber == 3) {
+			if ((display == '*') && updated) {
+				updated = 0;
+				if (modeOfOperation == SEQUENCE_MODE) {
+					modeOfOperation = MAIN_MODE;
+				}
+				else {
+					modeOfOperation = SEQUENCE_MODE;
+					sequenceMode = OH_PLEASE_SEQUENCE;
+				}
+			}
+		}
+		else if (sequenceNumber == 0) {
+			if ((display == '1') && updated) {
+				updated = 0;
+				sequenceMode = OH_PLEASE_SEQUENCE;
+			}
+			else if ((display == '2') && updated) {
+				updated = 0;
+				sequenceMode = QUEEN_SEQUENCE;
+			}
+			
+		}
+		
+	//	writeString("%d");
+		
+		if (modeOfOperation == SEQUENCE_MODE) {
+
+		}
+		
+	//	display = '!';
 	}
 void setUpColumn(){
 	//GPIO_ResetBits(GPIOB, GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3);
@@ -213,7 +254,9 @@ void EXTI4_IRQHandler(void) {
 				row = 0;
         if (EXTI_GetITStatus(EXTI_Line4) != RESET){ 
 					EXTI_ClearITPendingBit(EXTI_Line4);
-					display = findButton();              
+					display = findButton();  
+					sequenceNumber = 0;
+					updated = 1;
         }
     EXTI_ClearFlag(EXTI_Line4);
 }        
@@ -223,7 +266,9 @@ void EXTI1_IRQHandler(void) {
 				row = 1;
         if (EXTI_GetITStatus(EXTI_Line1) != RESET){ 
 					EXTI_ClearITPendingBit(EXTI_Line1);
-					display = findButton();              
+					display = findButton(); 
+					sequenceNumber = 1;
+					updated = 1;
         }
     EXTI_ClearFlag(EXTI_Line1);
 }        
@@ -233,7 +278,9 @@ void EXTI2_IRQHandler(void) {
 				row = 2;
         if (EXTI_GetITStatus(EXTI_Line2) != RESET){ 
 					EXTI_ClearITPendingBit(EXTI_Line2);
-					display = findButton();              
+					display = findButton();   
+					sequenceNumber = 2;
+					updated = 1;
         }
     EXTI_ClearFlag(EXTI_Line2);
 }        
@@ -243,7 +290,11 @@ void EXTI3_IRQHandler(void) {
 				row = 3;
         if (EXTI_GetITStatus(EXTI_Line3) != RESET){ 
 					EXTI_ClearITPendingBit(EXTI_Line3);
-					display = findButton();              
+					display = findButton();
+					sequenceNumber = 3;
+					if (updated == 0) {
+						updated = 1;
+					}
         }
     EXTI_ClearFlag(EXTI_Line3);
 }        

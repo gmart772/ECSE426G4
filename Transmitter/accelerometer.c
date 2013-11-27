@@ -1,5 +1,8 @@
 #include "accelerometer.h"
 
+uint8_t modeOfOperation;
+
+
 /**
  * @brief Initializes and starts the accelerometer. No input or output.
  * Iniitializes the calibration matrix.
@@ -130,37 +133,30 @@ void calculateTilts(void) {
 	//	short timerInterrupt;
 	
 	while (1) {
-		osSignalWait(1, osWaitForever);
+			osSignalWait(1, osWaitForever);
+					
+				// Get acceleration values
+				getAcceleration(values);
 				
-			// Get acceleration values
-			getAcceleration(values);
-			
-			// Update filter
-			updateAccFilter(&filterX, values[0]);
-			updateAccFilter(&filterY, values[1]);
-			updateAccFilter(&filterZ, values[2]);
-			
-		
-			osMutexWait(pitchRollMutex, osWaitForever);
-			pitch = getPitch(filterX.averageValue, filterY.averageValue, filterZ.averageValue);
-			roll = getRoll(filterX.averageValue, filterY.averageValue, filterZ.averageValue);
-			osMutexRelease(pitchRollMutex);
-			
-			osSignalSet(tid_wireless, 1);
-				// Calculate pitch and roll from the filter values
+				// Update filter
+				updateAccFilter(&filterX, values[0]);
+				updateAccFilter(&filterY, values[1]);
+				updateAccFilter(&filterZ, values[2]);
 				
+			
+				osMutexWait(pitchRollMutex, osWaitForever);
+				pitch = -getPitch(filterX.averageValue, filterY.averageValue, filterZ.averageValue);
+				roll = getRoll(filterX.averageValue, filterY.averageValue, filterZ.averageValue);
+				osMutexRelease(pitchRollMutex);
 				
-				// Update LEDs
-			flashLeds(pitch, roll);
-			//printf("%d\n", (int) filterX.averageValue);
-			//printf("%d\n", (int) filterY.averageValue);
-			//printf("%d\n\n", (int) filterZ.averageValue);
-			
-			// Display pitch and roll on debugger
-		//	printf("Pitch: %f\n", pitch);
-		//	printf("Roll: %f\n\n", roll);
-			
-		//	osDelay(1500);
+				if (modeOfOperation == MAIN_MODE) {
+					osSignalSet(tid_wireless, 1);
+				}
+					// Calculate pitch and roll from the filter values
+					
+					
+					// Update LEDs
+				flashLeds(pitch, roll);
 			}
 }
 

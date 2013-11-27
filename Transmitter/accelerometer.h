@@ -5,12 +5,15 @@
 #include "led.h"
 #include "accFilter.h"
 #include "cmsis_os.h"
+#include "threads.h"
 
 #define NO_TAP_DETECTED 0
 #define TAP_DETECTED 1
 #define X_OFFSET 8
 #define Y_OFFSET -17
 #define Z_OFFSET -18
+
+#define MAIN_MODE 0
 
 //static float PI = 3.14159265;
 static float G = 1000.0; // Earth's gravity in mg
@@ -22,6 +25,7 @@ static accFilter filterZ;
 
 extern float pitch, roll;
 extern osMutexId pitchRollMutex;
+extern osMutexId modeMutex;
 
 extern osThreadId tid_wireless, tid_acc;
 

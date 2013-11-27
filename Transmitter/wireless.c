@@ -270,7 +270,7 @@ void wireless_TransmitData(uint8_t *data, uint8_t NumByteToTransmit)
 
 }
 
-void sendAccData() {
+void sendData() {
 	uint8_t data[2];
 	
 	
