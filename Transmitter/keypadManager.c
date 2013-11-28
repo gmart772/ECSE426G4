@@ -12,6 +12,7 @@
 #include "keypadManager.h"
 #include "cmsis_os.h"
 #include "sequence.h"
+#include "lcdManager.h"
 
 osThreadId tid_keypad;
 extern osThreadId tid_wireless;
@@ -30,7 +31,6 @@ int updated = 0;
 char display;
 
 void initializeKeypad(void) {
-	
 	printf("\n[INFO] keypad initalization");
 	// Those are set as input, and they must generate an interrupt.
 	GPIO_InitTypeDef gpio_init_row;
@@ -43,7 +43,6 @@ void initializeKeypad(void) {
   gpio_init_row.GPIO_PuPd = GPIO_PuPd_DOWN;
   GPIO_Init(GPIOB, &gpio_init_row);
 
-	
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 	
 	// Those are set as output.
@@ -56,7 +55,6 @@ void initializeKeypad(void) {
   gpio_init_column.GPIO_OType = GPIO_OType_PP;
   gpio_init_column.GPIO_PuPd = GPIO_PuPd_DOWN;
   GPIO_Init(GPIOB, &gpio_init_column);
-	
 	
 	//Setup input for B4
 	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB, EXTI_PinSource4);
@@ -110,7 +108,7 @@ void initializeKeypad(void) {
   NVIC_Init(&NVIC_InitStructure2);
 	
 	//Setup input for B3
-		SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB, EXTI_PinSource3);
+	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB, EXTI_PinSource3);
 	
 	EXTI_InitTypeDef   EXTI_InitStructure3;
   EXTI_InitStructure3.EXTI_Line = EXTI_Line3;
@@ -128,10 +126,11 @@ void initializeKeypad(void) {
 	
 	column = 0;
 	row = 0;
-	//GPIO_ResetBits(GPIOB, GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3);
+	
 	GPIO_ResetBits(GPIOB, GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7);
 }
 
+//
 void scanManager(void){
 		setUpColumn();
 		printf("\nScan: col %i, row %i", column, row);
@@ -140,6 +139,9 @@ void scanManager(void){
 
 		if (sequenceNumber == 3) {
 			if ((display == '*') && updated) {
+				//resetCursor();
+				//char* testString = "***0123456789";
+				//writeString(testString);
 				updated = 0;
 				if (modeOfOperation == SEQUENCE_MODE) {
 					modeOfOperation = MAIN_MODE;
@@ -152,14 +154,15 @@ void scanManager(void){
 		}
 		else if (sequenceNumber == 0) {
 			if ((display == '1') && updated) {
+				//writeString("1");
 				updated = 0;
 				sequenceMode = OH_PLEASE_SEQUENCE;
 			}
 			else if ((display == '2') && updated) {
+				//writeString("2");
 				updated = 0;
 				sequenceMode = QUEEN_SEQUENCE;
 			}
-			
 		}
 		
 	//	writeString("%d");
@@ -172,7 +175,6 @@ void scanManager(void){
 }
 
 void setUpColumn(void){
-	//GPIO_ResetBits(GPIOB, GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3);
 	GPIO_ResetBits(GPIOB, GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7);
 	switch(column){
 		case 0:
@@ -187,18 +189,20 @@ void setUpColumn(void){
 		}
 }
 
+
 void scan(void){
 	osDelay(20);
 }
 
+
 void incrementColumn(void){
 	if (column < MAX_COLUMN){
 		column++;
-	}
-	else{
+	} else {
 		column = 0;
 	}
 }
+
 
 char findButton(void) {
 	switch(column){

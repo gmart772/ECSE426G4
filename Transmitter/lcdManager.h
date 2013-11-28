@@ -7,7 +7,8 @@ typedef enum {CLEAR_DISPLAY, RESET_CURSOR, INCREMENT_CHARACTER_MODE, DISPLAY_CUR
 typedef enum {ON, OFF} gpioState;
 
 void initializeLCD(void);
-void executeCommand(lcdCommands commandToExecute);
+void resetLCDScreen(void);
+void resetCursor(void);
 void writeString(char* dataToWrite);
 
 #endif

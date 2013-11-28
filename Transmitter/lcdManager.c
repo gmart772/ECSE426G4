@@ -33,7 +33,7 @@
 #include "lcdManager.h"
 #include "cmsis_os.h"
 
-const uint8_t COMMAND_DELAY = 1;
+const uint8_t COMMAND_DELAY = 3;
 const uint8_t MAX_CHARACTERS_ON_SINGLE_ROW = 24;
 uint8_t internalCursor = 0;
 
@@ -53,11 +53,16 @@ void setRegisterSelect(gpioState state);
 void setReadWrite(gpioState state);
 void setEnable(gpioState state);
 
+osMutexId lcd_mutex;
+osMutexDef(lcd_mutex);
+
 /**
  * Initializes the LCD display.
 */
 void initializeLCD(void) {
-	printf("[INFO] Initializing the LCD.\n");	
+	printf("[INFO] Initializing the LCD.\n");
+	
+	lcd_mutex = osMutexCreate(osMutex(lcd_mutex));
 	
 	initializeControlGPIO();
 	initializeDataGPIO();
@@ -70,20 +75,19 @@ void initializeLCD(void) {
 	setCommandOnDataLine(DEFAULT_CONFIGS);
 	sendCommand();
 	
-	setCommandOnDataLine(CLEAR_DISPLAY);
-	sendCommand();
-	
-	setCommandOnDataLine(RESET_CURSOR);
-	sendCommand();
+	resetLCDScreen();
 	
 	setCommandOnDataLine(INCREMENT_CHARACTER_MODE);
 	sendCommand();
 	
-	setCommandOnDataLine(DISPLAY_CURSOR_OFF);
+	setCommandOnDataLine(DISPLAY_CURSOR_ON);
 	sendCommand();
 	
-	char* testString = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
+	//char* testString = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
+	char* testString = "The LCD has been initialized.";
 	writeString(testString);
+	
+	resetCursor();
 }
 
 /**
@@ -114,6 +118,33 @@ void initializeControlGPIO(void) {
   gpio_init_s.GPIO_OType = GPIO_OType_PP;
   gpio_init_s.GPIO_PuPd = GPIO_PuPd_NOPULL;
   GPIO_Init(GPIOD, &gpio_init_s);
+}
+
+/**
+ * Sends a command to the LCD screen to reset the LCD screen.
+*/
+void resetLCDScreen(void) {
+	osMutexWait(lcd_mutex, osWaitForever);
+	
+	setCommandOnDataLine(CLEAR_DISPLAY);
+	sendCommand();
+	
+	setCommandOnDataLine(RESET_CURSOR);
+	sendCommand();
+	
+	osMutexRelease(lcd_mutex);
+}
+
+/**
+ * Resets the cursor to its initial position on the LCD screen.
+*/
+void resetCursor(void) {
+	osMutexWait(lcd_mutex, osWaitForever);
+	
+	setCommandOnDataLine(RESET_CURSOR);
+	sendCommand();
+	
+	osMutexRelease(lcd_mutex);
 }
 
 /**
@@ -297,6 +328,7 @@ void setEnable(gpioState state) {
 */
 void sendCommand(void) {
 	setEnable(ON);
+	osDelay(1);
 	setEnable(OFF);
 	osDelay(COMMAND_DELAY);
 }
@@ -392,6 +424,7 @@ void setCommandOnDataLine(lcdCommands commandToExecute) {
  * @param dataToWrite The string to be sent to the LCD.
 */
 void writeString(char* dataToWrite) {
+	osMutexWait(lcd_mutex, osWaitForever);
 	
 	while (*dataToWrite) {
 		int asciiValue = (int) (*dataToWrite);
@@ -400,7 +433,9 @@ void writeString(char* dataToWrite) {
 		if (internalCursor == MAX_CHARACTERS_ON_SINGLE_ROW) {
 			setCommandOnDataLine(SET_CURSOR_SECOND_ROW);
 			sendCommand();
-		} else if (internalCursor == 2*MAX_CHARACTERS_ON_SINGLE_ROW) {
+		} else if (internalCursor >= 2*MAX_CHARACTERS_ON_SINGLE_ROW) {
+			// If all the visible space on the LCD screen is taken,
+			// then we don't write more characters.
 			return;
 		}
 		
@@ -461,4 +496,6 @@ void writeString(char* dataToWrite) {
 		dataToWrite++;
 		internalCursor++;
 	}
+	
+	osMutexRelease(lcd_mutex);
 }

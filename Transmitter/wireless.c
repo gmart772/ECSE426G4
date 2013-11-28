@@ -272,8 +272,6 @@ void wireless_TransmitData(uint8_t *data, uint8_t NumByteToTransmit)
 
 void sendData() {
 	uint8_t data[2];
-	
-	
 	while (1) {
 		// wait for signal
 		osSignalWait(1, osWaitForever);
@@ -288,8 +286,4 @@ void sendData() {
 		// mutex
 		wireless_TransmitData(data, 2);
 	}
-	
-	
 }
-
-
