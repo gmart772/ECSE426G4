@@ -23,17 +23,18 @@ osThreadDef(sequence, osPriorityNormal, 1, 0);
  */
 int main (void) {
 	// Initalize all periphs from previous labs
-	initLeds();
-	initTimer();	
-	initTimer4();
-	initializeKeypad();
+	//initLeds();
+	//initTimer();
+	//initTimer4();
+	//initializeKeypad();
 	initializeLCD();
 
 	// Create mutux for the mode
 	
 	// Start thread all threads
-	tid_acc = osThreadCreate(osThread(accelerometer), NULL);
-	tid_wireless = osThreadCreate(osThread(wireless), NULL);
-	tid_keypad = osThreadCreate(osThread(keypad), NULL);
-	tid_sequence = osThreadCreate(osThread(sequence), NULL);
+	//tid_acc = osThreadCreate(osThread(accelerometer), NULL);
+	//tid_wireless = osThreadCreate(osThread(wireless), NULL);
+	//tid_keypad = osThreadCreate(osThread(keypad), NULL);
+	//tid_sequence = osThreadCreate(osThread(sequence), NULL);
 }
+

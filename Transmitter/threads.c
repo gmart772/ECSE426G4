@@ -3,9 +3,6 @@
 #include "keypadManager.h"
 #include "sequence.h"
 
-void accelerometer(void const * argument);
-void wireless(void const * argument);
-void keypad(void const * argument);
 
 
 void accelerometer(void const *argument) {

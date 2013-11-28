@@ -34,6 +34,7 @@
 #include "cmsis_os.h"
 
 const uint8_t COMMAND_DELAY = 1;
+const uint8_t MAX_CHARACTERS_ON_SINGLE_ROW = 24;
 uint8_t internalCursor = 0;
 
 void initializeDataGPIO(void);
@@ -81,7 +82,7 @@ void initializeLCD(void) {
 	setCommandOnDataLine(DISPLAY_CURSOR_OFF);
 	sendCommand();
 	
-	char* testString = "This is a test!";
+	char* testString = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
 	writeString(testString);
 }
 
@@ -369,6 +370,16 @@ void setCommandOnDataLine(lcdCommands commandToExecute) {
 			setData6(OFF);
 			setData7(OFF);
 		break;
+		case SET_CURSOR_SECOND_ROW:
+			setData0(OFF);
+			setData1(OFF);
+			setData2(OFF);
+			setData3(OFF);
+			setData4(OFF);
+			setData5(OFF);
+			setData6(ON);
+			setData7(ON);
+		break;
 	}
 	
 	// Sets the Register Select to 0 so that the LCD expects a command.
@@ -386,8 +397,11 @@ void writeString(char* dataToWrite) {
 		int asciiValue = (int) (*dataToWrite);
 		
 		// Verifies if the cursor went overbound.
-		if (internalCursor) {
-			
+		if (internalCursor == MAX_CHARACTERS_ON_SINGLE_ROW) {
+			setCommandOnDataLine(SET_CURSOR_SECOND_ROW);
+			sendCommand();
+		} else if (internalCursor == 2*MAX_CHARACTERS_ON_SINGLE_ROW) {
+			return;
 		}
 		
 		//printf("ASCII Char=%c Value=%i\n", (*dataToWrite), asciiValue);

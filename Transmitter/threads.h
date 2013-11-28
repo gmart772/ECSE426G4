@@ -17,4 +17,3 @@ void accelerometer(void const * argument);
 void wireless(void const * argument);
 void keypad(void const * argument);
 void sequence(void const * argument);
-

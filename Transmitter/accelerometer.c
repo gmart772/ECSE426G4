@@ -2,13 +2,11 @@
 
 uint8_t modeOfOperation;
 
-
 /**
  * @brief Initializes and starts the accelerometer. No input or output.
  * Iniitializes the calibration matrix.
  */
 void initAccelerometer(void) {
-	
 	EXTI_InitTypeDef EXTI_InitTypeDefStruct;
   NVIC_InitTypeDef NVIC_InitStruct;
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -123,8 +121,6 @@ float getPitch(int32_t accX, int32_t accY, int32_t accZ) {
  * @return Returns the roll in degrees as a float.
  */
 float getRoll(int32_t accX, int32_t accY, int32_t accZ) {
-	
-	
 	return ((180 /3.1415926) * getBeta(accX, accY, accZ));
 }
 
@@ -143,7 +139,6 @@ void calculateTilts(void) {
 				updateAccFilter(&filterY, values[1]);
 				updateAccFilter(&filterZ, values[2]);
 				
-			
 				osMutexWait(pitchRollMutex, osWaitForever);
 				pitch = -getPitch(filterX.averageValue, filterY.averageValue, filterZ.averageValue);
 				roll = getRoll(filterX.averageValue, filterY.averageValue, filterZ.averageValue);
