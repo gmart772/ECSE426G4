@@ -53,7 +53,7 @@ void initTimer(void) {
 	TIM_TimeBaseInitTypeDef TIM3_TimeBaseInitStruct;
 	
 	/* Set period of TIM3 */
-	TIM3_TimeBaseInitStruct.TIM_Period = 65535; // us?
+	TIM3_TimeBaseInitStruct.TIM_Period = 65535;
 	TIM3_TimeBaseInitStruct.TIM_Prescaler = 0;
 	TIM3_TimeBaseInitStruct.TIM_ClockDivision = 0;
 	TIM_TimeBaseInit(TIM3, &TIM3_TimeBaseInitStruct);
@@ -196,4 +196,3 @@ void initTimer2(void) {
 	initializeTimerPin();
 
 }
-

@@ -4,6 +4,8 @@
 #include "led.h"
 #include "threads.h"
 #include "lcdManager.h"
+#include "timer.h"
+#include "keypadManager.h"
 
 short timerInterrupt;
 
@@ -19,11 +21,8 @@ osThreadDef(sequence, osPriorityNormal, 1, 0);
 /*!
  @brief Program entry point
  */
-int main (void) {	
-	// Set the default mode
-	
+int main (void) {
 	// Initalize all periphs from previous labs
-
 	initLeds();
 	initTimer();	
 	initTimer4();
@@ -37,10 +36,4 @@ int main (void) {
 	tid_wireless = osThreadCreate(osThread(wireless), NULL);
 	tid_keypad = osThreadCreate(osThread(keypad), NULL);
 	tid_sequence = osThreadCreate(osThread(sequence), NULL);
-
-	// The below doesn't really need to be in a loop
-	while(1) {
-		osDelay(osWaitForever);
-	}
 }
-

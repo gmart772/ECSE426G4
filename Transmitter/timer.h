@@ -22,5 +22,3 @@ void initTimer2(void);
 void TIM3_IRQHandler(void);
 
 void configureLEDS(int LED1, int LED2, int LED3, int LED4);
-
-

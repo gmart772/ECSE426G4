@@ -24,9 +24,8 @@
 // |      Enable      |   PD2    |         6         |
 // |       Vcc        |  ground  |         1         |
 // |       Vdd        |   +5v    |         2         |
-// |       Vee        |   +5v    |         3         |
+// |       Vee        |  ground  |         3         |
 // +------------------+----------+-------------------+
-
 
 #include <stdio.h>
 #include "stm32f4xx_tim.h"
@@ -35,7 +34,7 @@
 #include "cmsis_os.h"
 
 const uint8_t COMMAND_DELAY = 1;
-//const uint8_t ENABLE_DELAY = 1;
+uint8_t internalCursor = 0;
 
 void initializeDataGPIO(void);
 void initializeControlGPIO(void);
@@ -297,7 +296,6 @@ void setEnable(gpioState state) {
 */
 void sendCommand(void) {
 	setEnable(ON);
-	//osDelay(ENABLE_DELAY);
 	setEnable(OFF);
 	osDelay(COMMAND_DELAY);
 }
@@ -310,6 +308,7 @@ void sendCommand(void) {
 void setCommandOnDataLine(lcdCommands commandToExecute) {	
 	switch(commandToExecute) {
 		case CLEAR_DISPLAY:
+			internalCursor = 0;
 			setData0(ON);
 			setData1(OFF);
 			setData2(OFF);
@@ -320,6 +319,7 @@ void setCommandOnDataLine(lcdCommands commandToExecute) {
 			setData7(OFF);
 		break;
 		case RESET_CURSOR:
+			internalCursor = 0;
 			setData0(OFF);
 			setData1(ON);
 			setData2(OFF);
@@ -371,7 +371,6 @@ void setCommandOnDataLine(lcdCommands commandToExecute) {
 		break;
 	}
 	
-	
 	// Sets the Register Select to 0 so that the LCD expects a command.
 	setRegisterSelect(OFF);
 }
@@ -385,6 +384,11 @@ void writeString(char* dataToWrite) {
 	
 	while (*dataToWrite) {
 		int asciiValue = (int) (*dataToWrite);
+		
+		// Verifies if the cursor went overbound.
+		if (internalCursor) {
+			
+		}
 		
 		//printf("ASCII Char=%c Value=%i\n", (*dataToWrite), asciiValue);
 		
@@ -441,5 +445,6 @@ void writeString(char* dataToWrite) {
 		sendCommand();
 		
 		dataToWrite++;
+		internalCursor++;
 	}
 }

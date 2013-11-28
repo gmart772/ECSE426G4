@@ -130,8 +130,9 @@ void initializeKeypad(void) {
 	row = 0;
 	//GPIO_ResetBits(GPIOB, GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3);
 	GPIO_ResetBits(GPIOB, GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7);
-	}
-void scanManager(){
+}
+
+void scanManager(void){
 		setUpColumn();
 		printf("\nScan: col %i, row %i", column, row);
 		scan();
@@ -168,8 +169,9 @@ void scanManager(){
 		}
 		
 	//	display = '!';
-	}
-void setUpColumn(){
+}
+
+void setUpColumn(void){
 	//GPIO_ResetBits(GPIOB, GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3);
 	GPIO_ResetBits(GPIOB, GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7);
 	switch(column){
@@ -184,10 +186,12 @@ void setUpColumn(){
 			break;
 		}
 }
-void scan(){
+
+void scan(void){
 	osDelay(20);
 }
-void incrementColumn(){
+
+void incrementColumn(void){
 	if (column < MAX_COLUMN){
 		column++;
 	}
@@ -195,54 +199,43 @@ void incrementColumn(){
 		column = 0;
 	}
 }
-char findButton(){
+
+char findButton(void) {
 	switch(column){
 		case 0:
 			switch(row){
 				case 0:
 					return '1';
-					break;
 				case 1:
 					return '4';
-					break;
 				case 2:
 					return '7';
-					break;
 				case 3:
 					return '*';
-					break;
 			}
 		break;	
 		case 1:
 			switch(row){
 				case 0:
 					return '2';
-					break;
 				case 1:
 					return '5';
-					break;
 				case 2:
 					return '8';
-					break;
 				case 3:
 					return '0';
-					break;
 			}
 		break;
 		case 2:
 			switch(row){
 				case 0:
 					return '3';
-					break;
 				case 1:
 					return '6';
-					break;
 				case 2:
 					return '9';
-					break;
 				case 3:
 					return '#';
-					break;
 			}
 		break;
 		}	
@@ -259,7 +252,7 @@ void EXTI4_IRQHandler(void) {
 					updated = 1;
         }
     EXTI_ClearFlag(EXTI_Line4);
-}        
+}
 
 void EXTI1_IRQHandler(void) {
         // Get current interrupt status   
@@ -271,7 +264,7 @@ void EXTI1_IRQHandler(void) {
 					updated = 1;
         }
     EXTI_ClearFlag(EXTI_Line1);
-}        
+}
 
 void EXTI2_IRQHandler(void) {
         // Get current interrupt status   
@@ -283,7 +276,7 @@ void EXTI2_IRQHandler(void) {
 					updated = 1;
         }
     EXTI_ClearFlag(EXTI_Line2);
-}        
+}
 
 void EXTI3_IRQHandler(void) {
         // Get current interrupt status    
@@ -297,7 +290,4 @@ void EXTI3_IRQHandler(void) {
 					}
         }
     EXTI_ClearFlag(EXTI_Line3);
-}        
-
-
-
+}

@@ -69,5 +69,6 @@ void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead
 uint8_t wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToRead);
 void init_wireless_chip(void);
 void wireless_TransmitData(uint8_t *data, uint8_t NumByteToTransmit);
+void sendData(void);
 			
 static uint16_t TIMEOUT = 0x1000;
