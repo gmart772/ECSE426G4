@@ -148,7 +148,6 @@ void scanManager(void){
 					modeOfOperation = SEQUENCE_MODE;
 					sequenceMode = OH_PLEASE_SEQUENCE;
 					writeStringFirstRow("Seq Mode: Oh, Please...");
-					writeStringSecondRow("                       ");
 				}
 			}
 		}
@@ -159,14 +158,12 @@ void scanManager(void){
 					updated = 0;
 					sequenceMode = OH_PLEASE_SEQUENCE;
 					writeStringFirstRow("Seq Mode: Oh, Please...");
-					writeStringSecondRow("                       ");
 				}
 				else if ((display == '2') && updated) {
 					//writeString("2");
 					updated = 0;
 					sequenceMode = QUEEN_SEQUENCE;
 					writeStringFirstRow("Seq Mode: Queen        ");
-					writeStringSecondRow("                       ");
 				}
 			}
 		}

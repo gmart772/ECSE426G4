@@ -282,7 +282,7 @@ void sendData() {
 		data[0] = (uint8_t) (pitch + 90);
 		data[1] = (uint8_t) (roll + 90);
 		
-		char c = (char) ( ((int) '0') + 5 );
+		/*char c = (char) ( ((int) '0') + 5 );
 		
 		data[0] = 180;
 		
@@ -298,7 +298,7 @@ void sendData() {
 		(*info) = (char) (((int) '0') + roll3);
 		
 		// Displays the angle on the LCD.
-		writeStringSecondRow(info);
+		writeStringSecondRow(info);*/
 		
 		osMutexRelease(pitchRollMutex);
 
