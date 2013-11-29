@@ -282,15 +282,23 @@ void sendData() {
 		data[0] = (uint8_t) (pitch + 90);
 		data[1] = (uint8_t) (roll + 90);
 		
-		// Displays the angle on the LCD.
-		writeStringSecondRow(" Pitch=          ");
+		char c = (char) ( ((int) '0') + 5 );
 		
-		//resetCursorSecondRow();
-		/*char dig = (char)(((int)'0')+(int)pitch);
-		uint32_t tempPitch = (uint32_t) pitch;
-		uint32_t tempRoll = (uint32_t) roll;
-		writeString("Pitch=");*/
-		//writeString(tempPitch);
+		data[0] = 180;
+		
+		char* info = "(Pitch:Roll)=(";
+		int roll1 = data[0]*(100/100);
+		++info;
+		(*info) = (char) (((int) '0') + roll1);
+		int roll2 = data[0]*(010/010);
+		++info;
+		(*info) = (char) (((int) '0') + roll2);
+		int roll3 = data[0]*(001/001);
+		++info;
+		(*info) = (char) (((int) '0') + roll3);
+		
+		// Displays the angle on the LCD.
+		writeStringSecondRow(info);
 		
 		osMutexRelease(pitchRollMutex);
 

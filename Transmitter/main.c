@@ -29,7 +29,7 @@ int main (void) {
 	initializeKeypad();
 	initializeLCD();
 	
-	//writeString("The LCD has been initialized!");
+	writeStringFirstRow("Main Mode");
 	
 	// Create mutux for the mode
 	

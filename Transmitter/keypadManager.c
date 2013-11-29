@@ -143,7 +143,6 @@ void scanManager(void){
 				if (modeOfOperation == SEQUENCE_MODE) {
 					modeOfOperation = MAIN_MODE;
 					writeStringFirstRow("Main Mode              ");
-					writeStringSecondRow("                       ");
 				}
 				else {
 					modeOfOperation = SEQUENCE_MODE;

@@ -30,4 +30,3 @@ void sequence(void const *argument) {
 		doSequences();
 	}
 }
-
