@@ -1,4 +1,5 @@
 #include "wireless.h"
+#include "lcdManager.h"
 
 float pitch, roll;
 osMutexId pitchRollMutex;
@@ -274,12 +275,23 @@ void sendData() {
 	uint8_t data[2];
 	while (1) {
 		// wait for signal
-		osSignalWait(1, osWaitForever);
+		osSignalWait(2, osWaitForever);
 		
 		// mutex
 		osMutexWait(pitchRollMutex, osWaitForever);
 		data[0] = (uint8_t) (pitch + 90);
 		data[1] = (uint8_t) (roll + 90);
+		
+		// Displays the angle on the LCD.
+		writeStringSecondRow(" Pitch=          ");
+		
+		//resetCursorSecondRow();
+		/*char dig = (char)(((int)'0')+(int)pitch);
+		uint32_t tempPitch = (uint32_t) pitch;
+		uint32_t tempRoll = (uint32_t) roll;
+		writeString("Pitch=");*/
+		//writeString(tempPitch);
+		
 		osMutexRelease(pitchRollMutex);
 
 		// maybe pad with dummy bytes?

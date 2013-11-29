@@ -28,7 +28,9 @@ int main (void) {
 	initTimer4();
 	initializeKeypad();
 	initializeLCD();
-
+	
+	//writeString("The LCD has been initialized!");
+	
 	// Create mutux for the mode
 	
 	// Start thread all threads
@@ -36,5 +38,9 @@ int main (void) {
 	tid_wireless = osThreadCreate(osThread(wireless), NULL);
 	tid_keypad = osThreadCreate(osThread(keypad), NULL);
 	tid_sequence = osThreadCreate(osThread(sequence), NULL);
+	
+	while(1) {
+		osDelay(osWaitForever);
+	}
 }
 

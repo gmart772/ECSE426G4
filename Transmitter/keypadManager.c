@@ -139,29 +139,36 @@ void scanManager(void){
 
 		if (sequenceNumber == 3) {
 			if ((display == '*') && updated) {
-				//resetCursor();
-				//char* testString = "***0123456789";
-				//writeString(testString);
 				updated = 0;
 				if (modeOfOperation == SEQUENCE_MODE) {
 					modeOfOperation = MAIN_MODE;
+					writeStringFirstRow("Main Mode              ");
+					writeStringSecondRow("                       ");
 				}
 				else {
 					modeOfOperation = SEQUENCE_MODE;
 					sequenceMode = OH_PLEASE_SEQUENCE;
+					writeStringFirstRow("Seq Mode: Oh, Please...");
+					writeStringSecondRow("                       ");
 				}
 			}
 		}
 		else if (sequenceNumber == 0) {
-			if ((display == '1') && updated) {
-				//writeString("1");
-				updated = 0;
-				sequenceMode = OH_PLEASE_SEQUENCE;
-			}
-			else if ((display == '2') && updated) {
-				//writeString("2");
-				updated = 0;
-				sequenceMode = QUEEN_SEQUENCE;
+			if (modeOfOperation == SEQUENCE_MODE) {
+				if ((display == '1') && updated) {
+					//writeString("1");
+					updated = 0;
+					sequenceMode = OH_PLEASE_SEQUENCE;
+					writeStringFirstRow("Seq Mode: Oh, Please...");
+					writeStringSecondRow("                       ");
+				}
+				else if ((display == '2') && updated) {
+					//writeString("2");
+					updated = 0;
+					sequenceMode = QUEEN_SEQUENCE;
+					writeStringFirstRow("Seq Mode: Queen        ");
+					writeStringSecondRow("                       ");
+				}
 			}
 		}
 		

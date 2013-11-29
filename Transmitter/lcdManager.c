@@ -11,10 +11,10 @@
 // +------------------+----------+-------------------+
 // |       Name       | GPIO Pin | Pin number on LCD |
 // +------------------+----------+-------------------+
-// |       Data0      |   PE0    |         7         |
-// |       Data1      |   PE1    |         8         |
-// |       Data2      |   PE2    |         9         |
-// |       Data3      |   PE3    |        10         |
+// |       Data0      |   PE8    |         7         |
+// |       Data1      |   PE9    |         8         |
+// |       Data2      |   PE10   |         9         |
+// |       Data3      |   PE11   |        10         |
 // |       Data4      |   PE4    |        11         |
 // |       Data5      |   PE5    |        12         |
 // |       Data6      |   PE6    |        13         |
@@ -36,6 +36,7 @@
 const uint8_t COMMAND_DELAY = 3;
 const uint8_t MAX_CHARACTERS_ON_SINGLE_ROW = 24;
 uint8_t internalCursor = 0;
+char* lcdContent = "";
 
 void initializeDataGPIO(void);
 void initializeControlGPIO(void);
@@ -52,6 +53,11 @@ void setData7(gpioState state);
 void setRegisterSelect(gpioState state);
 void setReadWrite(gpioState state);
 void setEnable(gpioState state);
+
+void resetLCDScreen(void);
+void resetCursor(void);
+void resetCursorSecondRow(void);
+void writeString(char* dataToWrite);
 
 osMutexId lcd_mutex;
 osMutexDef(lcd_mutex);
@@ -82,12 +88,6 @@ void initializeLCD(void) {
 	
 	setCommandOnDataLine(DISPLAY_CURSOR_ON);
 	sendCommand();
-	
-	//char* testString = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
-	char* testString = "The LCD has been initialized.";
-	writeString(testString);
-	
-	resetCursor();
 }
 
 /**
@@ -97,7 +97,7 @@ void initializeDataGPIO(void) {
 	GPIO_InitTypeDef gpio_init_s;
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);
   GPIO_StructInit(&gpio_init_s);
-  gpio_init_s.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
+  gpio_init_s.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11;
   gpio_init_s.GPIO_Mode = GPIO_Mode_OUT;
   gpio_init_s.GPIO_Speed = GPIO_Speed_50MHz;
   gpio_init_s.GPIO_OType = GPIO_OType_PP;
@@ -124,7 +124,7 @@ void initializeControlGPIO(void) {
  * Sends a command to the LCD screen to reset the LCD screen.
 */
 void resetLCDScreen(void) {
-	osMutexWait(lcd_mutex, osWaitForever);
+	//osMutexWait(lcd_mutex, osWaitForever);
 	
 	setCommandOnDataLine(CLEAR_DISPLAY);
 	sendCommand();
@@ -132,33 +132,45 @@ void resetLCDScreen(void) {
 	setCommandOnDataLine(RESET_CURSOR);
 	sendCommand();
 	
-	osMutexRelease(lcd_mutex);
+	//osMutexRelease(lcd_mutex);
 }
 
 /**
  * Resets the cursor to its initial position on the LCD screen.
 */
 void resetCursor(void) {
-	osMutexWait(lcd_mutex, osWaitForever);
+	//osMutexWait(lcd_mutex, osWaitForever);
 	
 	setCommandOnDataLine(RESET_CURSOR);
 	sendCommand();
 	
-	osMutexRelease(lcd_mutex);
+	//osMutexRelease(lcd_mutex);
 }
 
 /**
- * Sets the state of the lcd data pin 0.
+ * Resets the cursor to its initial position on the second row.
+*/
+void resetCursorSecondRow(void) {
+	//osMutexWait(lcd_mutex, osWaitForever);
+	
+	setCommandOnDataLine(SET_CURSOR_SECOND_ROW);
+	sendCommand();
+	
+	//osMutexRelease(lcd_mutex);
+}
+
+/**
+ * Sets the state of the lcd data pin 8.
  *
  * @param state The next state of the GPIO pin, can be either ON or OFF.
 */
 void setData0(gpioState state) {
 	switch(state) {
 		case ON:
-			GPIO_SetBits(GPIOE, GPIO_Pin_0);
+			GPIO_SetBits(GPIOE, GPIO_Pin_8);
 		break;
 		case OFF:
-			GPIO_ResetBits(GPIOE, GPIO_Pin_0);
+			GPIO_ResetBits(GPIOE, GPIO_Pin_8);
 		break;
 	}
 }
@@ -171,10 +183,10 @@ void setData0(gpioState state) {
 void setData1(gpioState state) {
 	switch(state) {
 		case ON:
-			GPIO_SetBits(GPIOE, GPIO_Pin_1);
+			GPIO_SetBits(GPIOE, GPIO_Pin_9);
 		break;
 		case OFF:
-			GPIO_ResetBits(GPIOE, GPIO_Pin_1);
+			GPIO_ResetBits(GPIOE, GPIO_Pin_9);
 		break;
 	}
 }
@@ -187,10 +199,10 @@ void setData1(gpioState state) {
 void setData2(gpioState state) {
 	switch(state) {
 		case ON:
-			GPIO_SetBits(GPIOE, GPIO_Pin_2);
+			GPIO_SetBits(GPIOE, GPIO_Pin_10);
 		break;
 		case OFF:
-			GPIO_ResetBits(GPIOE, GPIO_Pin_2);
+			GPIO_ResetBits(GPIOE, GPIO_Pin_10);
 		break;
 	}
 }
@@ -203,10 +215,10 @@ void setData2(gpioState state) {
 void setData3(gpioState state) {
 	switch(state) {
 		case ON:
-			GPIO_SetBits(GPIOE, GPIO_Pin_3);
+			GPIO_SetBits(GPIOE, GPIO_Pin_11);
 		break;
 		case OFF:
-			GPIO_ResetBits(GPIOE, GPIO_Pin_3);
+			GPIO_ResetBits(GPIOE, GPIO_Pin_11);
 		break;
 	}
 }
@@ -328,7 +340,6 @@ void setEnable(gpioState state) {
 */
 void sendCommand(void) {
 	setEnable(ON);
-	osDelay(1);
 	setEnable(OFF);
 	osDelay(COMMAND_DELAY);
 }
@@ -418,21 +429,32 @@ void setCommandOnDataLine(lcdCommands commandToExecute) {
 	setRegisterSelect(OFF);
 }
 
+void writeStringFirstRow(char* dataToWrite) {
+	osMutexWait(lcd_mutex, osWaitForever);
+	resetCursor();
+	writeString(dataToWrite);
+	osMutexRelease(lcd_mutex);
+}
+
+void writeStringSecondRow(char* dataToWrite) {
+	osMutexWait(lcd_mutex, osWaitForever);
+	resetCursorSecondRow();
+	writeString(dataToWrite);
+	osMutexRelease(lcd_mutex);
+}
+
 /**
  * Writes and send a string to the LCD.
  *
  * @param dataToWrite The string to be sent to the LCD.
 */
-void writeString(char* dataToWrite) {
-	osMutexWait(lcd_mutex, osWaitForever);
-	
+void writeString(char* dataToWrite) {	
 	while (*dataToWrite) {
 		int asciiValue = (int) (*dataToWrite);
 		
 		// Verifies if the cursor went overbound.
 		if (internalCursor == MAX_CHARACTERS_ON_SINGLE_ROW) {
-			setCommandOnDataLine(SET_CURSOR_SECOND_ROW);
-			sendCommand();
+			resetCursorSecondRow();
 		} else if (internalCursor >= 2*MAX_CHARACTERS_ON_SINGLE_ROW) {
 			// If all the visible space on the LCD screen is taken,
 			// then we don't write more characters.
@@ -496,6 +518,4 @@ void writeString(char* dataToWrite) {
 		dataToWrite++;
 		internalCursor++;
 	}
-	
-	osMutexRelease(lcd_mutex);
 }

@@ -3,8 +3,6 @@
 #include "keypadManager.h"
 #include "sequence.h"
 
-
-
 void accelerometer(void const *argument) {
 	initAccelerometer();
 	calculateTilts();

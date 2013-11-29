@@ -125,7 +125,8 @@ float getRoll(int32_t accX, int32_t accY, int32_t accZ) {
 }
 
 void calculateTilts(void) {
-		int32_t values[3];
+	int32_t values[3];
+	
 	//	short timerInterrupt;
 	
 	while (1) {
@@ -145,7 +146,7 @@ void calculateTilts(void) {
 				osMutexRelease(pitchRollMutex);
 				
 				if (modeOfOperation == MAIN_MODE) {
-					osSignalSet(tid_wireless, 1);
+					osSignalSet(tid_wireless, 2);
 				}
 					// Calculate pitch and roll from the filter values
 					
