@@ -10,5 +10,7 @@ void scanManager(void);
 void setUpColumn(void);
 void scan(void);
 void incrementColumn(void);
+char getButtonPressed(void);
+void doKeypadControl(void);
 
 #endif

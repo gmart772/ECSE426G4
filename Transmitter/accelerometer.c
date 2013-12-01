@@ -1,6 +1,5 @@
 #include "accelerometer.h"
-
-uint8_t modeOfOperation;
+#include "globals.h"
 
 /**
  * @brief Initializes and starts the accelerometer. No input or output.
@@ -110,7 +109,7 @@ void getAcceleration(int32_t *values) {
  * x in [0], y in [1], and z in [2].
  * @return Returns the pitch in degrees as a float.
  */
-float getPitch(int32_t accX, int32_t accY, int32_t accZ) {
+float calculatePitch(int32_t accX, int32_t accY, int32_t accZ) {
 	return ((180 / 3.1415926) * getAlpha(accX, accY, accZ));
 }
 
@@ -120,7 +119,7 @@ float getPitch(int32_t accX, int32_t accY, int32_t accZ) {
  * x in [0], y in [1], and z in [2].
  * @return Returns the roll in degrees as a float.
  */
-float getRoll(int32_t accX, int32_t accY, int32_t accZ) {
+float calculateRoll(int32_t accX, int32_t accY, int32_t accZ) {
 	return ((180 /3.1415926) * getBeta(accX, accY, accZ));
 }
 
@@ -130,6 +129,7 @@ void calculateTilts(void) {
 	//	short timerInterrupt;
 	
 	while (1) {
+			float pitch, roll;
 			osSignalWait(1, osWaitForever);
 					
 				// Get acceleration values
@@ -140,19 +140,18 @@ void calculateTilts(void) {
 				updateAccFilter(&filterY, values[1]);
 				updateAccFilter(&filterZ, values[2]);
 				
-				osMutexWait(pitchRollMutex, osWaitForever);
-				pitch = -getPitch(filterX.averageValue, filterY.averageValue, filterZ.averageValue);
-				roll = getRoll(filterX.averageValue, filterY.averageValue, filterZ.averageValue);
-				osMutexRelease(pitchRollMutex);
+				pitch = calculatePitch(filterX.averageValue, filterY.averageValue, filterZ.averageValue);
+				roll = calculateRoll(filterX.averageValue, filterY.averageValue, filterZ.averageValue);
 				
-				if (modeOfOperation == MAIN_MODE) {
-					osSignalSet(tid_wireless, 2);
+				if (getModeOfOperation() == MAIN_MODE) {
+					setPitchAndRoll(pitch, roll);
+					osSignalSet(getWirelessThreadId(), 1);
 				}
 					// Calculate pitch and roll from the filter values
 					
 					
 					// Update LEDs
-				flashLeds(pitch, roll);
+				flashLeds(getPitch(), getRoll());
 			}
 }
 

@@ -6,17 +6,18 @@
 #include "lcdManager.h"
 #include "timer.h"
 #include "keypadManager.h"
+#include "globals.h"
 
 short timerInterrupt;
 
-osThreadId tid_wireless;
-osThreadId tid_sequence;
+//osThreadId tid_wireless;
 
 //! Thread structure for above thread
 osThreadDef(accelerometer, osPriorityNormal, 1, 0);
 osThreadDef(wireless, osPriorityNormal, 1, 0);
 osThreadDef(keypad, osPriorityNormal, 1, 0);
 osThreadDef(sequence, osPriorityNormal, 1, 0);
+osThreadDef(keypadControl, osPriorityNormal, 1, 0);
 
 /*!
  @brief Program entry point
@@ -30,14 +31,15 @@ int main (void) {
 	initializeLCD();
 	
 	writeStringFirstRow("Main Mode");
-	
+	setModeOfOperation(MAIN_MODE);
 	// Create mutux for the mode
 	
-	// Start thread all threads
-	tid_acc = osThreadCreate(osThread(accelerometer), NULL);
-	tid_wireless = osThreadCreate(osThread(wireless), NULL);
-	tid_keypad = osThreadCreate(osThread(keypad), NULL);
-	tid_sequence = osThreadCreate(osThread(sequence), NULL);
+	// Start all threads
+	setThreadIds(osThreadCreate(osThread(wireless), NULL),
+							osThreadCreate(osThread(accelerometer), NULL),
+							osThreadCreate(osThread(sequence), NULL),
+							osThreadCreate(osThread(keypad), NULL),
+							osThreadCreate(osThread(keypadControl), NULL));
 	
 	while(1) {
 		osDelay(osWaitForever);

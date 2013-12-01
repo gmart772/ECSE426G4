@@ -1,6 +1,5 @@
 #include "timer.h"
-
-osThreadId tid_acc;
+#include "globals.h"
 
 /**
  * @brief Interrupt handler for TIM3. Resets the 
@@ -10,7 +9,7 @@ osThreadId tid_acc;
 void TIM3_IRQHandler(void) {
 	// Get current interrupt status	
 	if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET) {
-			osSignalSet(tid_acc, 1);
+			osSignalSet(getAccThreadId(), 1);
 			TIM_ClearITPendingBit(TIM3, TIM_IT_Update);
 		
 			// Toggle a GPIO Pin 

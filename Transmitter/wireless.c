@@ -1,8 +1,6 @@
 #include "wireless.h"
 #include "lcdManager.h"
 
-float pitch, roll;
-osMutexId pitchRollMutex;
 
 void init_wireless_chip(void)
 {
@@ -75,7 +73,6 @@ void init_wireless_chip(void)
 void SPI_Config(void)
 {
   GPIO_InitTypeDef GPIO_InitStructure;
-  NVIC_InitTypeDef NVIC_InitStructure;
 	
 	SPI_InitTypeDef  SPI_InitStructure;
 
@@ -275,12 +272,18 @@ void sendData() {
 	uint8_t data[2];
 	while (1) {
 		// wait for signal
-		osSignalWait(2, osWaitForever);
+		osSignalWait(1, osWaitForever);
 		
 		// mutex
-		osMutexWait(pitchRollMutex, osWaitForever);
-		data[0] = (uint8_t) (pitch + 90);
-		data[1] = (uint8_t) (roll + 90);
+		char str[24];
+		if (getPitch() < 10) {
+			sprintf(str, "Pitch: %d   Roll: %d   ", data[0], data[1]);
+		}
+		writeStringSecondRow(str);
+
+		
+		data[0] = (uint8_t) (getPitch() + 90);
+		data[1] = (uint8_t) (getRoll() + 90);
 		
 		/*char c = (char) ( ((int) '0') + 5 );
 		
@@ -300,10 +303,11 @@ void sendData() {
 		// Displays the angle on the LCD.
 		writeStringSecondRow(info);*/
 		
-		osMutexRelease(pitchRollMutex);
 
 		// maybe pad with dummy bytes?
 		// mutex
+		//Write to LCD
+		
 		wireless_TransmitData(data, 2);
 	}
 }

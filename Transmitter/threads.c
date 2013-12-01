@@ -26,7 +26,14 @@ void keypad(void const *argument){
 }
 
 void sequence(void const *argument) {
+	//setSequenceMode(OH_PLEASE_SEQUENCE);
 	while (1) {
 		doSequences();
+	}
+}
+
+void keypadControl(void const *argument) {
+	while (1) {
+		doKeypadControl();
 	}
 }

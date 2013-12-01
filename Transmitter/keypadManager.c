@@ -13,14 +13,9 @@
 #include "cmsis_os.h"
 #include "sequence.h"
 #include "lcdManager.h"
+#include "globals.h"
 
-osThreadId tid_keypad;
-extern osThreadId tid_wireless;
-extern float pitch, roll;
-extern osMutexId pitchRollMutex;
-extern uint8_t modeOfOperation;
-
-extern uint8_t sequenceMode;
+#define DELTA 5
 
 const int MAX_COLUMN = 2;
 const int MAX_ROW = 3;
@@ -29,6 +24,8 @@ int row;
 int sequenceNumber = -1;
 int updated = 0;
 char display;
+uint8_t firstIteration = 0;
+static int keypadControlPitch, keypadControlRoll;
 
 void initializeKeypad(void) {
 	printf("\n[INFO] keypad initalization");
@@ -140,29 +137,35 @@ void scanManager(void){
 		if (sequenceNumber == 3) {
 			if ((display == '*') && updated) {
 				updated = 0;
-				if (modeOfOperation == SEQUENCE_MODE) {
-					modeOfOperation = MAIN_MODE;
-					writeStringFirstRow("Main Mode              ");
+				if (getModeOfOperation() == SEQUENCE_MODE) {
+					setModeOfOperation(KEYPAD_CONTROL_MODE);
+					writeStringFirstRow("Keypad Control Mode    ");
+					
+					firstIteration = 1;
+				}
+				else if (getModeOfOperation() == MAIN_MODE) {
+					setModeOfOperation(SEQUENCE_MODE);
+					setSequenceMode(OH_PLEASE_SEQUENCE);
+					writeStringFirstRow("Seq Mode: Oh, Please...");
 				}
 				else {
-					modeOfOperation = SEQUENCE_MODE;
-					sequenceMode = OH_PLEASE_SEQUENCE;
-					writeStringFirstRow("Seq Mode: Oh, Please...");
+					setModeOfOperation(MAIN_MODE);
+					writeStringFirstRow("Main Mode              ");
 				}
 			}
 		}
 		else if (sequenceNumber == 0) {
-			if (modeOfOperation == SEQUENCE_MODE) {
+			if (getModeOfOperation() == SEQUENCE_MODE) {
 				if ((display == '1') && updated) {
 					//writeString("1");
 					updated = 0;
-					sequenceMode = OH_PLEASE_SEQUENCE;
+					setSequenceMode(OH_PLEASE_SEQUENCE);
 					writeStringFirstRow("Seq Mode: Oh, Please...");
 				}
 				else if ((display == '2') && updated) {
 					//writeString("2");
 					updated = 0;
-					sequenceMode = QUEEN_SEQUENCE;
+					setSequenceMode(QUEEN_SEQUENCE);
 					writeStringFirstRow("Seq Mode: Queen        ");
 				}
 			}
@@ -170,7 +173,7 @@ void scanManager(void){
 		
 	//	writeString("%d");
 		
-		if (modeOfOperation == SEQUENCE_MODE) {
+		if (getModeOfOperation() == SEQUENCE_MODE) {
 
 		}
 		
@@ -248,6 +251,63 @@ char findButton(void) {
 		}	
 		return 'X'; //to satisfy Keil
 	}
+	
+	void doKeypadControl(void) {
+	while (1) {
+		//control from keypad
+		if (getModeOfOperation() == KEYPAD_CONTROL_MODE) {
+			if (firstIteration) {
+				keypadControlPitch = 0;
+				keypadControlRoll = 0;
+				setPitchAndRoll(0, 0);
+				firstIteration = 0;
+				osSignalSet(getWirelessThreadId(), 1);
+
+			}
+			else {
+				if (display == '2' && updated) {
+					updated = 0;
+					keypadControlRoll += DELTA;
+				}
+				else if (display == '8' && updated) {
+					updated = 0;
+					keypadControlRoll -= DELTA;
+				}
+				else if (display == '4' && updated) {
+					updated = 0;
+					keypadControlPitch -= DELTA;				
+				}
+				else if (display == '6' && updated) {
+					updated = 0;
+					keypadControlPitch += DELTA;								
+					
+				}
+				
+				if (keypadControlPitch > 90) {
+					keypadControlPitch = 90;
+				}
+				else if (keypadControlPitch < -90) {
+					keypadControlPitch = -90;
+				}
+				
+				if (keypadControlRoll > 90) {
+					keypadControlRoll = 90;
+				}
+				else if (keypadControlRoll < -90) {
+					keypadControlRoll = -90;
+				}
+				
+				
+				setPitchAndRoll(keypadControlPitch, keypadControlRoll);
+				osSignalSet(getWirelessThreadId(), 1);
+				osDelay(50);
+		}
+
+			
+		}
+	}
+}
+
 
 void EXTI4_IRQHandler(void) {
         // Get current interrupt status   
@@ -298,3 +358,5 @@ void EXTI3_IRQHandler(void) {
         }
     EXTI_ClearFlag(EXTI_Line3);
 }
+
+

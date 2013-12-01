@@ -7,6 +7,7 @@
 #include "cmsis_os.h"
 #include "threads.h"
 
+
 #define NO_TAP_DETECTED 0
 #define TAP_DETECTED 1
 #define X_OFFSET 8
@@ -23,17 +24,11 @@ static accFilter filterX;
 static accFilter filterY;
 static accFilter filterZ;
 
-extern float pitch, roll;
-extern osMutexId pitchRollMutex;
-extern osMutexId modeMutex;
-
-extern osThreadId tid_wireless, tid_acc;
-
 void initAccelerometer(void);
 void getAcceleration(int32_t *values);
 float* getTilt(int32_t *acc, float *tilts);
-float getPitch(int32_t accX, int32_t accY, int32_t accZ);
-float getRoll(int32_t accX, int32_t accY, int32_t accZ);
+float calculatePitch(int32_t accX, int32_t accY, int32_t accZ);
+float calculateRoll(int32_t accX, int32_t accY, int32_t accZ);
 void calibrate(int32_t *values, int32_t *readings);
 void resetLatch(void);
 void EXTI0_IRQHandler(void);
