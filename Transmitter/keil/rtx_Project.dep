@@ -308,7 +308,7 @@ I (..\accFilter.h)(0x529A8AA8)
 I (..\keypadManager.h)(0x529AAAA4)
 I (..\lcdManager.h)(0x529A8AA8)
 I (..\sequence.h)(0x529A94C2)
-F (..\wireless.c)(0x529AB80A)(-c --cpu Cortex-M4.fp -D__RTX -D__MICROLIB --li -g -O0 --apcs=interwork -I../ -I../rtx_cmsis -I../inc -I../CMSIS/Device/ST/STM32F4xx/Include -I../STM32F4xx_StdPeriph_Driver/inc --c99 -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -D__FPU_PRESENT="1" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER="1" -DHSE_VALUE="8000000" -DARM_MATH_CM4="1" -o ".\obj\wireless.o" --omf_browse ".\obj\wireless.crf" --depend ".\obj\wireless.d")
+F (..\wireless.c)(0x529ABA9C)(-c --cpu Cortex-M4.fp -D__RTX -D__MICROLIB --li -g -O0 --apcs=interwork -I../ -I../rtx_cmsis -I../inc -I../CMSIS/Device/ST/STM32F4xx/Include -I../STM32F4xx_StdPeriph_Driver/inc --c99 -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -D__FPU_PRESENT="1" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER="1" -DHSE_VALUE="8000000" -DARM_MATH_CM4="1" -o ".\obj\wireless.o" --omf_browse ".\obj\wireless.crf" --depend ".\obj\wireless.d")
 I (..\wireless.h)(0x529A8AA8)
 I (../CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x529A8AA4)
 I (../inc/core_cm4.h)(0x529A8AA8)

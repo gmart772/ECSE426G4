@@ -276,9 +276,7 @@ void sendData() {
 		
 		// mutex
 		char str[24];
-		if (getPitch() < 10) {
-			sprintf(str, "Pitch: %d   Roll: %d   ", data[0], data[1]);
-		}
+		sprintf(str, "Pitch: %d Roll: %d   ", (int) getPitch(), (int) getRoll());
 		writeStringSecondRow(str);
 
 		
