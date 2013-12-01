@@ -72,6 +72,9 @@ void initializeLCD(void) {
 	initializeControlGPIO();
 	initializeDataGPIO();
 	
+	resetLCDScreen();
+	osDelay(10);
+	
 	// Sets the Read/Write pin to 0 since we only write to the LCD.
 	setReadWrite(OFF);
 	// The default value for enable is 0 if there is no incoming data.
@@ -79,8 +82,6 @@ void initializeLCD(void) {
 	
 	setCommandOnDataLine(DEFAULT_CONFIGS);
 	sendCommand();
-	
-	resetLCDScreen();
 	
 	setCommandOnDataLine(INCREMENT_CHARACTER_MODE);
 	sendCommand();
@@ -134,6 +135,7 @@ void resetLCDScreen(void) {
  * Resets the cursor to its initial position on the LCD screen.
 */
 void resetCursor(void) {
+	internalCursor = 0;
 	setCommandOnDataLine(RESET_CURSOR);
 	sendCommand();
 }
@@ -142,6 +144,7 @@ void resetCursor(void) {
  * Resets the cursor to its initial position on the second row.
 */
 void resetCursorSecondRow(void) {
+	internalCursor = 0;
 	setCommandOnDataLine(SET_CURSOR_SECOND_ROW);
 	sendCommand();
 }

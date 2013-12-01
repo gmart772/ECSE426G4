@@ -157,13 +157,11 @@ void scanManager(void){
 		else if (sequenceNumber == 0) {
 			if (getModeOfOperation() == SEQUENCE_MODE) {
 				if ((display == '1') && updated) {
-					//writeString("1");
 					updated = 0;
 					setSequenceMode(OH_PLEASE_SEQUENCE);
 					writeStringFirstRow("Seq Mode: Oh, Please...");
 				}
 				else if ((display == '2') && updated) {
-					//writeString("2");
 					updated = 0;
 					setSequenceMode(QUEEN_SEQUENCE);
 					writeStringFirstRow("Seq Mode: Queen        ");

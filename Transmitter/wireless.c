@@ -275,13 +275,13 @@ void sendData() {
 		osSignalWait(1, osWaitForever);
 		
 		// mutex
-		char str[24];
-		sprintf(str, "Pitch: %d Roll: %d   ", (int) getPitch(), (int) getRoll());
-		writeStringSecondRow(str);
-
 		
 		data[0] = (uint8_t) (getPitch() + 90);
 		data[1] = (uint8_t) (getRoll() + 90);
+		
+		char str[24];
+		sprintf(str, "Pitch: %d Roll: %d   ", data[0], data[1]);
+		writeStringSecondRow(str);
 		
 		/*char c = (char) ( ((int) '0') + 5 );
 		
