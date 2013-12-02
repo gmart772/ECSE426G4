@@ -18,6 +18,7 @@ osThreadDef(wireless, osPriorityNormal, 1, 0);
 osThreadDef(keypad, osPriorityNormal, 1, 0);
 osThreadDef(sequence, osPriorityNormal, 1, 0);
 osThreadDef(keypadControl, osPriorityNormal, 1, 0);
+osThreadDef(specialKeypadControl, osPriorityNormal, 1, 0);
 
 /*!
  @brief Program entry point
@@ -39,7 +40,8 @@ int main (void) {
 							osThreadCreate(osThread(accelerometer), NULL),
 							osThreadCreate(osThread(sequence), NULL),
 							osThreadCreate(osThread(keypad), NULL),
-							osThreadCreate(osThread(keypadControl), NULL));
+							osThreadCreate(osThread(keypadControl), NULL),
+							osThreadCreate(osThread(specialKeypadControl), NULL));
 	
 	while(1) {
 		osDelay(osWaitForever);

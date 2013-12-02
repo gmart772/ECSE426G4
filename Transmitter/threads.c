@@ -37,3 +37,9 @@ void keypadControl(void const *argument) {
 		doKeypadControl();
 	}
 }
+
+void specialKeypadControl(void const *argument) {
+	while (1) {
+		doSpecialKeypadControl();
+	}
+}

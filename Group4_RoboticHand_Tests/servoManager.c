@@ -159,8 +159,8 @@ void initializeTIM4Timer(void) {
 	// +---------------------+
 	// | Register | GPIO Pin |
 	// +----------+----------+
-	// |   CCR1   |   PD12   |
-	// |   CCR2   |   PD13   |
+	// |   CCR1   |   PD12   | ROLL
+	// |   CCR2   |   PD13   | PITCH
 	// |   CCR3   |   PD14   |
 	// |   CCR4   |   PD15   |
 	// +----------+----------+

@@ -4,7 +4,7 @@ static float pitch = 0, roll = 0;
 static osMutexId pitchRollMutex = NULL;
 static osMutexId modeMutex = NULL;
 static osMutexId sequenceMutex = NULL;
-static osThreadId tid_wireless = NULL, tid_acc = NULL, tid_sequence = NULL, tid_keypad = NULL, tid_keypad_control = NULL;
+static osThreadId tid_wireless = NULL, tid_acc = NULL, tid_sequence = NULL, tid_keypad = NULL, tid_keypad_control = NULL, tid_special_keypad_control = NULL;
 static uint8_t modeOfOperation = 0, sequenceMode = 0;
 
 
@@ -58,11 +58,13 @@ void setModeOfOperation(uint8_t newModeOfOperation) {
 	osMutexRelease(modeMutex);
 }
 
-void setThreadIds(osThreadId wireless, osThreadId acc, osThreadId sequence, osThreadId keypad, osThreadId keypadControl) {
+void setThreadIds(osThreadId wireless, osThreadId acc, osThreadId sequence, osThreadId keypad, osThreadId keypadControl, osThreadId specialKeypadControl) {
 	tid_wireless = wireless;
 	tid_acc = acc;
 	tid_sequence = sequence;
 	tid_keypad = keypad;
+	tid_keypad_control = keypadControl;
+	tid_special_keypad_control = specialKeypadControl;
 }
 
 
@@ -98,4 +100,8 @@ osThreadId getKeypadThreadId(void) {
 
 osThreadId getKeypadControlThreadId(void) {
 		return tid_keypad_control;
+}
+
+osThreadId getSpecialKeypadControlThreadId(void) {
+		return tid_special_keypad_control;
 }

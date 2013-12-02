@@ -11,3 +11,4 @@ void wireless(void const * argument);
 void keypad(void const * argument);
 void sequence(void const * argument);
 void keypadControl(void const * argument);
+void specialKeypadControl(void const * argument);

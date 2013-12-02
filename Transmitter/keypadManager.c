@@ -27,6 +27,26 @@ char display;
 uint8_t firstIteration = 0;
 static int keypadControlPitch, keypadControlRoll;
 
+int updatedRoll1 = 0;
+int updatedPitch1 = 0;
+
+int updatedRoll2 = 0;
+int updatedPitch2 = 0;
+
+int confirmRoll1 = 0;
+int confirmPitch1 = 0;
+
+int confirmRoll2 = 0;
+int confirmPitch2 = 0;
+
+int updatedRollSign = 0;
+int updatedPitchSign = 0;
+
+int confirmRollSign = 0;
+int confirmPitchSign = 0;
+
+char str[24];
+
 void initializeKeypad(void) {
 	printf("\n[INFO] keypad initalization");
 	// Those are set as input, and they must generate an interrupt.
@@ -147,6 +167,12 @@ void scanManager(void){
 					setModeOfOperation(SEQUENCE_MODE);
 					setSequenceMode(OH_PLEASE_SEQUENCE);
 					writeStringFirstRow("Seq Mode: Oh, Please...");
+				}
+				else if (getModeOfOperation() == KEYPAD_CONTROL_MODE)
+				{
+					setModeOfOperation(SPECIAL_KEYPAD_CONTROL_MODE);
+					//writeStringFirstRow("Keypad Control Mode    ");			
+					firstIteration = 1;
 				}
 				else {
 					setModeOfOperation(MAIN_MODE);
@@ -302,6 +328,262 @@ char findButton(void) {
 		}
 
 			
+		}
+	}
+}
+
+
+void doSpecialKeypadControl(void) {
+	while (1) {
+		//control from keypad
+		if (getModeOfOperation() == SPECIAL_KEYPAD_CONTROL_MODE) {
+			if (firstIteration) {
+				keypadControlPitch = 0;
+				keypadControlRoll = 0;
+				
+				updatedRoll1 = 0;
+				updatedRoll2 = 0;
+				updatedPitch1 = 0;
+				updatedPitch2 = 0;
+				updatedRollSign = 0;
+				updatedPitchSign = 0;
+				confirmRoll1 = 0;
+				confirmPitch1 = 0;
+				confirmRoll2 = 0;
+				confirmPitch2 = 0;
+				confirmRollSign = 0;
+				confirmPitchSign = 0;
+				
+				setPitchAndRoll(0, 0);
+				firstIteration = 0;
+				osSignalSet(getWirelessThreadId(), 1);
+			}
+			else {
+				
+				if (updatedRoll1 == 0)
+				{
+					writeStringFirstRow("Enter digit 1 of pitch  ");
+					if (display != '#' && display != '*')
+					{
+						keypadControlRoll = (display - '0')*10;
+						updatedRoll1 = 1;
+					}
+				}
+				else if (confirmRoll1 == 0)
+				{
+					if (display == '#')
+					{
+						confirmRoll1 = 1;
+					}
+					else if (display != '*')
+					{
+						keypadControlRoll = (display - '0')*10;
+					}
+				}
+				else if (updatedRoll2 == 0)
+				{
+					writeStringFirstRow("Enter digit 2 of pitch  ");
+					if (display != '#' && display != '*')
+					{
+						keypadControlRoll += (display - '0');
+						updatedRoll2 = 1;
+					}
+				}
+				else if (confirmRoll2 == 0)
+				{
+					if (display == '#')
+					{
+						confirmRoll2 = 1;
+					}
+					else if (display != '*')
+					{
+						keypadControlRoll = keypadControlRoll - (keypadControlRoll % 10) + (display - '0');
+					}
+				}
+				else if (updatedRollSign == 0)
+				{
+					writeStringFirstRow("1 = +ve     2 = -ve     ");
+					if (display != '#' && display != '*')
+					{
+						if (display == '1')
+						{
+							// Do nothing to update value
+							updatedRollSign = 1;
+						}
+						else if (display == '2')
+						{
+							keypadControlRoll = -1*keypadControlRoll;
+							updatedRollSign = 1;
+						}
+					}
+				}
+				else if (confirmRollSign == 0)
+				{
+					if (display == '#')
+					{
+						confirmRollSign = 1;
+					}
+					else if (display != '*')
+					{
+						if (keypadControlRoll > 0)
+						{
+							if (display == '1')
+							{
+								// Do nothing to update value
+							}
+							else if (display == '2')
+							{
+								keypadControlRoll = -1*keypadControlRoll;
+							}
+						}
+						else
+						{
+							if (display == '1')
+							{
+								
+								keypadControlRoll = -1*keypadControlRoll;
+							}
+							else if (display == '2')
+							{
+								// Do nothing to update value
+							}
+						}
+					}
+				}
+				else if (updatedPitch1 == 0)
+				{
+					writeStringFirstRow("Enter digit 1 of roll   ");
+					if (display != '#' && display != '*')
+					{
+						keypadControlPitch = (display - '0')*10;
+						updatedPitch1 = 1;
+					}
+				}
+				else if (confirmPitch1 == 0)
+				{
+					if (display == '#')
+					{
+						confirmPitch1 = 1;
+					}
+					else if (display != '*')
+					{
+						keypadControlPitch = (display - '0')*10;
+					}
+				}
+				else if (updatedPitch2 == 0)
+				{
+					writeStringFirstRow("Enter digit 2 of roll   ");
+					if (display != '#' && display != '*')
+					{
+						keypadControlPitch += (display - '0');
+						updatedPitch2 = 1;
+					}
+				}
+				else if (confirmPitch2 == 0)
+				{
+					//writeStringFirstRow("Press # to confirm digit");
+					if (display == '#')
+					{
+						confirmPitch2 = 1;
+					}
+					else if (display != '*')
+					{
+						keypadControlPitch = keypadControlPitch - (keypadControlPitch % 10) + (display - '0');
+					}
+				}
+				else if (updatedPitchSign == 0)
+				{
+					writeStringFirstRow("1 = +ve     2 = -ve     ");
+					if (display != '#' && display != '*')
+					{
+						if (display == '1')
+						{
+							// Do nothing to update value
+							updatedPitchSign = 1;
+						}
+						else if (display == '2')
+						{
+							keypadControlPitch = -1*keypadControlPitch;
+							updatedPitchSign = 1;
+						}
+					}
+				}
+				else if (confirmPitchSign == 0)
+				{
+					//writeStringFirstRow("Press # to confirm sign ");
+					if (display == '#')
+					{
+						confirmPitchSign = 1;
+					}
+					else if (display != '*')
+					{
+						if (keypadControlPitch > 0)
+						{
+							if (display == '1')
+							{
+								// Do nothing to update value
+							}
+							else if (display == '2')
+							{
+								keypadControlPitch = -1*keypadControlPitch;
+							}
+						}
+						else
+						{
+							if (display == '1')
+							{
+								
+								keypadControlPitch = -1*keypadControlPitch;
+							}
+							else if (display == '2')
+							{
+								// Do nothing to update value
+							}
+						}
+					}
+				}
+				
+				
+				if (keypadControlPitch > 90) {
+					keypadControlPitch = 90;
+				}
+				else if (keypadControlPitch < -90) {
+					keypadControlPitch = -90;
+				}
+				
+				if (keypadControlRoll > 90) {
+					keypadControlRoll = 90;
+				}
+				else if (keypadControlRoll < -90) {
+					keypadControlRoll = -90;
+				}
+				
+				// Yes I am aware that i messed up pitch and roll here
+				sprintf(str, "Roll: %d Pitch: %d   ", keypadControlPitch, keypadControlRoll);
+				writeStringSecondRow(str);
+				
+				if (confirmPitchSign == 1 && confirmRollSign == 1)
+				{
+					updatedRoll1 = 0;
+					updatedRoll2 = 0;
+					updatedPitch1 = 0;
+					updatedPitch2 = 0;
+					updatedRollSign = 0;
+					updatedPitchSign = 0;
+					confirmRoll1 = 0;
+					confirmPitch1 = 0;
+					confirmRoll2 = 0;
+					confirmPitch2 = 0;
+					confirmRollSign = 0;
+					confirmPitchSign = 0;
+					
+					updated = 0;
+					
+					setPitchAndRoll(keypadControlPitch, keypadControlRoll);
+					osSignalSet(getWirelessThreadId(), 1);
+					osDelay(500);
+				}
+			}	
 		}
 	}
 }

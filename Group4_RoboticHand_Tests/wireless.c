@@ -299,17 +299,12 @@ void receiveAccData(void)
 		setRollAngle(roll);
 		setPitchAngle(pitch);
 	}
-	else
-	{
-		
-	}
 }
 
 int checkRXByteCount()
 {
 	int status;
 	uint8_t data[2];
-	uint8_t chipStatusByte;
 	
 	// Read the RX bytes available register
 	wireless_ReadStatusReg(data, RXBYTES);
