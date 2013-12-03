@@ -308,7 +308,7 @@ I (..\accFilter.h)(0x529CD3F3)
 I (..\keypadManager.h)(0x529CD3F3)
 I (..\lcdManager.h)(0x529CD3F3)
 I (..\sequence.h)(0x529CD3F3)
-F (..\wireless.c)(0x529D08AC)(-c --cpu Cortex-M4.fp -D__RTX -D__MICROLIB --li -g -O0 --apcs=interwork -I../ -I../rtx_cmsis -I../inc -I../CMSIS/Device/ST/STM32F4xx/Include -I../STM32F4xx_StdPeriph_Driver/inc --c99 -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -D__FPU_PRESENT="1" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER="1" -DHSE_VALUE="8000000" -DARM_MATH_CM4="1" -o ".\obj\wireless.o" --omf_browse ".\obj\wireless.crf" --depend ".\obj\wireless.d")
+F (..\wireless.c)(0x529E39BF)(-c --cpu Cortex-M4.fp -D__RTX -D__MICROLIB --li -g -O0 --apcs=interwork -I../ -I../rtx_cmsis -I../inc -I../CMSIS/Device/ST/STM32F4xx/Include -I../STM32F4xx_StdPeriph_Driver/inc --c99 -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -D__FPU_PRESENT="1" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER="1" -DHSE_VALUE="8000000" -DARM_MATH_CM4="1" -o ".\obj\wireless.o" --omf_browse ".\obj\wireless.crf" --depend ".\obj\wireless.d")
 I (..\wireless.h)(0x529CD3F3)
 I (../CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x529CD3EF)
 I (../inc/core_cm4.h)(0x529CD3F3)
@@ -359,7 +359,7 @@ I (..\globals.h)(0x529D0541)
 I (..\lcdManager.h)(0x529CD3F3)
 F (..\wireless.h)(0x529CD3F3)()
 F (..\SMARTRF_CC2500.h)(0x529CD3F2)()
-F (..\keypadManager.c)(0x529D06AB)(-c --cpu Cortex-M4.fp -D__RTX -D__MICROLIB --li -g -O0 --apcs=interwork -I../ -I../rtx_cmsis -I../inc -I../CMSIS/Device/ST/STM32F4xx/Include -I../STM32F4xx_StdPeriph_Driver/inc --c99 -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -D__FPU_PRESENT="1" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER="1" -DHSE_VALUE="8000000" -DARM_MATH_CM4="1" -o ".\obj\keypadmanager.o" --omf_browse ".\obj\keypadmanager.crf" --depend ".\obj\keypadmanager.d")
+F (..\keypadManager.c)(0x529E3A3C)(-c --cpu Cortex-M4.fp -D__RTX -D__MICROLIB --li -g -O0 --apcs=interwork -I../ -I../rtx_cmsis -I../inc -I../CMSIS/Device/ST/STM32F4xx/Include -I../STM32F4xx_StdPeriph_Driver/inc --c99 -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -D__FPU_PRESENT="1" -DSTM32F4XX -DUSE_STDPERIPH_DRIVER="1" -DHSE_VALUE="8000000" -DARM_MATH_CM4="1" -o ".\obj\keypadmanager.o" --omf_browse ".\obj\keypadmanager.crf" --depend ".\obj\keypadmanager.d")
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x516F1C96)
 I (../STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h)(0x529CD3F2)
 I (../CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x529CD3EF)

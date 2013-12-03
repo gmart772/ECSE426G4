@@ -280,7 +280,7 @@ void sendData() {
 		data[1] = (uint8_t) (getRoll() + 90);
 		
 		char str[24];
-		sprintf(str, "Pitch: %d Roll: %d   ", data[0] - 90, data[1] - 90);
+		sprintf(str, "Roll: %d Pitch: %d   ", data[0] - 90, data[1] - 90);
 		writeStringSecondRow(str);
 		
 		/*char c = (char) ( ((int) '0') + 5 );
