@@ -11,6 +11,9 @@
 #define OH_PLEASE_FORWARD_ANGLE 90
 
 
+/**
+ * @brief Do the sequences.
+ */
 void doSequences(void) {
 	if (getModeOfOperation() == SEQUENCE_MODE) {
 				if (getSequenceMode() == QUEEN_SEQUENCE) {

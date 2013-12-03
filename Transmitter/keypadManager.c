@@ -47,6 +47,9 @@ int confirmPitchSign = 0;
 
 char str[24];
 
+/**
+ * @brief Initialize the keypad.
+ */
 void initializeKeypad(void) {
 	printf("\n[INFO] keypad initalization");
 	// Those are set as input, and they must generate an interrupt.
@@ -147,7 +150,9 @@ void initializeKeypad(void) {
 	GPIO_ResetBits(GPIOB, GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7);
 }
 
-//
+/**
+ * @brief Checks for button presses and changes the mode accordingly.
+ */
 void scanManager(void){
 		setUpColumn();
 		printf("\nScan: col %i, row %i", column, row);
@@ -276,6 +281,9 @@ char findButton(void) {
 		return 'X'; //to satisfy Keil
 	}
 	
+	/**
+	 * @brief Keypad control thread. 
+	*/
 	void doKeypadControl(void) {
 	while (1) {
 		//control from keypad
@@ -332,7 +340,9 @@ char findButton(void) {
 	}
 }
 
-
+/**
+ * @brief Runs the special keypad control thread.
+ */
 void doSpecialKeypadControl(void) {
 	while (1) {
 		//control from keypad
@@ -588,7 +598,9 @@ void doSpecialKeypadControl(void) {
 	}
 }
 
-
+/**
+ * @brief Checks for top row button press.
+ */
 void EXTI4_IRQHandler(void) {
         // Get current interrupt status   
 				row = 0;
@@ -601,6 +613,9 @@ void EXTI4_IRQHandler(void) {
     EXTI_ClearFlag(EXTI_Line4);
 }
 
+/**
+ * @brief Checks for second row press.
+ */
 void EXTI1_IRQHandler(void) {
         // Get current interrupt status   
 				row = 1;
@@ -613,6 +628,9 @@ void EXTI1_IRQHandler(void) {
     EXTI_ClearFlag(EXTI_Line1);
 }
 
+/**
+ * @brief Checks for third row press.
+ */
 void EXTI2_IRQHandler(void) {
         // Get current interrupt status   
 				row = 2;
@@ -625,6 +643,9 @@ void EXTI2_IRQHandler(void) {
     EXTI_ClearFlag(EXTI_Line2);
 }
 
+/**
+ * @brief Checks for button row press.
+ */
 void EXTI3_IRQHandler(void) {
         // Get current interrupt status    
 				row = 3;

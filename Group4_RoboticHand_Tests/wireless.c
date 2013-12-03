@@ -1,6 +1,9 @@
 #include "wireless.h"
 #include "servoManager.h"
 
+/**
+ * @brief Initialize the wireless chip.
+ */
 void initializeWirelessChip(void)
 {
 	SPI_Config();
@@ -65,7 +68,9 @@ void initializeWirelessChip(void)
 	wireless_CommandStrobe(FLUSH_TX_FIFO);
 }
 
-	 
+	/**
+ * @brief Configure the SPI.
+ */
 void SPI_Config(void)
 {
   GPIO_InitTypeDef GPIO_InitStructure;
@@ -142,7 +147,10 @@ uint32_t wireless_TIMEOUT_UserCallback(void)
   }
 }
 
-
+/**
+ * @brief Send a single byte to the receiver using SPI.
+ * @param byte: The byte to send to the receiver.
+ */
 uint8_t wireless_SendByte(uint8_t byte)
 {
   /* Loop while DR register in not emplty */
@@ -167,7 +175,13 @@ uint8_t wireless_SendByte(uint8_t byte)
   return (uint8_t)SPI_I2S_ReceiveData(SPIx);
 }
 
-
+/**
+ * @brief Read a register from the receiver.
+ * @param pBuffer: Buffer to place the data into.
+ * @param ReadAddr: Address to read from.
+ * @param NumByteToRead: Number of bytes to read.
+ * @param mode: Burst mode or single byte read.
+ */
 void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead, uint8_t mode)
 {  
 	uint8_t read_type;
@@ -207,19 +221,33 @@ void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead
   wireless_CS_HIGH();
 }
 
-
+/**
+ * @brief Read the status register.
+ * @param data: The buffer to place the data into.
+ * @param ReadAddr: Address to read from.
+ */
 void wireless_ReadStatusReg(uint8_t *data, uint8_t ReadAddr)
 {
 	wireless_ReadReg(data, ReadAddr, 1, STATUS_REGISTER);
 }
 
 
+/**
+ * @brief Read the configuration register.
+ * @param data: Buffer to place data into.
+ * @param StartAddr: Address of config register.
+ * @param NumBytesToRead: Number of bytes to read.
+ */
 void wireless_ReadConfigRegister(uint8_t *data, uint8_t StartAddr, uint8_t NumBytesToRead)
 {
 	wireless_ReadReg(data, StartAddr, NumBytesToRead, CONFIG_REGISTER);
 }
 
 
+/**
+ * @brief Read the RX FIFO.
+ * @param data: Buffer to place FIFO data into.
+ */
 void wireless_ReadRXFIFO(uint8_t *data)
 {
 	wireless_CS_LOW();
@@ -235,6 +263,12 @@ void wireless_ReadRXFIFO(uint8_t *data)
   wireless_CS_HIGH();
 }
 
+/**
+ * @brief Write to a register.
+ * @param byte: The data to write to the register.
+ * @param WriteAddr: Address to write to.
+ * @param NumByteToWrite: Number of bytes to write.
+ */
 uint8_t wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToWrite)
 {
   /* Loop while DR register in not emplty */
@@ -263,6 +297,11 @@ uint8_t wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToWr
 	return chipStatusByte;
 }
 
+/**
+ * @brief Send a command strobe to the recevier.
+ * @param StrobeAddr: Strobe command to send.
+ * @return The chip status byte.
+*/
 uint8_t wireless_CommandStrobe(uint8_t StrobeAddr)
 {
 	uint8_t chipStatusByte;
@@ -276,7 +315,9 @@ uint8_t wireless_CommandStrobe(uint8_t StrobeAddr)
 	return chipStatusByte;
 }
 
-
+/**
+	@brief Receives the data from the transmitter.
+ */
 void receiveAccData(void)
 {
 	uint8_t data[2];
@@ -301,6 +342,10 @@ void receiveAccData(void)
 	}
 }
 
+/**
+ * @param Check the number of bytes in the RX FIFO.
+ * @return The number of bytes in the RX FIFO.
+ */
 int checkRXByteCount()
 {
 	int status;

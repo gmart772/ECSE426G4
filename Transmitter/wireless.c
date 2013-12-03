@@ -1,7 +1,9 @@
 #include "wireless.h"
 #include "lcdManager.h"
 
-
+/**
+ * @brief Initialize the wireless chip.
+ */
 void init_wireless_chip(void)
 {
 	SPI_Config();
@@ -70,6 +72,9 @@ void init_wireless_chip(void)
 	
 }
 	 
+/**
+ * @brief Configure the SPI.
+ */
 void SPI_Config(void)
 {
   GPIO_InitTypeDef GPIO_InitStructure;
@@ -150,6 +155,10 @@ void SPI_Config(void)
   //NVIC_Init(&NVIC_InitStructure); 
 }
 
+/**
+ * @brief Send a single byte to the receiver using SPI.
+ * @param byte: The byte to send to the receiver.
+ */
 uint8_t wireless_SendByte(uint8_t byte)
 {
   /* Loop while DR register in not emplty */
@@ -183,6 +192,13 @@ uint32_t wireless_TIMEOUT_UserCallback(void)
   }
 }
 
+/**
+ * @brief Read a register from the receiver.
+ * @param pBuffer: Buffer to place the data into.
+ * @param ReadAddr: Address to read from.
+ * @param NumByteToRead: Number of bytes to read.
+ * @param mode: Burst mode or single byte read.
+ */
 void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead, uint8_t mode)
 {  
 	uint8_t read_type;
@@ -222,6 +238,12 @@ void wireless_ReadReg(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead
   wireless_CS_HIGH();
 }
 
+/**
+ * @brief Write to a register.
+ * @param byte: The data to write to the register.
+ * @param WriteAddr: Address to write to.
+ * @param NumByteToWrite: Number of bytes to write.
+ */
 uint8_t wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToWrite)
 {
   /* Loop while DR register in not empty */
@@ -250,6 +272,11 @@ uint8_t wireless_WriteReg(uint8_t *byte, uint8_t WriteAddr, uint16_t NumByteToWr
 	return chipStatusByte;
 }
 
+/**
+ * @brief Transmit the data to the receiver.
+ * @param data: Data to be transmitted.
+ * @param NumBytesToWrite: The number of bytes to transmit.
+ */
 void wireless_TransmitData(uint8_t *data, uint8_t NumByteToTransmit) 
 {
 	if (NumByteToTransmit > 64) {
@@ -268,6 +295,9 @@ void wireless_TransmitData(uint8_t *data, uint8_t NumByteToTransmit)
 
 }
 
+/**
+ * @brief Transmit data.
+ */
 void sendData() {
 	uint8_t data[2];
 	while (1) {
